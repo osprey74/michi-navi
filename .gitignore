@@ -32,6 +32,9 @@ data/tiles/
 fonts/*.ttf
 fonts/*.otf
 
+# Claude Code
+.claude/settings.local.json
+
 # Environment variables
 .env
 .env.local
