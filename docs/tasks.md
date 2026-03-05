@@ -4,12 +4,12 @@
 
 | フェーズ | 完了 | 合計 | 進捗 |
 |----------|------|------|------|
-| Phase 1: 基盤構築 | 2 | 10 | 20% |
-| Phase 2: 地図エンジン | 0 | 11 | 0% |
+| Phase 1: 基盤構築 | 10 | 10 | 100% |
+| Phase 2: 地図エンジン | 11 | 11 | 100% |
 | Phase 3: GPS統合 | 0 | 9 | 0% |
 | Phase 4: POI検索・情報表示 | 0 | 9 | 0% |
 | Phase 5: 磨き込み・車載対応 | 0 | 9 | 0% |
-| **全体** | **2** | **48** | **4%** |
+| **全体** | **21** | **48** | **43%** |
 
 ---
 
@@ -20,39 +20,39 @@
 - [x] PySide6 の動作確認（Hello World ウィンドウ表示）
 
 ### 1.2 メインウィンドウ・基本レイアウト
-- [ ] QMainWindow の雛形作成 (`app/main_window.py`)
-- [ ] 3エリア構成のレイアウト実装（StatusBar 40px / MapWidget 520x440 / InfoPanel 280px）
-- [ ] エントリポイント (`main.py`) の実装
+- [x] QMainWindow の雛形作成 (`app/main_window.py`)
+- [x] 3エリア構成のレイアウト実装（StatusBar 40px / MapWidget 520x440 / InfoPanel 280px）
+- [x] エントリポイント (`main.py`) の実装
 
 ### 1.3 道の駅データベース構築
-- [ ] SQLite データベーススキーマ作成 (`roadside_stations`, `tourism_spots`, R-Tree インデックス)
-- [ ] 道の駅 API からのデータ取り込みスクリプト作成 (`scripts/import_stations.py`)
-- [ ] データインポートの実行と検証
+- [x] SQLite データベーススキーマ作成 (`roadside_stations`, `tourism_spots`, R-Tree インデックス)
+- [x] 道の駅 API からのデータ取り込みスクリプト作成 (`scripts/import_stations.py`)
+- [x] データインポートの実行と検証
 
 ### 1.4 座標計算ユーティリティ
-- [ ] `app/core/geo_utils.py` の実装（`deg2tile`, `tile2deg`, `haversine`, `bearing`, `is_ahead`）
-- [ ] ユニットテスト作成 (`tests/test_geo_utils.py`)
+- [x] `app/core/geo_utils.py` の実装（`deg2tile`, `tile2deg`, `haversine`, `bearing`, `is_ahead`）
+- [x] ユニットテスト作成 (`tests/test_geo_utils.py`)
 
 ---
 
 ## Phase 2: 地図エンジン
 
 ### 2.1 TileManager
-- [ ] ディスクキャッシュ実装（`tiles/{z}/{x}/{y}.png` 形式、容量ベースエビクション max 8GB）
-- [ ] メモリキャッシュ実装（LRU 方式、最大 512 タイル QPixmap 保持）
-- [ ] バックグラウンドスレッドでの OSM タイルダウンロード（User-Agent 設定、レート制限遵守）
-- [ ] ユニットテスト作成 (`tests/test_tile_manager.py`)
+- [x] ディスクキャッシュ実装（`tiles/{z}/{x}/{y}.png` 形式、容量ベースエビクション max 8GB）
+- [x] メモリキャッシュ実装（LRU 方式、最大 512 タイル QPixmap 保持）
+- [x] バックグラウンドスレッドでの OSM タイルダウンロード（User-Agent 設定、レート制限遵守）
+- [x] ユニットテスト作成 (`tests/test_tile_manager.py`)
 
 ### 2.2 MapWidget
-- [ ] QPainter によるタイル描画実装（タイル範囲算出 → 取得 → 描画パイプライン）
-- [ ] サブピクセルオフセットによるスムーズスクロール
-- [ ] オーバーレイ描画（現在位置マーカー、方位インジケータ）
-- [ ] OSM 帰属表示 "© OpenStreetMap contributors" の地図上への描画
+- [x] QPainter によるタイル描画実装（タイル範囲算出 → 取得 → 描画パイプライン）
+- [x] サブピクセルオフセットによるスムーズスクロール
+- [x] オーバーレイ描画（現在位置マーカー、方位インジケータ）
+- [x] OSM 帰属表示 "© OpenStreetMap contributors" の地図上への描画
 
 ### 2.3 タッチ操作
-- [ ] ピンチイン/アウトによるズームレベル変更 (zoom 8-18)
-- [ ] ドラッグによる地図パン（自動追従一時停止）
-- [ ] ダブルタップで現在位置に復帰（自動追従再開）
+- [x] ピンチイン/アウトによるズームレベル変更 (zoom 8-18)
+- [x] ドラッグによる地図パン（自動追従一時停止）
+- [x] ダブルタップで現在位置に復帰（自動追従再開）
 
 ---
 

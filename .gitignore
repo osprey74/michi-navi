@@ -29,6 +29,8 @@ desktop.ini
 # Project specific
 data/poi.db
 data/tiles/
+data/*.ttl
+tiles/
 fonts/*.ttf
 fonts/*.otf
 

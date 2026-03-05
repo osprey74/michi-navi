@@ -41,6 +41,30 @@ Michi-Navi/
 └── docs/                    # Design documents
 ```
 
+## Development Status
+
+| Phase | Status |
+|-------|--------|
+| Phase 1: Foundation | 100% |
+| Phase 2: Map Engine | 100% |
+| Phase 3: GPS Integration | 0% |
+| Phase 4: POI Search & Display | 0% |
+| Phase 5: Polish & In-Car Setup | 0% |
+
+**Current:** Phases 1-2 complete. Interactive demo available with OSM tile rendering, roadside station markers (1,204 stations), keyboard/mouse/touch navigation, and two-tier tile cache.
+
+## Quick Start (PC Demo)
+
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install PySide6 requests
+python scripts/import_stations.py  # Import 1,204 roadside stations
+python main.py
+```
+
+**Controls:** Arrow keys to move, Q/E to rotate, +/- to zoom, mouse drag to pan, double-click to re-center, mouse wheel to zoom.
+
 ## Requirements
 
 ```

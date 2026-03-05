@@ -41,6 +41,30 @@ Michi-Navi/
 └── docs/                    # 設計ドキュメント
 ```
 
+## 開発状況
+
+| フェーズ | 進捗 |
+|----------|------|
+| Phase 1: 基盤構築 | 100% |
+| Phase 2: 地図エンジン | 100% |
+| Phase 3: GPS統合 | 0% |
+| Phase 4: POI検索・情報表示 | 0% |
+| Phase 5: 磨き込み・車載対応 | 0% |
+
+**現在:** Phase 1-2 完了。OSMタイル描画、道の駅マーカー（1,204件）、キーボード/マウス/タッチ操作、2階層タイルキャッシュを搭載したインタラクティブデモが動作可能。
+
+## クイックスタート（PCデモ）
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install PySide6 requests
+python scripts/import_stations.py  # 道の駅1,204件をインポート
+python main.py
+```
+
+**操作方法:** 矢印キーで移動、Q/Eで回転、+/-でズーム、マウスドラッグでパン、ダブルクリックで復帰、マウスホイールでズーム。
+
 ## セットアップ
 
 ```
