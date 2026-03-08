@@ -5,17 +5,15 @@
 <dict>
     <!-- CarPlay Driving Task エンタイトルメント（要申請） -->
     <!-- 申請先: https://developer.apple.com/carplay/ -->
+    <!-- 実機テスト用に一時無効化（Developer Program 加入後に復元すること）
     <key>com.apple.developer.carplay-driving-task</key>
     <true/>
+    -->
 
     <!-- WeatherKit API -->
+    <!-- 実機テスト用に一時無効化（Developer Program 加入後に復元すること）
     <key>com.apple.developer.weatherkit</key>
     <true/>
-
-    <!-- App Group（CarPlay Extension / Widget / Live Activity とデータ共有） -->
-    <key>com.apple.security.application-groups</key>
-    <array>
-        <string>group.com.osprey74.michi-navi</string>
-    </array>
+    -->
 </dict>
 </plist>

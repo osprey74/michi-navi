@@ -21,6 +21,7 @@
 		C0D58F5E2F5D4F9A006A068E /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F5D2F5D4F9A006A068E /* CarPlaySceneDelegate.swift */; };
 		C0D58F602F5D4FB6006A068E /* DriveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F5F2F5D4FB6006A068E /* DriveState.swift */; };
 		C0D58F622F5D4FE1006A068E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F612F5D4FE1006A068E /* LocationService.swift */; };
+		C0F7A72B2F5D9245001C4927 /* StationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7A72A2F5D9245001C4927 /* StationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C0DE0CEF2F5D4E35007BA897 /* MichiNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MichiNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DE0CFE2F5D4E36007BA897 /* MichiNaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MichiNaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DE0D082F5D4E36007BA897 /* MichiNaviUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MichiNaviUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F7A72A2F5D9245001C4927 /* StationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -147,6 +149,7 @@
 				C0D58F562F5D4EA2006A068E /* Map */,
 				C074F6AA2F5D742C0078A78D /* Settings */,
 				C05784252F5D836C004C7FCD /* Destination */,
+				C0F7A7292F5D9233001C4927 /* StationDetail */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -229,6 +232,14 @@
 				C0D58F5B2F5D4F62006A068E /* AppDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		C0F7A7292F5D9233001C4927 /* StationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7A72A2F5D9245001C4927 /* StationDetailView.swift */,
+			);
+			path = StationDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +392,7 @@
 				C0D58F4C2F5D4E91006A068E /* ContentView.swift in Sources */,
 				C0D58F4E2F5D4E91006A068E /* MichiNaviApp.swift in Sources */,
 				C05784272F5D8384004C7FCD /* DestinationPickerView.swift in Sources */,
+				C0F7A72B2F5D9245001C4927 /* StationDetailView.swift in Sources */,
 				C074F6A72F5D69CD0078A78D /* RoadsideStationService.swift in Sources */,
 				C074F6A52F5D69AD0078A78D /* GeoUtils.swift in Sources */,
 				C074F6AE2F5D743C0078A78D /* NavigationService.swift in Sources */,
@@ -548,6 +560,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Michinavi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9L6A9KDH5P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MichiNavi/Info.plist;
@@ -583,6 +596,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/Michinavi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9L6A9KDH5P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MichiNavi/Info.plist;

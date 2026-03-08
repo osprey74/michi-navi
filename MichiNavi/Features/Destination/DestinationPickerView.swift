@@ -130,71 +130,13 @@ struct StationPickerListView: View {
     }
 }
 
-// MARK: - 道の駅詳細（ナビ開始ボタン付き）
+// MARK: - 道の駅詳細（共通 StationDetailView を使用）
 
 struct StationPickerDetailView: View {
 
     let station: RoadsideStation
-    @Environment(NavigationService.self) private var navigationService
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        List {
-            Section {
-                LabeledContent("路線", value: station.roadName ?? "不明")
-                LabeledContent("所在地", value: "\(station.prefecture ?? "") \(station.municipality ?? "")")
-            }
-
-            if !station.features.isEmpty {
-                Section("施設") {
-                    Text(station.features.map { featureLabel(for: $0) }.joined(separator: "、"))
-                        .font(.subheadline)
-                }
-            }
-
-            if let urlString = station.url, let url = URL(string: urlString) {
-                Section {
-                    Link("公式サイトを開く", destination: url)
-                }
-            }
-
-            Section {
-                Button {
-                    navigationService.navigateInAppleMaps(to: station)
-                } label: {
-                    Label("この道の駅へナビ開始", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
-                        .frame(maxWidth: .infinity)
-                        .font(.headline)
-                }
-                .buttonStyle(.borderedProminent)
-                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-            }
-        }
-        .navigationTitle(station.name)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-
-    private func featureLabel(for key: String) -> String {
-        switch key {
-        case "atm": return "ATM"
-        case "restaurant": return "レストラン"
-        case "onsen": return "温泉"
-        case "ev_charger": return "EV充電"
-        case "wifi": return "Wi-Fi"
-        case "baby_room": return "授乳室"
-        case "disabled_toilet": return "障害者トイレ"
-        case "information": return "情報コーナー"
-        case "shop": return "物販"
-        case "experience": return "体験施設"
-        case "museum": return "資料館"
-        case "park": return "公園"
-        case "hotel": return "宿泊"
-        case "rv_park": return "RVパーク"
-        case "dog_run": return "ドッグラン"
-        case "bicycle_rental": return "レンタサイクル"
-        case "camping": return "キャンプ"
-        case "footbath": return "足湯"
-        default: return key
-        }
+        StationDetailView(station: station)
     }
 }

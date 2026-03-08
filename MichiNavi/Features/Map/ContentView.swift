@@ -8,6 +8,12 @@
 import SwiftUI
 import MapKit
 
+extension CLLocationCoordinate2D: @retroactive Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
+
 /// iPhone 側のメイン画面 — 現在地マップ + 道の駅リスト
 struct ContentView: View {
 
@@ -22,6 +28,8 @@ struct ContentView: View {
     @State private var zoomLevel: Double = 0.05  // 緯度方向の表示幅（度）
     @State private var showSettings = false
     @State private var showDestinationPicker = false
+    @State private var autoZoomEnabled = true
+    @State private var autoZoomResumeTask: Task<Void, Never>?
 
     var body: some View {
         ZStack {
@@ -47,7 +55,6 @@ struct ContentView: View {
             VStack {
                 // 上部: 設定ボタン
                 HStack {
-                    Spacer()
                     Button {
                         showSettings = true
                     } label: {
@@ -56,6 +63,7 @@ struct ContentView: View {
                             .frame(width: 44, height: 44)
                             .background(.ultraThinMaterial, in: Circle())
                     }
+                    Spacer()
                 }
                 .padding(.horizontal, 12)
                 .padding(.top, 8)
@@ -90,6 +98,51 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $showDestinationPicker) {
             DestinationPickerView()
         }
+        .onChange(of: driveState.currentLocation) { _, newLocation in
+            guard autoZoomEnabled, let loc = newLocation else { return }
+            let speed = driveState.speedKmh
+            let newZoom = Self.zoomLevel(forSpeed: speed)
+
+            // 速度による縮尺変更があれば適用
+            if abs(newZoom - zoomLevel) / zoomLevel > 0.3 {
+                zoomLevel = newZoom
+            }
+
+            // 移動中は現在地に追従
+            if speed > 5 {
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    position = .region(MKCoordinateRegion(
+                        center: loc,
+                        span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel)
+                    ))
+                }
+            }
+        }
+    }
+
+    // MARK: - 速度→縮尺マッピング
+
+    /// 速度(km/h)に応じた地図の表示幅(緯度方向・度)を返す
+    static func zoomLevel(forSpeed speed: Double) -> Double {
+        switch speed {
+        case ..<5:    return 0.01   // 停車中: 約1km四方
+        case ..<30:   return 0.02   // 市街地: 約2km四方
+        case ..<60:   return 0.05   // 一般道: 約5km四方
+        case ..<100:  return 0.1    // 高速道: 約10km四方
+        default:      return 0.2    // 高速巡航: 約20km四方
+        }
+    }
+
+    /// 手動ズーム操作時に自動調整を一時停止し、30秒後に再開する
+    func pauseAutoZoom() {
+        autoZoomEnabled = false
+        autoZoomResumeTask?.cancel()
+        autoZoomResumeTask = Task {
+            try? await Task.sleep(for: .seconds(30))
+            if !Task.isCancelled {
+                await MainActor.run { autoZoomEnabled = true }
+            }
+        }
     }
 
     // MARK: - ズーム側（ズームボタン + 道の駅リスト）
@@ -97,7 +150,7 @@ struct ContentView: View {
     private var leftSideControls: some View {
         VStack(alignment: .leading, spacing: 8) {
             destinationButton
-            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState)
+            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState, onManualZoom: pauseAutoZoom)
             if !stationService.nearbyStations.isEmpty {
                 StationListPanel(stations: stationService.nearbyStations, selectedStation: $selectedStation)
             }
@@ -107,7 +160,7 @@ struct ContentView: View {
     private var rightSideControls: some View {
         VStack(alignment: .trailing, spacing: 8) {
             destinationButton
-            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState)
+            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState, onManualZoom: pauseAutoZoom)
             if !stationService.nearbyStations.isEmpty {
                 StationListPanel(stations: stationService.nearbyStations, selectedStation: $selectedStation)
             }
@@ -161,6 +214,7 @@ struct MapZoomControls: View {
     @Binding var position: MapCameraPosition
     @Binding var zoomLevel: Double
     let driveState: DriveState
+    var onManualZoom: (() -> Void)?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -189,6 +243,7 @@ struct MapZoomControls: View {
     }
 
     private func zoom(by factor: Double) {
+        onManualZoom?()
         let newZoom = max(0.002, min(5.0, zoomLevel * factor))
         zoomLevel = newZoom
 
@@ -270,76 +325,16 @@ struct StationListPanel: View {
 
 struct StationDetailSheet: View {
     let nearby: NearbyStation
-    @Environment(NavigationService.self) private var navigationService
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    LabeledContent("距離", value: nearby.distanceText)
-                    LabeledContent("方角", value: nearby.cardinalDirection)
-                    LabeledContent("路線", value: nearby.station.roadName ?? "不明")
-                    LabeledContent("所在地", value: "\(nearby.station.prefecture ?? "") \(nearby.station.municipality ?? "")")
-                }
-
-                if !nearby.station.features.isEmpty {
-                    Section("施設") {
-                        let featureLabels = nearby.station.features.map { featureLabel(for: $0) }
-                        Text(featureLabels.joined(separator: "、"))
-                            .font(.subheadline)
+            StationDetailView(station: nearby.station, nearby: nearby)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("閉じる") { dismiss() }
                     }
                 }
-
-                if let urlString = nearby.station.url, let url = URL(string: urlString) {
-                    Section {
-                        Link("公式サイトを開く", destination: url)
-                    }
-                }
-
-                Section {
-                    Button {
-                        navigationService.navigateInAppleMaps(to: nearby.station)
-                    } label: {
-                        Label("この道の駅へナビ開始", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
-                            .frame(maxWidth: .infinity)
-                            .font(.headline)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                }
-            }
-            .navigationTitle(nearby.station.name)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") { dismiss() }
-                }
-            }
-        }
-    }
-
-    private func featureLabel(for key: String) -> String {
-        switch key {
-        case "atm": return "ATM"
-        case "restaurant": return "レストラン"
-        case "onsen": return "温泉"
-        case "ev_charger": return "EV充電"
-        case "wifi": return "Wi-Fi"
-        case "baby_room": return "授乳室"
-        case "disabled_toilet": return "障害者トイレ"
-        case "information": return "情報コーナー"
-        case "shop": return "物販"
-        case "experience": return "体験施設"
-        case "museum": return "資料館"
-        case "park": return "公園"
-        case "hotel": return "宿泊"
-        case "rv_park": return "RVパーク"
-        case "dog_run": return "ドッグラン"
-        case "bicycle_rental": return "レンタサイクル"
-        case "camping": return "キャンプ"
-        case "footbath": return "足湯"
-        default: return key
         }
     }
 }

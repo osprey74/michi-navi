@@ -116,9 +116,24 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         }
     }
 
-    // MARK: - 道の駅リスト（CPListTemplate）
+    // MARK: - 道の駅リスト（CPListTemplate）— 駐車中のみ表示
 
     private func showStationList() {
+        // 走行中はリスト表示を制限
+        let speed = driveState?.speedKmh ?? 0
+        if speed > 5 {
+            let alert = CPAlertTemplate(
+                titleVariants: ["駐車中に利用できます"],
+                actions: [
+                    CPAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in
+                        self?.interfaceController?.dismissTemplate(animated: true, completion: nil)
+                    })
+                ]
+            )
+            interfaceController?.presentTemplate(alert, animated: true, completion: nil)
+            return
+        }
+
         let template = buildStationListTemplate()
         self.stationListTemplate = template
         interfaceController?.pushTemplate(template, animated: true, completion: nil)
