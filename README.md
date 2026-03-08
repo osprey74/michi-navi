@@ -1,81 +1,61 @@
-# Michi-Navi
+# Michi-navi（道ナビ）
 
-A Raspberry Pi 4-based in-car drive assistant that displays your real-time position on an OpenStreetMap and suggests nearby roadside stations (道の駅) and local tourism spots along your route.
+**走行中の iPhone をもっとスマートに。Apple CarPlay 対応ドライビングタスクアプリ。**
 
-## Features
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform: iOS 17+](https://img.shields.io/badge/Platform-iOS%2017%2B-lightgrey)](https://developer.apple.com/ios/)
+[![CarPlay: Driving Task](https://img.shields.io/badge/CarPlay-Driving%20Task-3C7B91)](https://developer.apple.com/carplay/)
 
-- **Real-time map display** — OpenStreetMap tiles rendered natively via PySide6/QPainter with current position and heading overlay
-- **Roadside station suggestions** — Lists stations within ±45° of your heading, sorted by distance
-- **Local tourism info** — Shows sightseeing highlights for the municipality you're currently in
-- **Offline support** — Pre-cached map tiles and local POI database for use without connectivity
-- **Speed / heading / altitude display** — Live GPS telemetry on a status bar
-- **Touch-friendly UI** — Pinch zoom, drag pan, and tap-to-view details on a 5" touchscreen
+---
 
-## Tech Stack
+## 概要
 
-| Component | Technology |
-|-----------|------------|
-| Platform | Raspberry Pi 4 Model B |
-| OS | Raspberry Pi OS Lite 64-bit (Bookworm) |
-| Language | Python 3.11+ |
-| GUI | PySide6 (Qt 6) |
-| Map tiles | OpenStreetMap raster tiles |
-| GPS | gpsd + USB GPS dongle (NEO-M8N / VK-162) |
-| Database | SQLite with R-Tree spatial index |
+Michi-navi は、走行中に最小限の操作でドライブ補助情報を提供する CarPlay 対応 iPhone アプリです。
 
-## Project Structure
+- 現在地・速度のリアルタイム表示
+- 周辺施設（給油所 / SA・PA / コンビニ / 食事）の検索
+- 気象情報（WeatherKit）
+- CarPlay ダッシュボードへのウィジェット・Live Activity 表示
 
-```
-Michi-Navi/
-├── main.py                  # Entry point
-├── app/
-│   ├── widgets/             # MapWidget, InfoPanel, StatusBar, DetailPanel
-│   ├── core/                # GPSManager, TileManager, POISearchEngine, GeoUtils
-│   ├── data/                # DB manager, data importer
-│   └── config/              # Settings, color themes
-├── data/                    # SQLite DB & tile cache (gitignored)
-├── scripts/                 # Data import, tile download, Pi setup
-├── fonts/                   # Japanese fonts (gitignored)
-├── resources/               # Icons, map markers
-├── tests/                   # Unit tests
-└── docs/                    # Design documents
-```
+## 要件
 
-## Development Status
+- **iPhone**: iOS 17.0 以上
+- **CarPlay**: 対応車または社外ナビ
+- **Xcode**: 26.3 以上（Apple Silicon Mac 推奨）
 
-| Phase | Status |
-|-------|--------|
-| Phase 1: Foundation | 100% |
-| Phase 2: Map Engine | 100% |
-| Phase 3: GPS Integration | 0% |
-| Phase 4: POI Search & Display | 0% |
-| Phase 5: Polish & In-Car Setup | 0% |
-
-**Current:** Phases 1-2 complete. Interactive demo available with OSM tile rendering, roadside station markers (1,204 stations), keyboard/mouse/touch navigation, and two-tier tile cache.
-
-## Quick Start (PC Demo)
+## セットアップ
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install PySide6 requests
-python scripts/import_stations.py  # Import 1,204 roadside stations
-python main.py
+git clone https://github.com/osprey74/michi-navi.git
+cd michi-navi
+open MichiNavi.xcodeproj
 ```
 
-**Controls:** Arrow keys to move, Q/E to rotate, +/- to zoom, mouse drag to pan, double-click to re-center, mouse wheel to zoom.
+### CarPlay Simulator のセットアップ
 
-## Requirements
+1. Xcode → Xcode メニュー → Open Developer Tool → Additional Tools for Xcode
+2. CarPlay Simulator をインストール
+3. Xcode Simulator でアプリを起動後、CarPlay Simulator を起動して接続
 
-```
-pip install -r requirements.txt
-```
+### エンタイトルメント申請
 
-## License
+CarPlay Driving Task エンタイトルメントは Apple への申請が必要です。
 
-TBD
+1. [Apple Developer Program](https://developer.apple.com/programs/) に加入
+2. [CarPlay 開発者ページ](https://developer.apple.com/carplay/) からエンタイトルメントを申請
+3. 承認後、Xcode の Signing & Capabilities に追加
 
-## Map Attribution
+## 開発ロードマップ
 
-This application uses map tiles from [OpenStreetMap](https://www.openstreetmap.org/).
-© OpenStreetMap contributors. Tiles are provided under the [ODbL](https://opendatacommons.org/licenses/odbl/) license.
+| Phase | 内容 | 状態 |
+|-------|------|------|
+| Phase 0 | Xcode プロジェクト作成・CarPlay 動作確認 | 🔲 準備中 |
+| Phase 1-A | CoreLocation・MapKit・速度表示 | 🔲 |
+| Phase 1-B | CarPlay テンプレート・POI 検索 | 🔲 |
+| Phase 1-C | WeatherKit・Live Activity・Widget | 🔲 |
+| Phase 1-D | App Store 審査・公開 | 🔲 |
+| Phase 2 | Navigation エンタイトルメント・フルナビ | 🔲 |
+
+## ライセンス
+
+MIT License — © 2026 Sohshi / Polaris Solutions Inc.
