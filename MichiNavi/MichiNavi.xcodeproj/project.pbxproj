@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05784272F5D8384004C7FCD /* DestinationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05784262F5D8384004C7FCD /* DestinationPickerView.swift */; };
+		C074F6A32F5D698E0078A78D /* RoadsideStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A22F5D698E0078A78D /* RoadsideStation.swift */; };
+		C074F6A52F5D69AD0078A78D /* GeoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A42F5D69AD0078A78D /* GeoUtils.swift */; };
+		C074F6A72F5D69CD0078A78D /* RoadsideStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A62F5D69CD0078A78D /* RoadsideStationService.swift */; };
+		C074F6A92F5D74290078A78D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A82F5D74290078A78D /* AppSettings.swift */; };
+		C074F6AC2F5D74300078A78D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6AB2F5D74300078A78D /* SettingsView.swift */; };
+		C074F6AE2F5D743C0078A78D /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6AD2F5D743C0078A78D /* NavigationService.swift */; };
 		C07AEF582F5D554A00746EB7 /* CarPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07AEF572F5D554A00746EB7 /* CarPlay.framework */; };
 		C0D58F4C2F5D4E91006A068E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F482F5D4E91006A068E /* ContentView.swift */; };
 		C0D58F4E2F5D4E91006A068E /* MichiNaviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F4A2F5D4E91006A068E /* MichiNaviApp.swift */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C05784262F5D8384004C7FCD /* DestinationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationPickerView.swift; sourceTree = "<group>"; };
+		C074F6A22F5D698E0078A78D /* RoadsideStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsideStation.swift; sourceTree = "<group>"; };
+		C074F6A42F5D69AD0078A78D /* GeoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoUtils.swift; sourceTree = "<group>"; };
+		C074F6A62F5D69CD0078A78D /* RoadsideStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsideStationService.swift; sourceTree = "<group>"; };
+		C074F6A82F5D74290078A78D /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		C074F6AB2F5D74300078A78D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C074F6AD2F5D743C0078A78D /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		C07AEF572F5D554A00746EB7 /* CarPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarPlay.framework; path = System/Library/Frameworks/CarPlay.framework; sourceTree = SDKROOT; };
 		C0D58F482F5D4E91006A068E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0D58F4A2F5D4E91006A068E /* MichiNaviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MichiNaviApp.swift; sourceTree = "<group>"; };
@@ -103,6 +117,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C05784252F5D836C004C7FCD /* Destination */ = {
+			isa = PBXGroup;
+			children = (
+				C05784262F5D8384004C7FCD /* DestinationPickerView.swift */,
+			);
+			path = Destination;
+			sourceTree = "<group>";
+		};
+		C074F6AA2F5D742C0078A78D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C074F6AB2F5D74300078A78D /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C07AEF562F5D554A00746EB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				C0D58F562F5D4EA2006A068E /* Map */,
+				C074F6AA2F5D742C0078A78D /* Settings */,
+				C05784252F5D836C004C7FCD /* Destination */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -148,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				C0D58F5F2F5D4FB6006A068E /* DriveState.swift */,
+				C074F6A22F5D698E0078A78D /* RoadsideStation.swift */,
+				C074F6A82F5D74290078A78D /* AppSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				C0D58F612F5D4FE1006A068E /* LocationService.swift */,
+				C074F6A42F5D69AD0078A78D /* GeoUtils.swift */,
+				C074F6A62F5D69CD0078A78D /* RoadsideStationService.swift */,
+				C074F6AD2F5D743C0078A78D /* NavigationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -339,11 +376,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D58F622F5D4FE1006A068E /* LocationService.swift in Sources */,
+				C074F6A32F5D698E0078A78D /* RoadsideStation.swift in Sources */,
 				C0D58F5C2F5D4F62006A068E /* AppDelegate.swift in Sources */,
 				C0D58F4C2F5D4E91006A068E /* ContentView.swift in Sources */,
 				C0D58F4E2F5D4E91006A068E /* MichiNaviApp.swift in Sources */,
+				C05784272F5D8384004C7FCD /* DestinationPickerView.swift in Sources */,
+				C074F6A72F5D69CD0078A78D /* RoadsideStationService.swift in Sources */,
+				C074F6A52F5D69AD0078A78D /* GeoUtils.swift in Sources */,
+				C074F6AE2F5D743C0078A78D /* NavigationService.swift in Sources */,
 				C0D58F602F5D4FB6006A068E /* DriveState.swift in Sources */,
+				C074F6A92F5D74290078A78D /* AppSettings.swift in Sources */,
 				C0D58F5E2F5D4F9A006A068E /* CarPlaySceneDelegate.swift in Sources */,
+				C074F6AC2F5D74300078A78D /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

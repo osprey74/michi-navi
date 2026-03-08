@@ -3,6 +3,30 @@ import CarPlay
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
+    /// CarPlaySceneDelegate など SwiftUI 外から参照するための静的プロパティ
+    static private(set) var shared: AppDelegate?
+
+    let locationService = LocationService()
+    let driveState = DriveState()
+    let stationService = RoadsideStationService()
+    let navigationService = NavigationService()
+    let appSettings = AppSettings()
+
+    override init() {
+        super.init()
+        AppDelegate.shared = self
+        stationService.loadStations()
+        driveState.bind(to: locationService, stationService: stationService)
+    }
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        locationService.requestAlwaysAuthorization()
+        return true
+    }
+
     func application(
         _ application: UIApplication,
         configurationForConnecting connectingSceneSession: UISceneSession,

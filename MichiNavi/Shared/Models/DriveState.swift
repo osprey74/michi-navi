@@ -9,17 +9,51 @@ final class DriveState {
     // MARK: - 位置・速度
     var currentLocation: CLLocationCoordinate2D?
     var speedKmh: Double = 0
-    var heading: Double = 0          // 方位角（度）
+    var heading: Double = 0
 
     // MARK: - ルート
     var destinationName: String?
     var remainingDistanceMeters: Double?
     var estimatedArrivalTime: Date?
 
-    // MARK: - 気象åå
+    // MARK: - 気象
     var weatherDescription: String = "取得中..."
     var temperatureCelsius: Double?
     var weatherSymbolName: String = "cloud"
+
+    // MARK: - LocationService 同期
+    private var syncTimer: Timer?
+    private weak var stationService: RoadsideStationService?
+    private var stationUpdateCounter = 9  // 初回は1秒後に検索開始
+
+    func bind(to service: LocationService, stationService: RoadsideStationService? = nil) {
+        self.stationService = stationService
+        syncTimer?.invalidate()
+        syncTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self, weak service] _ in
+            guard let self, let service else { return }
+            self.speedKmh = service.speedKmh
+            self.heading = service.heading
+            self.currentLocation = service.currentLocation?.coordinate
+
+            // 道の駅検索は 5秒間隔（Timer 0.5s × 10回 = 5秒）
+            self.stationUpdateCounter += 1
+            if self.stationUpdateCounter >= 10 {
+                self.stationUpdateCounter = 0
+                if let loc = self.currentLocation {
+                    self.stationService?.updateNearbyStations(
+                        location: loc,
+                        heading: self.heading,
+                        speedKmh: self.speedKmh
+                    )
+                }
+            }
+        }
+    }
+
+    func unbind() {
+        syncTimer?.invalidate()
+        syncTimer = nil
+    }
 
     // MARK: - 計算プロパティ
     var speedText: String {
