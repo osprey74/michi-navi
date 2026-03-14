@@ -25,18 +25,20 @@ struct ContentView: View {
 
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var selectedStation: NearbyStation?
-    @State private var zoomLevel: Double = 0.05  // 緯度方向の表示幅（度）
+    @State private var zoomLevel: Double = 0.9  // 緯度方向の表示幅（度）— 設定の検索範囲で初期化
     @State private var showSettings = false
     @State private var showDestinationPicker = false
     @State private var autoZoomEnabled = true
     @State private var autoZoomResumeTask: Task<Void, Never>?
+    @State private var initialZoomApplied = false
+    @State private var mapSelection: MapFeature?
 
     var body: some View {
         ZStack {
             // 地図 + 道の駅ピン
-            Map(position: $position) {
+            Map(position: $position, selection: $mapSelection) {
                 UserAnnotation()
-                ForEach(stationService.nearbyStations) { nearby in
+                ForEach(stationService.stationsInRange) { nearby in
                     Annotation(nearby.station.name, coordinate: nearby.station.coordinate) {
                         Image(systemName: "mappin.circle.fill")
                             .foregroundStyle(.orange)
@@ -45,6 +47,8 @@ struct ContentView: View {
                     }
                 }
             }
+            .mapStyle(.standard(pointsOfInterest: poiCategories))
+            .mapFeatureSelectionAccessory(.automatic)
             .mapControls {
                 MapUserLocationButton()
                 MapCompass()
@@ -99,9 +103,22 @@ struct ContentView: View {
             DestinationPickerView()
         }
         .onChange(of: driveState.currentLocation) { _, newLocation in
-            guard autoZoomEnabled, let loc = newLocation else { return }
+            guard let loc = newLocation else { return }
+
+            // 初回の位置情報取得時に検索範囲全体の縮尺を適用
+            if !initialZoomApplied {
+                initialZoomApplied = true
+                zoomLevel = settings.searchRadiusLatitudeDelta
+                position = .region(MKCoordinateRegion(
+                    center: loc,
+                    span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel)
+                ))
+                return
+            }
+
+            guard autoZoomEnabled else { return }
             let speed = driveState.speedKmh
-            let newZoom = Self.zoomLevel(forSpeed: speed)
+            let newZoom = Self.zoomLevel(forSpeed: speed, searchRadiusKm: settings.searchRadiusKm)
 
             // 速度による縮尺変更があれば適用
             if abs(newZoom - zoomLevel) / zoomLevel > 0.3 {
@@ -118,18 +135,63 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear {
+            // 設定の検索範囲で初期ズームレベルを設定
+            zoomLevel = settings.searchRadiusLatitudeDelta
+            // 位置情報が既にある場合は即座に適用
+            if let loc = driveState.currentLocation {
+                position = .region(MKCoordinateRegion(
+                    center: loc,
+                    span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel)
+                ))
+                initialZoomApplied = true
+            }
+        }
+        .onChange(of: settings.searchRadiusKm) { _, newRadius in
+            // 検索範囲変更時に道の駅を即座にリフレッシュ
+            driveState.refreshNearbyStations()
+            // ズームレベルも更新
+            let newZoom = Self.zoomLevel(forSpeed: driveState.speedKmh, searchRadiusKm: newRadius)
+            zoomLevel = newZoom
+            if let loc = driveState.currentLocation {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    position = .region(MKCoordinateRegion(
+                        center: loc,
+                        span: MKCoordinateSpan(latitudeDelta: newZoom, longitudeDelta: newZoom)
+                    ))
+                }
+            }
+        }
+    }
+
+    // MARK: - POIカテゴリ
+
+    /// 設定に基づく地図上のPOI表示カテゴリ
+    private var poiCategories: PointOfInterestCategories {
+        var categories: [MKPointOfInterestCategory] = []
+        if settings.showGasStations { categories.append(.gasStation) }
+        if settings.showFoodMarkets { categories.append(.foodMarket) }
+        if settings.showRestaurants { categories.append(.restaurant); categories.append(.cafe) }
+        if settings.showParking { categories.append(.parking) }
+
+        if categories.isEmpty {
+            return .excludingAll
+        }
+        return .including(categories)
     }
 
     // MARK: - 速度→縮尺マッピング
 
-    /// 速度(km/h)に応じた地図の表示幅(緯度方向・度)を返す
-    static func zoomLevel(forSpeed speed: Double) -> Double {
+    /// 速度(km/h)と検索範囲(km)に応じた地図の表示幅(緯度方向・度)を返す
+    /// 停車時は検索範囲全体、走行時は速度に応じて拡大（近距離表示）
+    static func zoomLevel(forSpeed speed: Double, searchRadiusKm: Double) -> Double {
+        let fullSpan = searchRadiusKm * 0.009  // 検索範囲全体のスパン
         switch speed {
-        case ..<5:    return 0.01   // 停車中: 約1km四方
-        case ..<30:   return 0.02   // 市街地: 約2km四方
-        case ..<60:   return 0.05   // 一般道: 約5km四方
-        case ..<100:  return 0.1    // 高速道: 約10km四方
-        default:      return 0.2    // 高速巡航: 約20km四方
+        case ..<5:    return fullSpan        // 停車中: 検索範囲全体
+        case ..<30:   return fullSpan * 0.15 // 市街地: 範囲の15%
+        case ..<60:   return fullSpan * 0.3  // 一般道: 範囲の30%
+        case ..<100:  return fullSpan * 0.5  // 高速道: 範囲の50%
+        default:      return fullSpan * 0.7  // 高速巡航: 範囲の70%
         }
     }
 

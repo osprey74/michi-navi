@@ -8,8 +8,11 @@ final class RoadsideStationService {
     /// 全道の駅データ
     private(set) var allStations: [RoadsideStation] = []
 
-    /// 前方の道の駅（近い順、最大10件）
+    /// 前方の道の駅（近い順、最大10件）— リストパネル用
     private(set) var nearbyStations: [NearbyStation] = []
+
+    /// 検索範囲内の全道の駅（全方位）— 地図ピン用
+    private(set) var stationsInRange: [NearbyStation] = []
 
     /// データ読み込み済みフラグ
     private(set) var isLoaded = false
@@ -53,19 +56,11 @@ final class RoadsideStationService {
 
         let isMoving = speedKmh > 5
 
-        let results = allStations.compactMap { station -> NearbyStation? in
+        // 範囲内の全道の駅を計算（地図ピン用）
+        let allInRange = allStations.compactMap { station -> NearbyStation? in
             let distance = GeoUtils.haversine(from: location, to: station.coordinate)
             guard distance <= maxDistanceKm else { return nil }
-
             let bearingToStation = GeoUtils.bearing(from: location, to: station.coordinate)
-
-            // 走行中は前方フィルタを適用
-            if isMoving {
-                guard GeoUtils.isAhead(heading: heading, bearingToTarget: bearingToStation) else {
-                    return nil
-                }
-            }
-
             return NearbyStation(
                 station: station,
                 distanceKm: distance,
@@ -73,9 +68,17 @@ final class RoadsideStationService {
             )
         }
         .sorted { $0.distanceKm < $1.distanceKm }
-        .prefix(maxResults)
 
-        nearbyStations = Array(results)
+        stationsInRange = allInRange
+
+        // リストパネル用: 走行中は前方のみ、最大件数制限
+        if isMoving {
+            nearbyStations = Array(allInRange.filter { nearby in
+                GeoUtils.isAhead(heading: heading, bearingToTarget: nearby.bearing)
+            }.prefix(maxResults))
+        } else {
+            nearbyStations = Array(allInRange.prefix(maxResults))
+        }
     }
 
     // MARK: - 都道府県・市町村グループ化

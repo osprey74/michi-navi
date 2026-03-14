@@ -23,12 +23,61 @@ final class AppSettings {
         didSet { save() }
     }
 
+    /// 道の駅検索範囲（km）— 50〜400、デフォルト100
+    var searchRadiusKm: Double {
+        didSet { save() }
+    }
+
+    /// POI表示: ガソリンスタンド
+    var showGasStations: Bool {
+        didSet { save() }
+    }
+
+    /// POI表示: コンビニ・スーパー
+    var showFoodMarkets: Bool {
+        didSet { save() }
+    }
+
+    /// POI表示: レストラン
+    var showRestaurants: Bool {
+        didSet { save() }
+    }
+
+    /// POI表示: 駐車場
+    var showParking: Bool {
+        didSet { save() }
+    }
+
+    /// 検索範囲距離から地図の緯度スパン（度）を算出
+    /// 画面短辺に収まるよう、距離をスパンとして設定
+    var searchRadiusLatitudeDelta: Double {
+        // 1km ≈ 0.009度（緯度）
+        return searchRadiusKm * 0.009
+    }
+
+    /// いずれかのPOIカテゴリが有効か
+    var hasAnyPOIEnabled: Bool {
+        showGasStations || showFoodMarkets || showRestaurants || showParking
+    }
+
     init() {
-        let stored = UserDefaults.standard.string(forKey: "zoomPosition") ?? "right"
+        let ud = UserDefaults.standard
+        let stored = ud.string(forKey: "zoomPosition") ?? "right"
         self.zoomPosition = ZoomPosition(rawValue: stored) ?? .right
+        self.searchRadiusKm = ud.object(forKey: "searchRadiusKm") as? Double ?? 100
+        self.showGasStations = ud.object(forKey: "showGasStations") as? Bool ?? true
+        self.showFoodMarkets = ud.object(forKey: "showFoodMarkets") as? Bool ?? false
+        self.showRestaurants = ud.object(forKey: "showRestaurants") as? Bool ?? false
+        self.showParking = ud.object(forKey: "showParking") as? Bool ?? false
     }
 
     private func save() {
-        UserDefaults.standard.set(zoomPosition.rawValue, forKey: "zoomPosition")
+        let ud = UserDefaults.standard
+        ud.set(zoomPosition.rawValue, forKey: "zoomPosition")
+        ud.set(searchRadiusKm, forKey: "searchRadiusKm")
+        ud.set(showGasStations, forKey: "showGasStations")
+        ud.set(showFoodMarkets, forKey: "showFoodMarkets")
+        ud.set(showRestaurants, forKey: "showRestaurants")
+        ud.set(showParking, forKey: "showParking")
     }
 }

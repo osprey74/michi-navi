@@ -16,7 +16,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         super.init()
         AppDelegate.shared = self
         stationService.loadStations()
-        driveState.bind(to: locationService, stationService: stationService)
+        driveState.bind(to: locationService, stationService: stationService, appSettings: appSettings)
     }
 
     func application(
