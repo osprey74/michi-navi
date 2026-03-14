@@ -114,4 +114,4 @@ MichiNavi/
 
 ## ライセンス
 
-MIT License — © 2026 Sohshi / Polaris Solutions Inc.
+MIT License — © 2026 osprey74
