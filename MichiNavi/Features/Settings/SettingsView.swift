@@ -48,6 +48,9 @@ struct SettingsView: View {
                     Toggle(isOn: $settings.showParking) {
                         Label("駐車場", systemImage: "p.square.fill")
                     }
+                    Toggle(isOn: $settings.showRVParks) {
+                        Label("RVパーク・キャンプ場", systemImage: "tent.fill")
+                    }
                 }
 
                 Section("ズームボタン位置") {

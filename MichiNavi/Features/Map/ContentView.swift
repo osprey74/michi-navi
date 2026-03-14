@@ -14,7 +14,16 @@ extension CLLocationCoordinate2D: @retroactive Equatable {
     }
 }
 
-/// iPhone 側のメイン画面 — 現在地マップ + 道の駅リスト
+// MARK: - 定数
+
+private enum MapConstants {
+    /// 広域表示: 短辺120km
+    static let wideZoom: Double = 120 * 0.009  // 1.08°
+    /// 詳細表示: 短辺400m
+    static let detailZoom: Double = 0.4 * 0.009  // 0.0036°
+}
+
+/// iPhone 側のメイン画面 — 現在地マップ + 道の駅ピン
 struct ContentView: View {
 
     @Environment(DriveState.self) private var driveState
@@ -24,10 +33,12 @@ struct ContentView: View {
     @Environment(AppSettings.self) private var settings
 
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
-    @State private var selectedStation: NearbyStation?
-    @State private var zoomLevel: Double = 0.9  // 緯度方向の表示幅（度）— 設定の検索範囲で初期化
+    @State private var selectedStation: RoadsideStation?
+    @State private var zoomLevel: Double = MapConstants.wideZoom
     @State private var showSettings = false
     @State private var showDestinationPicker = false
+    @State private var showRVParkSearch = false
+    @State private var showDestinationMenu = false
     @State private var autoZoomEnabled = true
     @State private var autoZoomResumeTask: Task<Void, Never>?
     @State private var initialZoomApplied = false
@@ -35,15 +46,15 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            // 地図 + 道の駅ピン
+            // 地図 + 道の駅ピン（表示領域フィルタ）
             Map(position: $position, selection: $mapSelection) {
                 UserAnnotation()
-                ForEach(stationService.stationsInRange) { nearby in
-                    Annotation(nearby.station.name, coordinate: nearby.station.coordinate) {
+                ForEach(stationService.visibleStations) { station in
+                    Annotation(station.name, coordinate: station.coordinate) {
                         Image(systemName: "mappin.circle.fill")
                             .foregroundStyle(.orange)
                             .font(.title2)
-                            .onTapGesture { selectedStation = nearby }
+                            .onTapGesture { selectedStation = station }
                     }
                 }
             }
@@ -53,6 +64,14 @@ struct ContentView: View {
                 MapUserLocationButton()
                 MapCompass()
                 MapScaleView()
+            }
+            .onMapCameraChange(frequency: .onEnd) { context in
+                let region = context.region
+                stationService.updateVisibleStations(
+                    center: region.center,
+                    latitudeDelta: region.span.latitudeDelta,
+                    longitudeDelta: region.span.longitudeDelta
+                )
             }
 
             // オーバーレイ
@@ -74,15 +93,13 @@ struct ContentView: View {
 
                 Spacer()
 
-                // 下部: 速度 + ズーム + 目的地 + 道の駅リスト
+                // 下部: 速度 + ズーム + 目的地
                 HStack(alignment: .bottom, spacing: 12) {
                     if settings.zoomPosition == .left {
-                        // 左: ズーム + 道の駅リスト / 右: 速度 + 目的地
                         leftSideControls
                         Spacer()
                         rightSideInfo
                     } else {
-                        // 左: 速度 + 目的地 / 右: ズーム + 道の駅リスト
                         leftSideInfo
                         Spacer()
                         rightSideControls
@@ -92,8 +109,8 @@ struct ContentView: View {
                 .padding(.bottom, 30)
             }
         }
-        .sheet(item: $selectedStation) { nearby in
-            StationDetailSheet(nearby: nearby)
+        .sheet(item: $selectedStation) { station in
+            StationDetailSheet(station: station)
                 .presentationDetents([.medium])
         }
         .sheet(isPresented: $showSettings) {
@@ -102,13 +119,16 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $showDestinationPicker) {
             DestinationPickerView()
         }
+        .sheet(isPresented: $showRVParkSearch) {
+            RVParkSearchView()
+        }
         .onChange(of: driveState.currentLocation) { _, newLocation in
             guard let loc = newLocation else { return }
 
-            // 初回の位置情報取得時に検索範囲全体の縮尺を適用
+            // 初回の位置情報取得時に120km縮尺を適用
             if !initialZoomApplied {
                 initialZoomApplied = true
-                zoomLevel = settings.searchRadiusLatitudeDelta
+                zoomLevel = MapConstants.wideZoom
                 position = .region(MKCoordinateRegion(
                     center: loc,
                     span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel)
@@ -136,9 +156,7 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            // 設定の検索範囲で初期ズームレベルを設定
-            zoomLevel = settings.searchRadiusLatitudeDelta
-            // 位置情報が既にある場合は即座に適用
+            zoomLevel = MapConstants.wideZoom
             if let loc = driveState.currentLocation {
                 position = .region(MKCoordinateRegion(
                     center: loc,
@@ -147,20 +165,9 @@ struct ContentView: View {
                 initialZoomApplied = true
             }
         }
-        .onChange(of: settings.searchRadiusKm) { _, newRadius in
+        .onChange(of: settings.searchRadiusKm) { _, _ in
             // 検索範囲変更時に道の駅を即座にリフレッシュ
             driveState.refreshNearbyStations()
-            // ズームレベルも更新
-            let newZoom = Self.zoomLevel(forSpeed: driveState.speedKmh, searchRadiusKm: newRadius)
-            zoomLevel = newZoom
-            if let loc = driveState.currentLocation {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    position = .region(MKCoordinateRegion(
-                        center: loc,
-                        span: MKCoordinateSpan(latitudeDelta: newZoom, longitudeDelta: newZoom)
-                    ))
-                }
-            }
         }
     }
 
@@ -173,6 +180,7 @@ struct ContentView: View {
         if settings.showFoodMarkets { categories.append(.foodMarket) }
         if settings.showRestaurants { categories.append(.restaurant); categories.append(.cafe) }
         if settings.showParking { categories.append(.parking) }
+        if settings.showRVParks { categories.append(.rvPark); categories.append(.campground) }
 
         if categories.isEmpty {
             return .excludingAll
@@ -183,15 +191,14 @@ struct ContentView: View {
     // MARK: - 速度→縮尺マッピング
 
     /// 速度(km/h)と検索範囲(km)に応じた地図の表示幅(緯度方向・度)を返す
-    /// 停車時は検索範囲全体、走行時は速度に応じて拡大（近距離表示）
     static func zoomLevel(forSpeed speed: Double, searchRadiusKm: Double) -> Double {
-        let fullSpan = searchRadiusKm * 0.009  // 検索範囲全体のスパン
+        let fullSpan = searchRadiusKm * 0.009
         switch speed {
-        case ..<5:    return fullSpan        // 停車中: 検索範囲全体
-        case ..<30:   return fullSpan * 0.15 // 市街地: 範囲の15%
-        case ..<60:   return fullSpan * 0.3  // 一般道: 範囲の30%
-        case ..<100:  return fullSpan * 0.5  // 高速道: 範囲の50%
-        default:      return fullSpan * 0.7  // 高速巡航: 範囲の70%
+        case ..<5:    return fullSpan
+        case ..<30:   return fullSpan * 0.15
+        case ..<60:   return fullSpan * 0.3
+        case ..<100:  return fullSpan * 0.5
+        default:      return fullSpan * 0.7
         }
     }
 
@@ -207,25 +214,32 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - ズーム側（ズームボタン + 道の駅リスト）
+    /// 指定のズームレベルに移動
+    private func applyZoom(_ newZoom: Double) {
+        pauseAutoZoom()
+        zoomLevel = newZoom
+        let center = driveState.currentLocation ?? CLLocationCoordinate2D(latitude: 35.68, longitude: 139.77)
+        withAnimation(.easeInOut(duration: 0.3)) {
+            position = .region(MKCoordinateRegion(
+                center: center,
+                span: MKCoordinateSpan(latitudeDelta: newZoom, longitudeDelta: newZoom)
+            ))
+        }
+    }
+
+    // MARK: - コントロール側（ズームボタン + 目的地）
 
     private var leftSideControls: some View {
         VStack(alignment: .leading, spacing: 8) {
             destinationButton
-            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState, onManualZoom: pauseAutoZoom)
-            if !stationService.nearbyStations.isEmpty {
-                StationListPanel(stations: stationService.nearbyStations, selectedStation: $selectedStation)
-            }
+            zoomPresetButtons
         }
     }
 
     private var rightSideControls: some View {
         VStack(alignment: .trailing, spacing: 8) {
             destinationButton
-            MapZoomControls(position: $position, zoomLevel: $zoomLevel, driveState: driveState, onManualZoom: pauseAutoZoom)
-            if !stationService.nearbyStations.isEmpty {
-                StationListPanel(stations: stationService.nearbyStations, selectedStation: $selectedStation)
-            }
+            zoomPresetButtons
         }
     }
 
@@ -255,11 +269,48 @@ struct ContentView: View {
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
 
-    // MARK: - 目的地ボタン
+    // MARK: - 広域・詳細ボタン
+
+    private var zoomPresetButtons: some View {
+        VStack(spacing: 0) {
+            Button {
+                applyZoom(MapConstants.wideZoom)
+            } label: {
+                Text("広域")
+                    .font(.caption.bold())
+                    .frame(width: 44, height: 44)
+            }
+
+            Divider()
+
+            Button {
+                applyZoom(MapConstants.detailZoom)
+            } label: {
+                Text("詳細")
+                    .font(.caption.bold())
+                    .frame(width: 44, height: 44)
+            }
+        }
+        .frame(width: 44)
+        .fixedSize()
+        .foregroundStyle(.primary)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+    }
+
+    // MARK: - 目的地ボタン（道の駅/RVパーク切替メニュー）
 
     private var destinationButton: some View {
-        Button {
-            showDestinationPicker = true
+        Menu {
+            Button {
+                showDestinationPicker = true
+            } label: {
+                Label("道の駅", systemImage: "mappin.circle.fill")
+            }
+            Button {
+                showRVParkSearch = true
+            } label: {
+                Label("RVパーク", systemImage: "tent.fill")
+            }
         } label: {
             Image(systemName: "flag.fill")
                 .font(.title3.bold())
@@ -270,133 +321,116 @@ struct ContentView: View {
     }
 }
 
-// MARK: - 拡大縮小ボタン
-
-struct MapZoomControls: View {
-    @Binding var position: MapCameraPosition
-    @Binding var zoomLevel: Double
-    let driveState: DriveState
-    var onManualZoom: (() -> Void)?
-
-    var body: some View {
-        VStack(spacing: 0) {
-            Button {
-                zoom(by: 0.5) // 拡大
-            } label: {
-                Image(systemName: "plus")
-                    .font(.title3.bold())
-                    .frame(width: 44, height: 44)
-            }
-
-            Divider()
-
-            Button {
-                zoom(by: 2.0) // 縮小
-            } label: {
-                Image(systemName: "minus")
-                    .font(.title3.bold())
-                    .frame(width: 44, height: 44)
-            }
-        }
-        .frame(width: 44)
-        .fixedSize()
-        .foregroundStyle(.primary)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
-    }
-
-    private func zoom(by factor: Double) {
-        onManualZoom?()
-        let newZoom = max(0.002, min(5.0, zoomLevel * factor))
-        zoomLevel = newZoom
-
-        let center: CLLocationCoordinate2D
-        if let loc = driveState.currentLocation {
-            center = loc
-        } else {
-            center = CLLocationCoordinate2D(latitude: 35.68, longitude: 139.77)
-        }
-
-        position = .region(MKCoordinateRegion(
-            center: center,
-            span: MKCoordinateSpan(latitudeDelta: newZoom, longitudeDelta: newZoom)
-        ))
-    }
-}
-
-// MARK: - 道の駅リストパネル
-
-struct StationListPanel: View {
-    let stations: [NearbyStation]
-    @Binding var selectedStation: NearbyStation?
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("前方の道の駅")
-                .font(.caption.bold())
-                .foregroundStyle(.secondary)
-                .padding(.horizontal, 10)
-                .padding(.top, 8)
-                .padding(.bottom, 4)
-
-            ScrollView {
-                LazyVStack(spacing: 2) {
-                    ForEach(stations.prefix(5)) { nearby in
-                        Button {
-                            selectedStation = nearby
-                        } label: {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(nearby.station.name)
-                                        .font(.caption.bold())
-                                        .lineLimit(1)
-                                    Text(nearby.station.roadName ?? "")
-                                        .font(.caption2)
-                                        .foregroundStyle(.secondary)
-                                        .lineLimit(1)
-                                }
-                                Spacer()
-                                VStack(alignment: .trailing, spacing: 2) {
-                                    Text(nearby.distanceText)
-                                        .font(.caption.bold())
-                                    Text(nearby.cardinalDirection)
-                                        .font(.caption2)
-                                        .foregroundStyle(.secondary)
-                                }
-                            }
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 6)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-            }
-            .frame(maxHeight: 180)
-
-            Text("前方 \(stations.count) 件")
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 4)
-        }
-        .frame(width: 200)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-    }
-}
-
 // MARK: - 道の駅詳細シート
 
 struct StationDetailSheet: View {
-    let nearby: NearbyStation
+    let station: RoadsideStation
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
-            StationDetailView(station: nearby.station, nearby: nearby)
+            StationDetailView(station: station)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("閉じる") { dismiss() }
                     }
                 }
+        }
+    }
+}
+
+// MARK: - RVパーク検索画面
+
+struct RVParkSearchView: View {
+    @Environment(\.dismiss) private var dismiss
+    @Environment(DriveState.self) private var driveState
+    @Environment(NavigationService.self) private var navigationService
+
+    @State private var searchResults: [MKMapItem] = []
+    @State private var isSearching = false
+    @State private var errorMessage: String?
+
+    var body: some View {
+        NavigationStack {
+            Group {
+                if isSearching {
+                    ProgressView("検索中...")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if let error = errorMessage {
+                    ContentUnavailableView {
+                        Label("検索エラー", systemImage: "exclamationmark.triangle")
+                    } description: {
+                        Text(error)
+                    }
+                } else if searchResults.isEmpty {
+                    ContentUnavailableView {
+                        Label("RVパークが見つかりません", systemImage: "tent.fill")
+                    } description: {
+                        Text("周辺にRVパーク・キャンプ場が見つかりませんでした")
+                    }
+                } else {
+                    List(searchResults, id: \.self) { item in
+                        Button {
+                            navigationService.navigateInAppleMaps(to: item)
+                            dismiss()
+                        } label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(item.name ?? "不明")
+                                    .font(.body.bold())
+                                if let address = item.placemark.title {
+                                    Text(address)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(2)
+                                }
+                                if let phone = item.phoneNumber {
+                                    Text(phone)
+                                        .font(.caption)
+                                        .foregroundStyle(.blue)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+            .navigationTitle("RVパーク検索")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("閉じる") { dismiss() }
+                }
+            }
+            .task {
+                await searchRVParks()
+            }
+        }
+    }
+
+    private func searchRVParks() async {
+        guard let location = driveState.currentLocation else {
+            errorMessage = "位置情報が取得できません"
+            return
+        }
+
+        isSearching = true
+        defer { isSearching = false }
+
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "RVパーク キャンプ場"
+        request.region = MKCoordinateRegion(
+            center: location,
+            span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0)
+        )
+        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.rvPark, .campground])
+
+        do {
+            let search = MKLocalSearch(request: request)
+            let response = try await search.start()
+            searchResults = response.mapItems
+        } catch {
+            errorMessage = "検索に失敗しました: \(error.localizedDescription)"
         }
     }
 }

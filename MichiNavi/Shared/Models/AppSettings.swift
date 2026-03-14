@@ -48,6 +48,11 @@ final class AppSettings {
         didSet { save() }
     }
 
+    /// POI表示: RVパーク・キャンプ場
+    var showRVParks: Bool {
+        didSet { save() }
+    }
+
     /// 検索範囲距離から地図の緯度スパン（度）を算出
     /// 画面短辺に収まるよう、距離をスパンとして設定
     var searchRadiusLatitudeDelta: Double {
@@ -69,6 +74,7 @@ final class AppSettings {
         self.showFoodMarkets = ud.object(forKey: "showFoodMarkets") as? Bool ?? false
         self.showRestaurants = ud.object(forKey: "showRestaurants") as? Bool ?? false
         self.showParking = ud.object(forKey: "showParking") as? Bool ?? false
+        self.showRVParks = ud.object(forKey: "showRVParks") as? Bool ?? true
     }
 
     private func save() {
@@ -79,5 +85,6 @@ final class AppSettings {
         ud.set(showFoodMarkets, forKey: "showFoodMarkets")
         ud.set(showRestaurants, forKey: "showRestaurants")
         ud.set(showParking, forKey: "showParking")
+        ud.set(showRVParks, forKey: "showRVParks")
     }
 }

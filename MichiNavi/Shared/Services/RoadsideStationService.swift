@@ -119,21 +119,27 @@ final class RoadsideStationService {
         }.sorted { $0.name < $1.name }
     }
 
-    // MARK: - 周辺検索
+    // MARK: - 表示領域フィルタ
 
-    /// 指定座標の周辺にある全方位の道の駅（地図表示用）
-    func stationsNear(
-        location: CLLocationCoordinate2D,
-        maxDistanceKm: Double = 50
-    ) -> [NearbyStation] {
-        guard isLoaded else { return [] }
+    /// 地図の表示領域内にある道の駅を返す（地図ピン用）
+    private(set) var visibleStations: [RoadsideStation] = []
 
-        return allStations.compactMap { station -> NearbyStation? in
-            let distance = GeoUtils.haversine(from: location, to: station.coordinate)
-            guard distance <= maxDistanceKm else { return nil }
-            let bearing = GeoUtils.bearing(from: location, to: station.coordinate)
-            return NearbyStation(station: station, distanceKm: distance, bearing: bearing)
+    /// 表示領域の矩形内にある道の駅でフィルタする
+    func updateVisibleStations(
+        center: CLLocationCoordinate2D,
+        latitudeDelta: Double,
+        longitudeDelta: Double
+    ) {
+        guard isLoaded else { return }
+
+        let minLat = center.latitude - latitudeDelta / 2
+        let maxLat = center.latitude + latitudeDelta / 2
+        let minLon = center.longitude - longitudeDelta / 2
+        let maxLon = center.longitude + longitudeDelta / 2
+
+        visibleStations = allStations.filter { station in
+            station.latitude >= minLat && station.latitude <= maxLat &&
+            station.longitude >= minLon && station.longitude <= maxLon
         }
-        .sorted { $0.distanceKm < $1.distanceKm }
     }
 }

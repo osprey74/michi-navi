@@ -21,6 +21,14 @@ final class NavigationService {
         ])
     }
 
+    /// MKMapItem を使って Apple Maps ナビゲーションを開始する
+    func navigateInAppleMaps(to mapItem: MKMapItem) {
+        destination = nil
+        mapItem.openInMaps(launchOptions: [
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+        ])
+    }
+
     /// 目的地をクリアする
     func clearDestination() {
         destination = nil
