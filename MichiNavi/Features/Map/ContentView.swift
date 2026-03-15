@@ -19,8 +19,8 @@ extension CLLocationCoordinate2D: @retroactive Equatable {
 private enum MapConstants {
     /// 広域表示: 短辺120km
     static let wideZoom: Double = 120 * 0.009  // 1.08°
-    /// 詳細表示: 短辺400m
-    static let detailZoom: Double = 0.4 * 0.009  // 0.0036°
+    /// 詳細表示: 短辺300m
+    static let detailZoom: Double = 0.3 * 0.009  // 0.0027°
 }
 
 /// iPhone 側のメイン画面 — 現在地マップ + 道の駅ピン
@@ -138,7 +138,7 @@ struct ContentView: View {
 
             guard autoZoomEnabled else { return }
             let speed = driveState.speedKmh
-            let newZoom = Self.zoomLevel(forSpeed: speed, searchRadiusKm: settings.searchRadiusKm)
+            let newZoom = Self.zoomLevel(forSpeed: speed)
 
             // 速度による縮尺変更があれば適用
             if abs(newZoom - zoomLevel) / zoomLevel > 0.3 {
@@ -165,10 +165,7 @@ struct ContentView: View {
                 initialZoomApplied = true
             }
         }
-        .onChange(of: settings.searchRadiusKm) { _, _ in
-            // 検索範囲変更時に道の駅を即座にリフレッシュ
-            driveState.refreshNearbyStations()
-        }
+
     }
 
     // MARK: - POIカテゴリ
@@ -190,9 +187,10 @@ struct ContentView: View {
 
     // MARK: - 速度→縮尺マッピング
 
-    /// 速度(km/h)と検索範囲(km)に応じた地図の表示幅(緯度方向・度)を返す
-    static func zoomLevel(forSpeed speed: Double, searchRadiusKm: Double) -> Double {
-        let fullSpan = searchRadiusKm * 0.009
+    /// 速度(km/h)に応じた地図の表示幅(緯度方向・度)を返す
+    /// ベースは広域120km (1.08°)
+    static func zoomLevel(forSpeed speed: Double) -> Double {
+        let fullSpan = MapConstants.wideZoom
         switch speed {
         case ..<5:    return fullSpan
         case ..<30:   return fullSpan * 0.15

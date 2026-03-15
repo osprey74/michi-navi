@@ -23,11 +23,6 @@ final class AppSettings {
         didSet { save() }
     }
 
-    /// 道の駅検索範囲（km）— 50〜400、デフォルト100
-    var searchRadiusKm: Double {
-        didSet { save() }
-    }
-
     /// POI表示: ガソリンスタンド
     var showGasStations: Bool {
         didSet { save() }
@@ -53,13 +48,6 @@ final class AppSettings {
         didSet { save() }
     }
 
-    /// 検索範囲距離から地図の緯度スパン（度）を算出
-    /// 画面短辺に収まるよう、距離をスパンとして設定
-    var searchRadiusLatitudeDelta: Double {
-        // 1km ≈ 0.009度（緯度）
-        return searchRadiusKm * 0.009
-    }
-
     /// いずれかのPOIカテゴリが有効か
     var hasAnyPOIEnabled: Bool {
         showGasStations || showFoodMarkets || showRestaurants || showParking
@@ -69,7 +57,6 @@ final class AppSettings {
         let ud = UserDefaults.standard
         let stored = ud.string(forKey: "zoomPosition") ?? "right"
         self.zoomPosition = ZoomPosition(rawValue: stored) ?? .right
-        self.searchRadiusKm = ud.object(forKey: "searchRadiusKm") as? Double ?? 100
         self.showGasStations = ud.object(forKey: "showGasStations") as? Bool ?? true
         self.showFoodMarkets = ud.object(forKey: "showFoodMarkets") as? Bool ?? false
         self.showRestaurants = ud.object(forKey: "showRestaurants") as? Bool ?? false
@@ -80,7 +67,6 @@ final class AppSettings {
     private func save() {
         let ud = UserDefaults.standard
         ud.set(zoomPosition.rawValue, forKey: "zoomPosition")
-        ud.set(searchRadiusKm, forKey: "searchRadiusKm")
         ud.set(showGasStations, forKey: "showGasStations")
         ud.set(showFoodMarkets, forKey: "showFoodMarkets")
         ud.set(showRestaurants, forKey: "showRestaurants")

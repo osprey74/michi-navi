@@ -24,12 +24,10 @@ final class DriveState {
     // MARK: - LocationService 同期
     private var syncTimer: Timer?
     private weak var stationService: RoadsideStationService?
-    private weak var appSettings: AppSettings?
     private var stationUpdateCounter = 9  // 初回は1秒後に検索開始
 
-    func bind(to service: LocationService, stationService: RoadsideStationService? = nil, appSettings: AppSettings? = nil) {
+    func bind(to service: LocationService, stationService: RoadsideStationService? = nil) {
         self.stationService = stationService
-        self.appSettings = appSettings
         syncTimer?.invalidate()
         syncTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self, weak service] _ in
             guard let self, let service else { return }
@@ -42,27 +40,25 @@ final class DriveState {
             if self.stationUpdateCounter >= 10 {
                 self.stationUpdateCounter = 0
                 if let loc = self.currentLocation {
-                    let radius = self.appSettings?.searchRadiusKm ?? 100
                     self.stationService?.updateNearbyStations(
                         location: loc,
                         heading: self.heading,
                         speedKmh: self.speedKmh,
-                        maxDistanceKm: radius
+                        maxDistanceKm: 120
                     )
                 }
             }
         }
     }
 
-    /// 道の駅検索を即座に再実行する（設定変更時など）
+    /// 道の駅検索を即座に再実行する
     func refreshNearbyStations() {
         guard let loc = currentLocation else { return }
-        let radius = appSettings?.searchRadiusKm ?? 100
         stationService?.updateNearbyStations(
             location: loc,
             heading: heading,
             speedKmh: speedKmh,
-            maxDistanceKm: radius
+            maxDistanceKm: 120
         )
     }
 
