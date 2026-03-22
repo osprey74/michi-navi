@@ -113,9 +113,12 @@ MichiNavi/
 > **Note**: RVパークの自前データ（JRVA 認定 RVパーク約 608 件）については、日本RV協会にデータ利用を問合せ中です。
 
 
-## サポート
+## Support / 開発を応援する
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/osprey74)
+kazahana を気に入っていただけたら、開発の継続を応援してください ☕
+
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=github)](https://github.com/sponsors/osprey74)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/osprey74)
 
 
 ## ライセンス
