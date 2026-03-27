@@ -43,7 +43,7 @@ struct SettingsView: View {
                         HStack {
                             Image(systemName: "arrow.up.right.square")
                                 .foregroundStyle(.secondary)
-                            Text("Navigation icons by Smashicons - Flaticon")
+                            Text("Navigation icons by ChilliColor - Flaticon")
                                 .font(.footnote)
                                 .foregroundStyle(.primary)
                         }
