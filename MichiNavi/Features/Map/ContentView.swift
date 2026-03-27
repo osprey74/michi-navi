@@ -20,7 +20,7 @@ private enum MapConstants {
     /// 広域表示: 短辺120km
     static let wideZoom: Double = 120 * 0.009  // 1.08°
     /// 詳細表示: 短辺300m
-    static let detailZoom: Double = 0.3 * 0.009  // 0.0027°
+    static let detailZoom: Double = 0.15 * 0.009  // 0.00135° ≈ 150m
 }
 
 /// iPhone 側のメイン画面 — 現在地マップ + 道の駅ピン
