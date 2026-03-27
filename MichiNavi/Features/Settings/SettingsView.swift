@@ -37,6 +37,18 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+
+                Section("クレジット") {
+                    Link(destination: URL(string: "https://www.flaticon.com/free-icons/navigation")!) {
+                        HStack {
+                            Image(systemName: "arrow.up.right.square")
+                                .foregroundStyle(.secondary)
+                            Text("Navigation icons by Smashicons - Flaticon")
+                                .font(.footnote)
+                                .foregroundStyle(.primary)
+                        }
+                    }
+                }
             }
             .navigationTitle("設定")
             .navigationBarTitleDisplayMode(.inline)
