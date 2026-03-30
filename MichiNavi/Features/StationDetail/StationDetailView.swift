@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 道の駅詳細の共通ビュー（写真・施設グリッド・基本情報・ナビボタン）
+/// 道の駅詳細の共通ビュー（写真・施設グリッド・基本情報・ナビボタン・お気に入り・到達）
 ///
 /// ContentView のシート表示と DestinationPickerView のナビゲーション遷移の両方で使用する。
 struct StationDetailView: View {
@@ -8,6 +8,7 @@ struct StationDetailView: View {
     let station: RoadsideStation
     let nearby: NearbyStation?
     @Environment(NavigationService.self) private var navigationService
+    @Environment(AppSettings.self) private var settings
 
     init(station: RoadsideStation, nearby: NearbyStation? = nil) {
         self.station = station
@@ -44,6 +45,44 @@ struct StationDetailView: View {
                     }
                     .listRowInsets(EdgeInsets())
                 }
+            }
+
+            // お気に入り・到達セクション
+            Section {
+                HStack(spacing: 16) {
+                    // お気に入りボタン
+                    let isFav = settings.favoriteStationIds.contains(station.id)
+                    Button {
+                        settings.toggleFavorite(station.id)
+                    } label: {
+                        HStack {
+                            Image(systemName: isFav ? "heart.fill" : "heart")
+                                .foregroundStyle(isFav ? .red : .secondary)
+                            Text(isFav ? "お気に入り済み" : "お気に入りに追加")
+                                .foregroundStyle(isFav ? .red : .primary)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(isFav ? .red : .secondary)
+
+                    // 到達ボタン
+                    let isVis = settings.visitedStationIds.contains(station.id)
+                    Button {
+                        settings.toggleVisited(station.id)
+                    } label: {
+                        HStack {
+                            Image(systemName: isVis ? "checkmark.shield.fill" : "checkmark.shield")
+                                .foregroundStyle(isVis ? .blue : .secondary)
+                            Text(isVis ? "到達済み" : "到達済みにする")
+                                .foregroundStyle(isVis ? .blue : .primary)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(isVis ? .blue : .secondary)
+                }
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
 
             // 基本情報セクション
@@ -103,6 +142,7 @@ struct StationDetailView: View {
         }
         .navigationTitle(station.name)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { settings.mapFocusStation = station }
     }
 
     private var photoPlaceholder: some View {

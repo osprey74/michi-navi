@@ -19,13 +19,21 @@
 		<string>audio</string>
 	</array>
 
-	<!-- Scene Manifest（CarPlay Scene 登録） -->
+	<!-- Scene Manifest（iPhone + CarPlay Scene 登録） -->
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<true/>
 		<key>UISceneConfigurations</key>
 		<dict>
+			<!-- iPhone Scene -->
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+				</dict>
+			</array>
 			<!-- CarPlay Scene -->
 			<key>CPTemplateApplicationSceneSessionRoleApplication</key>
 			<array>

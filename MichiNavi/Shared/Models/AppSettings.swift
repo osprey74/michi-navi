@@ -5,72 +5,75 @@ import Foundation
 @Observable
 final class AppSettings {
 
-    /// ズームボタンの表示位置
-    enum ZoomPosition: String, CaseIterable {
-        case left = "left"
-        case right = "right"
+    // MARK: - 地図タイル
 
-        var label: String {
-            switch self {
-            case .left: return "左側"
-            case .right: return "右側"
-            }
+    /// 選択中の地図タイル（デフォルト: 国土地理院 淡色）
+    var selectedMapTile: MapTileType {
+        didSet { save() }
+    }
+
+    /// Google Maps Tile API キー（空文字 = 未登録）
+    var googleMapsAPIKey: String {
+        didSet { save() }
+    }
+
+    var hasGoogleMapsAPIKey: Bool { !googleMapsAPIKey.isEmpty }
+
+    // MARK: - お気に入り・到達
+
+    /// お気に入り登録した道の駅 ID セット
+    var favoriteStationIds: Set<String> {
+        didSet { save() }
+    }
+
+    /// 到達済みとした道の駅 ID セット
+    var visitedStationIds: Set<String> {
+        didSet { save() }
+    }
+
+    func toggleFavorite(_ stationId: String) {
+        if favoriteStationIds.contains(stationId) {
+            favoriteStationIds.remove(stationId)
+        } else {
+            favoriteStationIds.insert(stationId)
         }
     }
 
-    /// ズームボタンの表示位置（デフォルト: 右側）
-    var zoomPosition: ZoomPosition {
-        didSet { save() }
+    // MARK: - リスト→地図フォーカス（永続化なし）
+
+    /// リストから詳細を閲覧した道の駅（シート閉じ時に地図を移動するために使用）
+    var mapFocusStation: RoadsideStation?
+
+    func toggleVisited(_ stationId: String) {
+        if visitedStationIds.contains(stationId) {
+            visitedStationIds.remove(stationId)
+        } else {
+            visitedStationIds.insert(stationId)
+        }
     }
 
-    /// POI表示: ガソリンスタンド
-    var showGasStations: Bool {
-        didSet { save() }
-    }
-
-    /// POI表示: コンビニ・スーパー
-    var showFoodMarkets: Bool {
-        didSet { save() }
-    }
-
-    /// POI表示: レストラン
-    var showRestaurants: Bool {
-        didSet { save() }
-    }
-
-    /// POI表示: 駐車場
-    var showParking: Bool {
-        didSet { save() }
-    }
-
-    /// POI表示: RVパーク・キャンプ場
-    var showRVParks: Bool {
-        didSet { save() }
-    }
-
-    /// いずれかのPOIカテゴリが有効か
-    var hasAnyPOIEnabled: Bool {
-        showGasStations || showFoodMarkets || showRestaurants || showParking
-    }
+    // MARK: - Init / Persist
 
     init() {
         let ud = UserDefaults.standard
-        let stored = ud.string(forKey: "zoomPosition") ?? "right"
-        self.zoomPosition = ZoomPosition(rawValue: stored) ?? .right
-        self.showGasStations = ud.object(forKey: "showGasStations") as? Bool ?? true
-        self.showFoodMarkets = ud.object(forKey: "showFoodMarkets") as? Bool ?? false
-        self.showRestaurants = ud.object(forKey: "showRestaurants") as? Bool ?? false
-        self.showParking = ud.object(forKey: "showParking") as? Bool ?? false
-        self.showRVParks = ud.object(forKey: "showRVParks") as? Bool ?? true
+
+        let tileRaw = ud.string(forKey: "selectedMapTile") ?? MapTileType.appleMaps.rawValue
+        self.selectedMapTile = MapTileType(rawValue: tileRaw) ?? .appleMaps
+
+        self.googleMapsAPIKey = ud.string(forKey: "googleMapsAPIKey") ?? ""
+
+        let favArray = ud.stringArray(forKey: "favoriteStationIds") ?? []
+        self.favoriteStationIds = Set(favArray)
+
+        let visArray = ud.stringArray(forKey: "visitedStationIds") ?? []
+        self.visitedStationIds = Set(visArray)
     }
 
     private func save() {
         let ud = UserDefaults.standard
-        ud.set(zoomPosition.rawValue, forKey: "zoomPosition")
-        ud.set(showGasStations, forKey: "showGasStations")
-        ud.set(showFoodMarkets, forKey: "showFoodMarkets")
-        ud.set(showRestaurants, forKey: "showRestaurants")
-        ud.set(showParking, forKey: "showParking")
-        ud.set(showRVParks, forKey: "showRVParks")
+        ud.set(selectedMapTile.rawValue, forKey: "selectedMapTile")
+        ud.set(googleMapsAPIKey, forKey: "googleMapsAPIKey")
+        ud.set(Array(favoriteStationIds), forKey: "favoriteStationIds")
+        ud.set(Array(visitedStationIds), forKey: "visitedStationIds")
     }
 }
