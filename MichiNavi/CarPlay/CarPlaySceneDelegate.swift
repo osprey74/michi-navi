@@ -26,6 +26,38 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         AppDelegate.shared?.navigationService
     }
 
+    private var appSettings: AppSettings? {
+        AppDelegate.shared?.appSettings
+    }
+
+    // MARK: - アイコンヘルパー
+
+    /// SF Symbol をビットマップに色を焼き付けた UIImage を返す
+    private static func makeColoredIcon(symbolName: String, color: UIColor, pointSize: CGFloat) -> UIImage? {
+        let config = UIImage.SymbolConfiguration(pointSize: pointSize, weight: .bold)
+        guard let symbol = UIImage(systemName: symbolName, withConfiguration: config) else { return nil }
+        let iv = UIImageView(frame: CGRect(origin: .zero, size: symbol.size))
+        iv.image = symbol.withRenderingMode(.alwaysTemplate)
+        iv.tintColor = color
+        iv.backgroundColor = .clear
+        let fmt = UIGraphicsImageRendererFormat()
+        fmt.scale = UIScreen.main.scale
+        fmt.opaque = false
+        return UIGraphicsImageRenderer(size: symbol.size, format: fmt).image { _ in
+            iv.layer.render(in: UIGraphicsGetCurrentContext()!)
+        }.withRenderingMode(.alwaysOriginal)
+    }
+
+    /// お気に入り・到達状態に合わせたアイコンを返す（iPhone マーカーと同一配色）
+    private func stationIcon(isFavorite: Bool, isVisited: Bool, size: CGFloat) -> UIImage? {
+        switch (isFavorite, isVisited) {
+        case (true, true):   return Self.makeColoredIcon(symbolName: "checkmark.shield.fill", color: .systemRed,    pointSize: size)
+        case (true, false):  return Self.makeColoredIcon(symbolName: "heart.fill",             color: .systemRed,    pointSize: size)
+        case (false, true):  return Self.makeColoredIcon(symbolName: "checkmark.shield.fill", color: .systemBlue,   pointSize: size)
+        case (false, false): return Self.makeColoredIcon(symbolName: "mappin.circle.fill",     color: .systemOrange, pointSize: size)
+        }
+    }
+
     // MARK: - Scene Lifecycle
 
     func templateApplicationScene(
@@ -82,8 +114,13 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     /// 近くの道の駅から CPPointOfInterest 配列を生成（最大12件）
     private func buildPOIList() -> [CPPointOfInterest] {
         guard let service = stationService else { return [] }
+        let favIds = appSettings?.favoriteStationIds ?? []
+        let visIds = appSettings?.visitedStationIds ?? []
 
         return service.nearbyStations.prefix(12).map { nearby in
+            let isFav = favIds.contains(nearby.station.id)
+            let isVis = visIds.contains(nearby.station.id)
+
             let placemark = MKPlacemark(coordinate: nearby.station.coordinate)
             let mapItem = MKMapItem(placemark: placemark)
             mapItem.name = nearby.station.name
@@ -100,7 +137,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                     nearby.station.prefecture,
                     nearby.station.municipality
                 ].compactMap { $0 }.joined(separator: " · "),
-                pinImage: nil
+                pinImage: stationIcon(isFavorite: isFav, isVisited: isVis, size: 24)
             )
 
             // ナビ開始ボタン
@@ -146,37 +183,61 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
             return CPListTemplate(title: "道の駅", sections: [section])
         }
 
-        // 速度表示を先頭アイテムとして追加
+        let favIds = appSettings?.favoriteStationIds ?? []
+        let visIds = appSettings?.visitedStationIds ?? []
+
+        // 速度表示
         let speedItem = CPListItem(
             text: state.speedText,
             detailText: "現在速度",
             image: UIImage(systemName: "speedometer")
         )
+        let speedSection = CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil)
 
+        // 前方の道の駅
+        let nearbyItems: [CPListItem]
         let stations = service.nearbyStations
         if stations.isEmpty {
-            let emptyItem = CPListItem(text: "前方に道の駅なし", detailText: "走行中に自動更新されます")
-            let speedSection = CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil)
-            let stationSection = CPListSection(items: [emptyItem], header: "道の駅", sectionIndexTitle: nil)
-            return CPListTemplate(title: "道の駅", sections: [speedSection, stationSection])
-        }
-
-        let stationItems = stations.prefix(10).map { nearby -> CPListItem in
-            let item = CPListItem(
-                text: nearby.station.name,
-                detailText: "\(nearby.distanceText) · \(nearby.cardinalDirection) · \(nearby.station.roadName ?? "")",
-                image: UIImage(systemName: "building.2.fill")
-            )
-            item.handler = { [weak self] _, completion in
-                self?.navigationService?.navigateInAppleMaps(to: nearby.station)
-                completion()
+            nearbyItems = [CPListItem(text: "前方に道の駅なし", detailText: "走行中に自動更新されます")]
+        } else {
+            nearbyItems = stations.prefix(10).map { nearby -> CPListItem in
+                let isFav = favIds.contains(nearby.station.id)
+                let isVis = visIds.contains(nearby.station.id)
+                let item = CPListItem(
+                    text: nearby.station.name,
+                    detailText: "\(nearby.distanceText) · \(nearby.cardinalDirection) · \(nearby.station.roadName ?? "")",
+                    image: stationIcon(isFavorite: isFav, isVisited: isVis, size: 20)
+                )
+                item.handler = { [weak self] _, completion in
+                    self?.navigationService?.navigateInAppleMaps(to: nearby.station)
+                    completion()
+                }
+                return item
             }
-            return item
+        }
+        let nearbySection = CPListSection(items: nearbyItems, header: "前方の道の駅", sectionIndexTitle: nil)
+
+        // お気に入りセクション（登録済みのみ表示）
+        var sections: [CPListSection] = [speedSection, nearbySection]
+        let favStations = service.allStations.filter { favIds.contains($0.id) }
+        if !favStations.isEmpty {
+            let favItems = favStations.prefix(10).map { station -> CPListItem in
+                let isVis = visIds.contains(station.id)
+                let item = CPListItem(
+                    text: station.name,
+                    detailText: station.roadName ?? "",
+                    image: stationIcon(isFavorite: true, isVisited: isVis, size: 20)
+                )
+                item.handler = { [weak self] _, completion in
+                    self?.navigationService?.navigateInAppleMaps(to: station)
+                    completion()
+                }
+                return item
+            }
+            sections.append(CPListSection(items: favItems, header: "お気に入り", sectionIndexTitle: nil))
         }
 
-        let speedSection = CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil)
-        let stationSection = CPListSection(items: stationItems, header: "前方の道の駅", sectionIndexTitle: nil)
-        return CPListTemplate(title: "道の駅", sections: [speedSection, stationSection])
+        return CPListTemplate(title: "道の駅", sections: sections)
     }
 
     // MARK: - ドライブ情報
@@ -241,39 +302,58 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
               let service = stationService,
               let state = driveState else { return }
 
+        let favIds = appSettings?.favoriteStationIds ?? []
+        let visIds = appSettings?.visitedStationIds ?? []
+
         let speedItem = CPListItem(
             text: state.speedText,
             detailText: "現在速度",
             image: UIImage(systemName: "speedometer")
         )
+        let speedSection = CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil)
 
+        let nearbyItems: [CPListItem]
         let stations = service.nearbyStations
         if stations.isEmpty {
-            let emptyItem = CPListItem(text: "前方に道の駅なし", detailText: "走行中に自動更新されます")
-            template.updateSections([
-                CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil),
-                CPListSection(items: [emptyItem], header: "道の駅", sectionIndexTitle: nil)
-            ])
-            return
-        }
-
-        let stationItems = stations.prefix(10).map { nearby -> CPListItem in
-            let item = CPListItem(
-                text: nearby.station.name,
-                detailText: "\(nearby.distanceText) · \(nearby.cardinalDirection) · \(nearby.station.roadName ?? "")",
-                image: UIImage(systemName: "building.2.fill")
-            )
-            item.handler = { [weak self] _, completion in
-                self?.navigationService?.navigateInAppleMaps(to: nearby.station)
-                completion()
+            nearbyItems = [CPListItem(text: "前方に道の駅なし", detailText: "走行中に自動更新されます")]
+        } else {
+            nearbyItems = stations.prefix(10).map { nearby -> CPListItem in
+                let isFav = favIds.contains(nearby.station.id)
+                let isVis = visIds.contains(nearby.station.id)
+                let item = CPListItem(
+                    text: nearby.station.name,
+                    detailText: "\(nearby.distanceText) · \(nearby.cardinalDirection) · \(nearby.station.roadName ?? "")",
+                    image: stationIcon(isFavorite: isFav, isVisited: isVis, size: 20)
+                )
+                item.handler = { [weak self] _, completion in
+                    self?.navigationService?.navigateInAppleMaps(to: nearby.station)
+                    completion()
+                }
+                return item
             }
-            return item
+        }
+        let nearbySection = CPListSection(items: nearbyItems, header: "前方の道の駅", sectionIndexTitle: nil)
+
+        var sections: [CPListSection] = [speedSection, nearbySection]
+        let favStations = service.allStations.filter { favIds.contains($0.id) }
+        if !favStations.isEmpty {
+            let favItems = favStations.prefix(10).map { station -> CPListItem in
+                let isVis = visIds.contains(station.id)
+                let item = CPListItem(
+                    text: station.name,
+                    detailText: station.roadName ?? "",
+                    image: stationIcon(isFavorite: true, isVisited: isVis, size: 20)
+                )
+                item.handler = { [weak self] _, completion in
+                    self?.navigationService?.navigateInAppleMaps(to: station)
+                    completion()
+                }
+                return item
+            }
+            sections.append(CPListSection(items: favItems, header: "お気に入り", sectionIndexTitle: nil))
         }
 
-        template.updateSections([
-            CPListSection(items: [speedItem], header: "走行情報", sectionIndexTitle: nil),
-            CPListSection(items: stationItems, header: "前方の道の駅", sectionIndexTitle: nil)
-        ])
+        template.updateSections(sections)
     }
 }
 
