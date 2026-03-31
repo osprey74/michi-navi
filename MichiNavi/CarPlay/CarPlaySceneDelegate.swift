@@ -77,6 +77,36 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         self.interfaceController = nil
     }
 
+    // MARK: - ナビアプリ選択（CPActionSheetTemplate）
+
+    private func showNavAppPicker(for station: RoadsideStation) {
+        guard let nav = navigationService else { return }
+        let apps = nav.availableApps()
+
+        // インストール済みが Apple Maps のみなら即起動
+        if apps.count == 1 {
+            nav.navigate(to: station, with: .appleMaps)
+            return
+        }
+
+        let appActions = apps.map { app -> CPAlertAction in
+            CPAlertAction(title: app.displayName, style: .default) { [weak self] _ in
+                self?.interfaceController?.dismissTemplate(animated: true, completion: nil)
+                nav.navigate(to: station, with: app)
+            }
+        }
+        let cancelAction = CPAlertAction(title: "キャンセル", style: .cancel) { [weak self] _ in
+            self?.interfaceController?.dismissTemplate(animated: true, completion: nil)
+        }
+
+        let sheet = CPActionSheetTemplate(
+            title: "ナビアプリを選択",
+            message: station.name,
+            actions: appActions + [cancelAction]
+        )
+        interfaceController?.presentTemplate(sheet, animated: true, completion: nil)
+    }
+
     // MARK: - Root Template（CPPointOfInterestTemplate）
 
     private func setupRootTemplate() {
@@ -142,7 +172,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
 
             // ナビ開始ボタン
             let navButton = CPTextButton(title: "ナビ開始", textStyle: .confirm) { [weak self] _ in
-                self?.navigationService?.navigateInAppleMaps(to: nearby.station)
+                self?.showNavAppPicker(for: nearby.station)
             }
             poi.primaryButton = navButton
 
@@ -209,7 +239,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                     image: stationIcon(isFavorite: isFav, isVisited: isVis, size: 20)
                 )
                 item.handler = { [weak self] _, completion in
-                    self?.navigationService?.navigateInAppleMaps(to: nearby.station)
+                    self?.showNavAppPicker(for: nearby.station)
                     completion()
                 }
                 return item
@@ -229,7 +259,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                     image: stationIcon(isFavorite: true, isVisited: isVis, size: 20)
                 )
                 item.handler = { [weak self] _, completion in
-                    self?.navigationService?.navigateInAppleMaps(to: station)
+                    self?.showNavAppPicker(for: station)
                     completion()
                 }
                 return item
@@ -326,7 +356,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                     image: stationIcon(isFavorite: isFav, isVisited: isVis, size: 20)
                 )
                 item.handler = { [weak self] _, completion in
-                    self?.navigationService?.navigateInAppleMaps(to: nearby.station)
+                    self?.showNavAppPicker(for: nearby.station)
                     completion()
                 }
                 return item
@@ -345,7 +375,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                     image: stationIcon(isFavorite: true, isVisited: isVis, size: 20)
                 )
                 item.handler = { [weak self] _, completion in
-                    self?.navigationService?.navigateInAppleMaps(to: station)
+                    self?.showNavAppPicker(for: station)
                     completion()
                 }
                 return item

@@ -9,6 +9,7 @@ struct StationDetailView: View {
     let nearby: NearbyStation?
     @Environment(NavigationService.self) private var navigationService
     @Environment(AppSettings.self) private var settings
+    @State private var showNavAppPicker = false
 
     init(station: RoadsideStation, nearby: NearbyStation? = nil) {
         self.station = station
@@ -130,7 +131,7 @@ struct StationDetailView: View {
             // ナビ開始ボタン
             Section {
                 Button {
-                    navigationService.navigateInAppleMaps(to: station)
+                    showNavAppPicker = true
                 } label: {
                     Label("この道の駅へナビ開始", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
                         .frame(maxWidth: .infinity)
@@ -143,6 +144,13 @@ struct StationDetailView: View {
         .navigationTitle(station.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { settings.mapFocusStation = station }
+        .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
+            ForEach(navigationService.availableApps()) { app in
+                Button(app.displayName) {
+                    navigationService.navigate(to: station, with: app)
+                }
+            }
+        }
     }
 
     private var photoPlaceholder: some View {

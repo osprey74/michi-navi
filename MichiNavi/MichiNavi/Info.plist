@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- 外部ナビアプリ起動のための URL スキーム宣言 -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>yjcarnavi</string>
+		<string>waze</string>
+	</array>
+
 	<!-- アプリ表示名（ホーム画面・App Store） -->
 	<key>CFBundleDisplayName</key>
 	<string>Michi-Navi</string>
