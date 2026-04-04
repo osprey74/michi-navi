@@ -79,7 +79,7 @@ MichiNavi/
 ├── Features/
 │   ├── Map/                    地図画面（ContentView）
 │   ├── Settings/               設定画面
-│   ├── Destination/            目的地選択（道の駅 / RVパーク）
+│   ├── Destination/            目的地選択（道の駅）
 │   └── StationDetail/          道の駅詳細画面
 ├── CarPlay/                    CarPlay テンプレート
 ├── Shared/
@@ -96,7 +96,7 @@ MichiNavi/
 | Phase 1 | 地図・位置情報・速度表示 | ✅ 完了 |
 | Phase 2 | 道の駅データ・マッピング・詳細画面 | ✅ 完了 |
 | Phase 3 | 設定画面・POI 表示・検索範囲 | ✅ 完了 |
-| Phase 4 | RVパーク対応・ビューポート連動・ズームプリセット | ✅ 完了 |
+| Phase 4 | ビューポート連動・ズームプリセット | ✅ 完了 |
 | Phase 5 | CarPlay テンプレート（POI テンプレート） | ✅ 完了 |
 | Phase 6 | WeatherKit・Live Activity・Widget | 🔲 |
 | Phase 7 | App Store 審査・公開 | 🔲 |
