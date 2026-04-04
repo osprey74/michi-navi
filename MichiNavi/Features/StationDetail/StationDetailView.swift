@@ -119,6 +119,12 @@ struct StationDetailView: View {
                 }
             }
 
+            // フォトアルバムセクション
+            Section("フォトアルバム") {
+                StationPhotoAlbumView(stationId: station.id)
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            }
+
             // 公式サイトリンク
             if let urlString = station.url, let url = URL(string: urlString) {
                 Section {
