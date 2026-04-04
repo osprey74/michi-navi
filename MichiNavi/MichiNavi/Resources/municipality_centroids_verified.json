@@ -1,0 +1,1667 @@
+[
+  {
+    "code": "01100",
+    "name": "札幌市",
+    "centroid": {
+      "lat": 42.994727,
+      "lng": 141.249593,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01202",
+    "name": "函館市",
+    "centroid": {
+      "lat": 41.83752,
+      "lng": 140.925774,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01203",
+    "name": "小樽市",
+    "centroid": {
+      "lat": 43.156391,
+      "lng": 141.026243,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01204",
+    "name": "旭川市",
+    "centroid": {
+      "lat": 43.757924,
+      "lng": 142.370078,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01205",
+    "name": "室蘭市",
+    "centroid": {
+      "lat": 42.366483,
+      "lng": 140.988379,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01206",
+    "name": "釧路市",
+    "centroid": {
+      "lat": 43.159024,
+      "lng": 144.066603,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01207",
+    "name": "帯広市",
+    "centroid": {
+      "lat": 42.757369,
+      "lng": 143.0306,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01208",
+    "name": "北見市",
+    "centroid": {
+      "lat": 43.851618,
+      "lng": 143.715205,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01209",
+    "name": "夕張市",
+    "centroid": {
+      "lat": 43.043364,
+      "lng": 142.110639,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01210",
+    "name": "岩見沢市",
+    "centroid": {
+      "lat": 43.18087,
+      "lng": 141.797432,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01211",
+    "name": "網走市",
+    "centroid": {
+      "lat": 43.985628,
+      "lng": 144.210543,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01212",
+    "name": "留萌市",
+    "centroid": {
+      "lat": 43.885626,
+      "lng": 141.755613,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01213",
+    "name": "苫小牧市",
+    "centroid": {
+      "lat": 42.682257,
+      "lng": 141.579518,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01214",
+    "name": "稚内市",
+    "centroid": {
+      "lat": 45.332471,
+      "lng": 141.828234,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01215",
+    "name": "美唄市",
+    "centroid": {
+      "lat": 43.338052,
+      "lng": 141.881828,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01216",
+    "name": "芦別市",
+    "centroid": {
+      "lat": 43.425421,
+      "lng": 142.201599,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01217",
+    "name": "江別市",
+    "centroid": {
+      "lat": 43.107296,
+      "lng": 141.543901,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01218",
+    "name": "赤平市",
+    "centroid": {
+      "lat": 43.567901,
+      "lng": 142.062802,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01219",
+    "name": "紋別市",
+    "centroid": {
+      "lat": 44.203184,
+      "lng": 143.292635,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01220",
+    "name": "士別市",
+    "centroid": {
+      "lat": 44.115228,
+      "lng": 142.540529,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01221",
+    "name": "名寄市",
+    "centroid": {
+      "lat": 44.339533,
+      "lng": 142.459254,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01222",
+    "name": "三笠市",
+    "centroid": {
+      "lat": 43.239767,
+      "lng": 141.992719,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01223",
+    "name": "根室市",
+    "centroid": {
+      "lat": 43.314137,
+      "lng": 145.581771,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01224",
+    "name": "千歳市",
+    "centroid": {
+      "lat": 42.800483,
+      "lng": 141.509505,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01225",
+    "name": "滝川市",
+    "centroid": {
+      "lat": 43.608375,
+      "lng": 141.949869,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01226",
+    "name": "砂川市",
+    "centroid": {
+      "lat": 43.503285,
+      "lng": 141.93273,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01227",
+    "name": "歌志内市",
+    "centroid": {
+      "lat": 43.493662,
+      "lng": 142.038773,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01228",
+    "name": "深川市",
+    "centroid": {
+      "lat": 43.793349,
+      "lng": 142.099225,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01229",
+    "name": "富良野市",
+    "centroid": {
+      "lat": 43.281829,
+      "lng": 142.473484,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01230",
+    "name": "登別市",
+    "centroid": {
+      "lat": 42.465608,
+      "lng": 141.075775,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01231",
+    "name": "恵庭市",
+    "centroid": {
+      "lat": 42.871242,
+      "lng": 141.464106,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01233",
+    "name": "伊達市",
+    "centroid": {
+      "lat": 42.609728,
+      "lng": 141.017533,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01234",
+    "name": "北広島市",
+    "centroid": {
+      "lat": 42.961552,
+      "lng": 141.514916,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01235",
+    "name": "石狩市",
+    "centroid": {
+      "lat": 43.465812,
+      "lng": 141.442901,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01236",
+    "name": "北斗市",
+    "centroid": {
+      "lat": 41.864109,
+      "lng": 140.554244,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01303",
+    "name": "当別町",
+    "centroid": {
+      "lat": 43.363603,
+      "lng": 141.562731,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01304",
+    "name": "新篠津村",
+    "centroid": {
+      "lat": 43.224364,
+      "lng": 141.614902,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01331",
+    "name": "松前町",
+    "centroid": {
+      "lat": 41.515009,
+      "lng": 140.065025,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01332",
+    "name": "福島町",
+    "centroid": {
+      "lat": 41.525567,
+      "lng": 140.249641,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01333",
+    "name": "知内町",
+    "centroid": {
+      "lat": 41.603099,
+      "lng": 140.342018,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01334",
+    "name": "木古内町",
+    "centroid": {
+      "lat": 41.727642,
+      "lng": 140.415422,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01337",
+    "name": "七飯町",
+    "centroid": {
+      "lat": 41.948778,
+      "lng": 140.700264,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01343",
+    "name": "鹿部町",
+    "centroid": {
+      "lat": 42.021418,
+      "lng": 140.782465,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01345",
+    "name": "森町",
+    "centroid": {
+      "lat": 42.070055,
+      "lng": 140.562302,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01346",
+    "name": "八雲町",
+    "centroid": {
+      "lat": 42.189939,
+      "lng": 140.200521,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01347",
+    "name": "長万部町",
+    "centroid": {
+      "lat": 42.521147,
+      "lng": 140.311866,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01361",
+    "name": "江差町",
+    "centroid": {
+      "lat": 41.885755,
+      "lng": 140.177345,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01362",
+    "name": "上ノ国町",
+    "centroid": {
+      "lat": 41.713869,
+      "lng": 140.173399,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01363",
+    "name": "厚沢部町",
+    "centroid": {
+      "lat": 41.921946,
+      "lng": 140.343054,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01364",
+    "name": "乙部町",
+    "centroid": {
+      "lat": 42.022117,
+      "lng": 140.183206,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01367",
+    "name": "奥尻町",
+    "centroid": {
+      "lat": 42.155357,
+      "lng": 139.473207,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01370",
+    "name": "今金町",
+    "centroid": {
+      "lat": 42.443712,
+      "lng": 140.09368,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01371",
+    "name": "せたな町",
+    "centroid": {
+      "lat": 42.383187,
+      "lng": 139.901848,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01391",
+    "name": "島牧村",
+    "centroid": {
+      "lat": 42.655443,
+      "lng": 140.070638,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01392",
+    "name": "寿都町",
+    "centroid": {
+      "lat": 42.790934,
+      "lng": 140.299541,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01393",
+    "name": "黒松内町",
+    "centroid": {
+      "lat": 42.667213,
+      "lng": 140.363792,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01394",
+    "name": "蘭越町",
+    "centroid": {
+      "lat": 42.800318,
+      "lng": 140.491238,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01395",
+    "name": "ニセコ町",
+    "centroid": {
+      "lat": 42.779789,
+      "lng": 140.674175,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01396",
+    "name": "真狩村",
+    "centroid": {
+      "lat": 42.757466,
+      "lng": 140.798249,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01397",
+    "name": "留寿都村",
+    "centroid": {
+      "lat": 42.718268,
+      "lng": 140.900005,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01398",
+    "name": "喜茂別町",
+    "centroid": {
+      "lat": 42.798282,
+      "lng": 141.00523,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01399",
+    "name": "京極町",
+    "centroid": {
+      "lat": 42.887715,
+      "lng": 140.942711,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01400",
+    "name": "倶知安町",
+    "centroid": {
+      "lat": 42.91367,
+      "lng": 140.779573,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01401",
+    "name": "共和町",
+    "centroid": {
+      "lat": 42.988333,
+      "lng": 140.627365,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01402",
+    "name": "岩内町",
+    "centroid": {
+      "lat": 42.937552,
+      "lng": 140.478596,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01403",
+    "name": "泊村",
+    "centroid": {
+      "lat": 43.100798,
+      "lng": 140.515325,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01404",
+    "name": "神恵内村",
+    "centroid": {
+      "lat": 43.193728,
+      "lng": 140.432777,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01405",
+    "name": "積丹町",
+    "centroid": {
+      "lat": 43.287984,
+      "lng": 140.477813,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01406",
+    "name": "古平町",
+    "centroid": {
+      "lat": 43.187998,
+      "lng": 140.609646,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01407",
+    "name": "仁木町",
+    "centroid": {
+      "lat": 43.090812,
+      "lng": 140.73504,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01408",
+    "name": "余市町",
+    "centroid": {
+      "lat": 43.176477,
+      "lng": 140.774078,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01409",
+    "name": "赤井川村",
+    "centroid": {
+      "lat": 43.055225,
+      "lng": 140.906517,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01423",
+    "name": "南幌町",
+    "centroid": {
+      "lat": 43.05965,
+      "lng": 141.633417,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01424",
+    "name": "奈井江町",
+    "centroid": {
+      "lat": 43.418318,
+      "lng": 141.924926,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01425",
+    "name": "上砂川町",
+    "centroid": {
+      "lat": 43.448473,
+      "lng": 142.003772,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01427",
+    "name": "由仁町",
+    "centroid": {
+      "lat": 42.941179,
+      "lng": 141.862548,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01428",
+    "name": "長沼町",
+    "centroid": {
+      "lat": 42.989383,
+      "lng": 141.694905,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01429",
+    "name": "栗山町",
+    "centroid": {
+      "lat": 43.026611,
+      "lng": 141.870867,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01430",
+    "name": "月形町",
+    "centroid": {
+      "lat": 43.36975,
+      "lng": 141.672972,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01431",
+    "name": "浦臼町",
+    "centroid": {
+      "lat": 43.438576,
+      "lng": 141.789148,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01432",
+    "name": "新十津川町",
+    "centroid": {
+      "lat": 43.590419,
+      "lng": 141.728129,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01433",
+    "name": "妹背牛町",
+    "centroid": {
+      "lat": 43.707574,
+      "lng": 141.944697,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01434",
+    "name": "秩父別町",
+    "centroid": {
+      "lat": 43.774816,
+      "lng": 141.959084,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01436",
+    "name": "雨竜町",
+    "centroid": {
+      "lat": 43.694775,
+      "lng": 141.750251,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01437",
+    "name": "北竜町",
+    "centroid": {
+      "lat": 43.76432,
+      "lng": 141.790983,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01438",
+    "name": "沼田町",
+    "centroid": {
+      "lat": 43.885554,
+      "lng": 141.962604,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01452",
+    "name": "鷹栖町",
+    "centroid": {
+      "lat": 43.88929,
+      "lng": 142.336489,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01453",
+    "name": "東神楽町",
+    "centroid": {
+      "lat": 43.674216,
+      "lng": 142.490908,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01454",
+    "name": "当麻町",
+    "centroid": {
+      "lat": 43.819191,
+      "lng": 142.594233,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01455",
+    "name": "比布町",
+    "centroid": {
+      "lat": 43.918552,
+      "lng": 142.48503,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01456",
+    "name": "愛別町",
+    "centroid": {
+      "lat": 43.943001,
+      "lng": 142.635525,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01457",
+    "name": "上川町",
+    "centroid": {
+      "lat": 43.750977,
+      "lng": 142.927892,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01458",
+    "name": "東川町",
+    "centroid": {
+      "lat": 43.67287,
+      "lng": 142.684914,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01459",
+    "name": "美瑛町",
+    "centroid": {
+      "lat": 43.558015,
+      "lng": 142.61188,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01460",
+    "name": "上富良野町",
+    "centroid": {
+      "lat": 43.453957,
+      "lng": 142.526978,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01461",
+    "name": "中富良野町",
+    "centroid": {
+      "lat": 43.402687,
+      "lng": 142.429147,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01462",
+    "name": "南富良野町",
+    "centroid": {
+      "lat": 43.166973,
+      "lng": 142.561131,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01463",
+    "name": "占冠村",
+    "centroid": {
+      "lat": 43.008246,
+      "lng": 142.475549,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01464",
+    "name": "和寒町",
+    "centroid": {
+      "lat": 44.010539,
+      "lng": 142.374413,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01465",
+    "name": "剣淵町",
+    "centroid": {
+      "lat": 44.10359,
+      "lng": 142.341503,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01468",
+    "name": "下川町",
+    "centroid": {
+      "lat": 44.313572,
+      "lng": 142.716559,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01469",
+    "name": "美深町",
+    "centroid": {
+      "lat": 44.540363,
+      "lng": 142.396117,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01470",
+    "name": "音威子府村",
+    "centroid": {
+      "lat": 44.714781,
+      "lng": 142.247337,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01471",
+    "name": "中川町",
+    "centroid": {
+      "lat": 44.690333,
+      "lng": 142.093371,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01472",
+    "name": "幌加内町",
+    "centroid": {
+      "lat": 44.230857,
+      "lng": 142.154421,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01481",
+    "name": "増毛町",
+    "centroid": {
+      "lat": 43.788109,
+      "lng": 141.535764,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01482",
+    "name": "小平町",
+    "centroid": {
+      "lat": 44.058511,
+      "lng": 141.839609,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01483",
+    "name": "苫前町",
+    "centroid": {
+      "lat": 44.206438,
+      "lng": 141.83666,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01484",
+    "name": "羽幌町",
+    "centroid": {
+      "lat": 44.335563,
+      "lng": 141.883171,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01485",
+    "name": "初山別村",
+    "centroid": {
+      "lat": 44.506529,
+      "lng": 141.840613,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01486",
+    "name": "遠別町",
+    "centroid": {
+      "lat": 44.620208,
+      "lng": 141.933466,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01487",
+    "name": "天塩町",
+    "centroid": {
+      "lat": 44.879627,
+      "lng": 141.861554,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01511",
+    "name": "猿払村",
+    "centroid": {
+      "lat": 45.225379,
+      "lng": 142.112785,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01512",
+    "name": "浜頓別町",
+    "centroid": {
+      "lat": 45.075768,
+      "lng": 142.30833,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01513",
+    "name": "中頓別町",
+    "centroid": {
+      "lat": 44.913487,
+      "lng": 142.277878,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01514",
+    "name": "枝幸町",
+    "centroid": {
+      "lat": 44.774447,
+      "lng": 142.542858,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01516",
+    "name": "豊富町",
+    "centroid": {
+      "lat": 45.145814,
+      "lng": 141.791898,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01517",
+    "name": "礼文町",
+    "centroid": {
+      "lat": 45.375186,
+      "lng": 141.025686,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01518",
+    "name": "利尻町",
+    "centroid": {
+      "lat": 45.161805,
+      "lng": 141.196041,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01519",
+    "name": "利尻富士町",
+    "centroid": {
+      "lat": 45.188893,
+      "lng": 141.25451,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01520",
+    "name": "幌延町",
+    "centroid": {
+      "lat": 45.001433,
+      "lng": 141.952213,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01543",
+    "name": "美幌町",
+    "centroid": {
+      "lat": 43.754624,
+      "lng": 144.132773,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01544",
+    "name": "津別町",
+    "centroid": {
+      "lat": 43.607533,
+      "lng": 144.002881,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01545",
+    "name": "斜里町",
+    "centroid": {
+      "lat": 43.977238,
+      "lng": 144.921069,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01546",
+    "name": "清里町",
+    "centroid": {
+      "lat": 43.733006,
+      "lng": 144.599755,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01547",
+    "name": "小清水町",
+    "centroid": {
+      "lat": 43.814246,
+      "lng": 144.456932,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01549",
+    "name": "訓子府町",
+    "centroid": {
+      "lat": 43.70098,
+      "lng": 143.732216,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01550",
+    "name": "置戸町",
+    "centroid": {
+      "lat": 43.632092,
+      "lng": 143.45525,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01552",
+    "name": "佐呂間町",
+    "centroid": {
+      "lat": 44.024285,
+      "lng": 143.784222,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01555",
+    "name": "遠軽町",
+    "centroid": {
+      "lat": 43.906689,
+      "lng": 143.310687,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01559",
+    "name": "湧別町",
+    "centroid": {
+      "lat": 44.127448,
+      "lng": 143.606352,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01560",
+    "name": "滝上町",
+    "centroid": {
+      "lat": 44.103503,
+      "lng": 143.012492,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01561",
+    "name": "興部町",
+    "centroid": {
+      "lat": 44.396846,
+      "lng": 143.091352,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01562",
+    "name": "西興部村",
+    "centroid": {
+      "lat": 44.320599,
+      "lng": 142.924193,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01563",
+    "name": "雄武町",
+    "centroid": {
+      "lat": 44.53652,
+      "lng": 142.832118,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01564",
+    "name": "大空町",
+    "centroid": {
+      "lat": 43.839475,
+      "lng": 144.247824,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01571",
+    "name": "豊浦町",
+    "centroid": {
+      "lat": 42.644325,
+      "lng": 140.652831,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01575",
+    "name": "壮瞥町",
+    "centroid": {
+      "lat": 42.574461,
+      "lng": 140.956694,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01578",
+    "name": "白老町",
+    "centroid": {
+      "lat": 42.5877,
+      "lng": 141.242621,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01581",
+    "name": "厚真町",
+    "centroid": {
+      "lat": 42.735051,
+      "lng": 141.951324,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01584",
+    "name": "洞爺湖町",
+    "centroid": {
+      "lat": 42.625711,
+      "lng": 140.830803,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01585",
+    "name": "安平町",
+    "centroid": {
+      "lat": 42.81358,
+      "lng": 141.837832,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01586",
+    "name": "むかわ町",
+    "centroid": {
+      "lat": 42.758485,
+      "lng": 142.134651,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01601",
+    "name": "日高町",
+    "centroid": {
+      "lat": 42.727377,
+      "lng": 142.440997,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01602",
+    "name": "平取町",
+    "centroid": {
+      "lat": 42.703198,
+      "lng": 142.361076,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01604",
+    "name": "新冠町",
+    "centroid": {
+      "lat": 42.544792,
+      "lng": 142.483114,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01607",
+    "name": "浦河町",
+    "centroid": {
+      "lat": 42.289949,
+      "lng": 142.879643,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01608",
+    "name": "様似町",
+    "centroid": {
+      "lat": 42.157909,
+      "lng": 143.05677,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01609",
+    "name": "えりも町",
+    "centroid": {
+      "lat": 42.071897,
+      "lng": 143.221683,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01610",
+    "name": "新ひだか町",
+    "centroid": {
+      "lat": 42.429486,
+      "lng": 142.640306,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01631",
+    "name": "音更町",
+    "centroid": {
+      "lat": 43.042573,
+      "lng": 143.205355,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01632",
+    "name": "士幌町",
+    "centroid": {
+      "lat": 43.165392,
+      "lng": 143.261409,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01633",
+    "name": "上士幌町",
+    "centroid": {
+      "lat": 43.385164,
+      "lng": 143.193271,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01634",
+    "name": "鹿追町",
+    "centroid": {
+      "lat": 43.214555,
+      "lng": 143.034783,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01635",
+    "name": "新得町",
+    "centroid": {
+      "lat": 43.317478,
+      "lng": 142.863729,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01636",
+    "name": "清水町",
+    "centroid": {
+      "lat": 42.967654,
+      "lng": 142.88276,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01637",
+    "name": "芽室町",
+    "centroid": {
+      "lat": 42.857725,
+      "lng": 142.960389,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01638",
+    "name": "中札内村",
+    "centroid": {
+      "lat": 42.639298,
+      "lng": 142.971773,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01639",
+    "name": "更別村",
+    "centroid": {
+      "lat": 42.631569,
+      "lng": 143.203824,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01641",
+    "name": "大樹町",
+    "centroid": {
+      "lat": 42.511285,
+      "lng": 143.167536,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01642",
+    "name": "広尾町",
+    "centroid": {
+      "lat": 42.327741,
+      "lng": 143.210056,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01643",
+    "name": "幕別町",
+    "centroid": {
+      "lat": 42.749264,
+      "lng": 143.317508,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01644",
+    "name": "池田町",
+    "centroid": {
+      "lat": 42.989295,
+      "lng": 143.463681,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01645",
+    "name": "豊頃町",
+    "centroid": {
+      "lat": 42.741637,
+      "lng": 143.486429,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01646",
+    "name": "本別町",
+    "centroid": {
+      "lat": 43.163121,
+      "lng": 143.55331,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01647",
+    "name": "足寄町",
+    "centroid": {
+      "lat": 43.374793,
+      "lng": 143.586726,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01648",
+    "name": "陸別町",
+    "centroid": {
+      "lat": 43.51237,
+      "lng": 143.687608,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01649",
+    "name": "浦幌町",
+    "centroid": {
+      "lat": 42.915405,
+      "lng": 143.679271,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01661",
+    "name": "釧路町",
+    "centroid": {
+      "lat": 43.016671,
+      "lng": 144.534495,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01662",
+    "name": "厚岸町",
+    "centroid": {
+      "lat": 43.123463,
+      "lng": 144.808415,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01663",
+    "name": "浜中町",
+    "centroid": {
+      "lat": 43.157389,
+      "lng": 145.090397,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01664",
+    "name": "標茶町",
+    "centroid": {
+      "lat": 43.293654,
+      "lng": 144.560385,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01665",
+    "name": "弟子屈町",
+    "centroid": {
+      "lat": 43.547248,
+      "lng": 144.399883,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01667",
+    "name": "鶴居村",
+    "centroid": {
+      "lat": 43.250252,
+      "lng": 144.295498,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01668",
+    "name": "白糠町",
+    "centroid": {
+      "lat": 43.126556,
+      "lng": 143.965293,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01691",
+    "name": "別海町",
+    "centroid": {
+      "lat": 43.391899,
+      "lng": 145.017229,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01692",
+    "name": "中標津町",
+    "centroid": {
+      "lat": 43.581354,
+      "lng": 144.844927,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01693",
+    "name": "標津町",
+    "centroid": {
+      "lat": 43.737946,
+      "lng": 144.970968,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01694",
+    "name": "羅臼町",
+    "centroid": {
+      "lat": 44.039109,
+      "lng": 145.143755,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01695",
+    "name": "色丹村",
+    "centroid": {
+      "lat": 43.800739,
+      "lng": 146.738866,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01696",
+    "name": "泊村",
+    "centroid": {
+      "lat": 43.909815,
+      "lng": 145.623708,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01697",
+    "name": "留夜別村",
+    "centroid": {
+      "lat": 44.319813,
+      "lng": 146.12744,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01698",
+    "name": "留別村",
+    "centroid": {
+      "lat": 44.83071,
+      "lng": 147.407788,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01699",
+    "name": "紗那村",
+    "centroid": {
+      "lat": 45.199148,
+      "lng": 148.000166,
+      "approximate": false
+    }
+  },
+  {
+    "code": "01700",
+    "name": "蘂取村",
+    "centroid": {
+      "lat": 45.402443,
+      "lng": 148.644476,
+      "approximate": false
+    }
+  }
+]
