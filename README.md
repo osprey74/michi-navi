@@ -98,19 +98,9 @@ MichiNavi/
 | Phase 3 | 設定画面・POI 表示・検索範囲 | ✅ 完了 |
 | Phase 4 | RVパーク対応・ビューポート連動・ズームプリセット | ✅ 完了 |
 | Phase 5 | CarPlay テンプレート（POI テンプレート） | ✅ 完了 |
-| Phase 6 | RVパーク自前データ対応（JRVA 問合せ中） | 🔲 検討中 |
-| Phase 7 | WeatherKit・Live Activity・Widget | 🔲 |
-| Phase 8 | App Store 審査・公開 | 🔲 |
+| Phase 6 | WeatherKit・Live Activity・Widget | 🔲 |
+| Phase 7 | App Store 審査・公開 | 🔲 |
 
-## データソース
-
-| データ | ソース | ライセンス |
-|--------|--------|-----------|
-| 道の駅（約 1,200 件） | 国土交通省 公開データ | 政府標準利用規約 |
-| 施設 POI（GS / コンビニ等） | MapKit 標準 POI | Apple MapKit 利用規約 |
-| RVパーク・キャンプ場 | MapKit 標準 POI（暫定） | Apple MapKit 利用規約 |
-
-> **Note**: RVパークの自前データ（JRVA 認定 RVパーク約 608 件）については、日本RV協会にデータ利用を問合せ中です。
 
 
 ## Support / 開発を応援する
