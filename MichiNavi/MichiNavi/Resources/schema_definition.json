@@ -1,0 +1,212 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Michi-Navi Data Schema",
+  "version": "1.0.0",
+  "description": "市町村マスタ・カントリーサイン・道の駅紐付けデータの全スキーマ定義",
+
+  "definitions": {
+
+    "Municipality": {
+      "description": "北海道市区町村マスタ",
+      "type": "object",
+      "required": ["code", "name", "prefectureCode", "subprefecture", "population", "areaSqKm", "centroid"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^01[0-9]{3}$",
+          "description": "JIS市区町村コード（5桁）例: 01668"
+        },
+        "name": {
+          "type": "string",
+          "description": "市区町村名 例: 安平町"
+        },
+        "nameKana": {
+          "type": "string",
+          "description": "市区町村名よみがな 例: あびらちょう"
+        },
+        "prefectureCode": {
+          "type": "string",
+          "const": "01",
+          "description": "都道府県コード（北海道固定）"
+        },
+        "subprefecture": {
+          "type": "string",
+          "description": "振興局・総合振興局名 例: 勇払郡"
+        },
+        "subprefectureOffice": {
+          "type": "string",
+          "description": "振興局区分 例: 胆振総合振興局"
+        },
+        "municipalityType": {
+          "type": "string",
+          "enum": ["市", "町", "村"],
+          "description": "市区町村種別"
+        },
+        "population": {
+          "type": "integer",
+          "description": "人口（人）※国勢調査2020年"
+        },
+        "populationYear": {
+          "type": "integer",
+          "description": "人口調査年 例: 2020"
+        },
+        "areaSqKm": {
+          "type": "number",
+          "description": "面積（km²）"
+        },
+        "centroid": {
+          "$ref": "#/definitions/Coordinate",
+          "description": "市区町村重心座標（カントリーサインマーカー配置用）"
+        },
+        "flower": {
+          "$ref": "#/definitions/MunicipalityFlower"
+        },
+        "tourismUrl": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "観光情報公式URL。なければ null"
+        },
+        "tourismSiteName": {
+          "type": ["string", "null"],
+          "description": "観光サイト表示名 例: 安平町観光サイト"
+        }
+      }
+    },
+
+    "MunicipalityFlower": {
+      "description": "市町村の花情報",
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "花の名称（和名） 例: ハナミズキ"
+        },
+        "nameScientific": {
+          "type": ["string", "null"],
+          "description": "学名（任意）"
+        },
+        "description": {
+          "type": ["string", "null"],
+          "description": "制定理由・説明（40字程度）"
+        },
+        "imageName": {
+          "type": ["string", "null"],
+          "description": "バンドル画像ファイル名（拡張子なし）例: flower_01668"
+        },
+        "imageUrl": {
+          "type": ["string", "null"],
+          "description": "外部画像URL（バンドルがない場合のフォールバック）"
+        },
+        "imageCredit": {
+          "type": ["string", "null"],
+          "description": "画像クレジット表記 例: 安平町"
+        },
+        "colorHex": {
+          "type": ["string", "null"],
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "花の代表色（ピンマーカー色用） 例: #F5C4D1"
+        },
+        "colorVibrantHex": {
+          "type": ["string", "null"],
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "彩度強調色（視認性向上用）"
+        }
+      }
+    },
+
+    "CountrySign": {
+      "description": "カントリーサインマスタ",
+      "type": "object",
+      "required": ["municipalityCode", "coordinate"],
+      "properties": {
+        "municipalityCode": {
+          "type": "string",
+          "description": "紐付く市区町村コード"
+        },
+        "coordinate": {
+          "$ref": "#/definitions/Coordinate",
+          "description": "カントリーサイン設置推奨座標（市区町村重心）"
+        },
+        "imageName": {
+          "type": ["string", "null"],
+          "description": "カントリーサイン画像ファイル名（拡張子なし）例: cs_01668"
+        },
+        "imageUrl": {
+          "type": ["string", "null"],
+          "description": "カントリーサイン画像外部URL"
+        },
+        "imageCredit": {
+          "type": ["string", "null"],
+          "description": "画像クレジット"
+        },
+        "originText": {
+          "type": ["string", "null"],
+          "description": "カントリーサインの由来説明文（100字程度）"
+        },
+        "designDescription": {
+          "type": ["string", "null"],
+          "description": "デザインの説明（モチーフ等）"
+        }
+      }
+    },
+
+    "MichiNaviStation": {
+      "description": "道の駅マスタ（市区町村コードで市町村情報に紐付け）",
+      "type": "object",
+      "required": ["id", "name", "coordinate", "municipalityCode"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "道の駅ID 例: 0001"
+        },
+        "name": {
+          "type": "string",
+          "description": "道の駅名 例: あびらD51ステーション"
+        },
+        "nameKana": {
+          "type": "string"
+        },
+        "municipalityCode": {
+          "type": "string",
+          "description": "所在市区町村コード（市区町村マスタのcodeと結合）"
+        },
+        "coordinate": {
+          "$ref": "#/definitions/Coordinate"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": ["string", "null"]
+        },
+        "openingHours": {
+          "type": ["string", "null"],
+          "description": "例: 9:00–18:00"
+        },
+        "closedDays": {
+          "type": ["string", "null"],
+          "description": "例: 年中無休 / 毎週火曜"
+        },
+        "officialUrl": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+
+    "Coordinate": {
+      "type": "object",
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": {
+          "type": "number",
+          "description": "緯度（WGS84）"
+        },
+        "lng": {
+          "type": "number",
+          "description": "経度（WGS84）"
+        }
+      }
+    }
+  }
+}

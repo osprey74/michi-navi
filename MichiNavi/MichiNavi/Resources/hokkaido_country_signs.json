@@ -1,0 +1,2329 @@
+[
+  {
+    "municipalityCode": "01100",
+    "coordinate": {
+      "lat": 43.0618,
+      "lng": 141.3545,
+      "approximate": false
+    },
+    "imageName": "cs_01100",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01202",
+    "coordinate": {
+      "lat": 41.7686,
+      "lng": 140.729,
+      "approximate": false
+    },
+    "imageName": "cs_01202",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01203",
+    "coordinate": {
+      "lat": 43.1907,
+      "lng": 140.9948,
+      "approximate": false
+    },
+    "imageName": "cs_01203",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01204",
+    "coordinate": {
+      "lat": 43.7706,
+      "lng": 142.365,
+      "approximate": false
+    },
+    "imageName": "cs_01204",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01205",
+    "coordinate": {
+      "lat": 42.315,
+      "lng": 140.9736,
+      "approximate": false
+    },
+    "imageName": "cs_01205",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01206",
+    "coordinate": {
+      "lat": 42.9848,
+      "lng": 144.3815,
+      "approximate": false
+    },
+    "imageName": "cs_01206",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01207",
+    "coordinate": {
+      "lat": 42.9241,
+      "lng": 143.1966,
+      "approximate": false
+    },
+    "imageName": "cs_01207",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01208",
+    "coordinate": {
+      "lat": 43.8035,
+      "lng": 143.8903,
+      "approximate": false
+    },
+    "imageName": "cs_01208",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01209",
+    "coordinate": {
+      "lat": 43.058,
+      "lng": 141.9768,
+      "approximate": false
+    },
+    "imageName": "cs_01209",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01210",
+    "coordinate": {
+      "lat": 43.1963,
+      "lng": 141.7766,
+      "approximate": false
+    },
+    "imageName": "cs_01210",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01211",
+    "coordinate": {
+      "lat": 44.0215,
+      "lng": 144.2739,
+      "approximate": false
+    },
+    "imageName": "cs_01211",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01212",
+    "coordinate": {
+      "lat": 43.9403,
+      "lng": 141.6423,
+      "approximate": false
+    },
+    "imageName": "cs_01212",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01213",
+    "coordinate": {
+      "lat": 42.6341,
+      "lng": 141.6044,
+      "approximate": false
+    },
+    "imageName": "cs_01213",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01214",
+    "coordinate": {
+      "lat": 45.4156,
+      "lng": 141.6736,
+      "approximate": false
+    },
+    "imageName": "cs_01214",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01215",
+    "coordinate": {
+      "lat": 43.3307,
+      "lng": 141.8519,
+      "approximate": false
+    },
+    "imageName": "cs_01215",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01216",
+    "coordinate": {
+      "lat": 43.5296,
+      "lng": 142.1914,
+      "approximate": false
+    },
+    "imageName": "cs_01216",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01217",
+    "coordinate": {
+      "lat": 43.1034,
+      "lng": 141.5472,
+      "approximate": false
+    },
+    "imageName": "cs_01217",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01218",
+    "coordinate": {
+      "lat": 43.5601,
+      "lng": 141.9942,
+      "approximate": false
+    },
+    "imageName": "cs_01218",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01219",
+    "coordinate": {
+      "lat": 44.3539,
+      "lng": 143.3545,
+      "approximate": false
+    },
+    "imageName": "cs_01219",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01220",
+    "coordinate": {
+      "lat": 44.1775,
+      "lng": 142.3972,
+      "approximate": false
+    },
+    "imageName": "cs_01220",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01221",
+    "coordinate": {
+      "lat": 44.3604,
+      "lng": 142.4642,
+      "approximate": false
+    },
+    "imageName": "cs_01221",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01222",
+    "coordinate": {
+      "lat": 43.2443,
+      "lng": 141.8779,
+      "approximate": false
+    },
+    "imageName": "cs_01222",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01223",
+    "coordinate": {
+      "lat": 43.3313,
+      "lng": 145.5759,
+      "approximate": false
+    },
+    "imageName": "cs_01223",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01224",
+    "coordinate": {
+      "lat": 42.8238,
+      "lng": 141.6502,
+      "approximate": false
+    },
+    "imageName": "cs_01224",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01225",
+    "coordinate": {
+      "lat": 43.5595,
+      "lng": 141.9089,
+      "approximate": false
+    },
+    "imageName": "cs_01225",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01226",
+    "coordinate": {
+      "lat": 43.4935,
+      "lng": 141.9017,
+      "approximate": false
+    },
+    "imageName": "cs_01226",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01227",
+    "coordinate": {
+      "lat": 43.4972,
+      "lng": 141.9602,
+      "approximate": false
+    },
+    "imageName": "cs_01227",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01228",
+    "coordinate": {
+      "lat": 43.7237,
+      "lng": 142.056,
+      "approximate": false
+    },
+    "imageName": "cs_01228",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01229",
+    "coordinate": {
+      "lat": 43.3434,
+      "lng": 142.3833,
+      "approximate": false
+    },
+    "imageName": "cs_01229",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01230",
+    "coordinate": {
+      "lat": 42.4094,
+      "lng": 141.1055,
+      "approximate": false
+    },
+    "imageName": "cs_01230",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01231",
+    "coordinate": {
+      "lat": 42.8869,
+      "lng": 141.58,
+      "approximate": false
+    },
+    "imageName": "cs_01231",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01233",
+    "coordinate": {
+      "lat": 42.473,
+      "lng": 140.8666,
+      "approximate": false
+    },
+    "imageName": "cs_01233",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01234",
+    "coordinate": {
+      "lat": 42.9847,
+      "lng": 141.5649,
+      "approximate": false
+    },
+    "imageName": "cs_01234",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01235",
+    "coordinate": {
+      "lat": 43.1723,
+      "lng": 141.3264,
+      "approximate": false
+    },
+    "imageName": "cs_01235",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01236",
+    "coordinate": {
+      "lat": 41.8245,
+      "lng": 140.6546,
+      "approximate": false
+    },
+    "imageName": "cs_01236",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01303",
+    "coordinate": {
+      "lat": 43.2975,
+      "lng": 141.5169,
+      "approximate": true
+    },
+    "imageName": "cs_01303",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01304",
+    "coordinate": {
+      "lat": 43.2347,
+      "lng": 141.6517,
+      "approximate": true
+    },
+    "imageName": "cs_01304",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01331",
+    "coordinate": {
+      "lat": 41.4316,
+      "lng": 140.1028,
+      "approximate": true
+    },
+    "imageName": "cs_01331",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01332",
+    "coordinate": {
+      "lat": 41.4879,
+      "lng": 140.252,
+      "approximate": true
+    },
+    "imageName": "cs_01332",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01333",
+    "coordinate": {
+      "lat": 41.5913,
+      "lng": 140.3952,
+      "approximate": true
+    },
+    "imageName": "cs_01333",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01334",
+    "coordinate": {
+      "lat": 41.6741,
+      "lng": 140.4385,
+      "approximate": true
+    },
+    "imageName": "cs_01334",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01337",
+    "coordinate": {
+      "lat": 41.8889,
+      "lng": 140.6874,
+      "approximate": true
+    },
+    "imageName": "cs_01337",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01343",
+    "coordinate": {
+      "lat": 42.044,
+      "lng": 140.8194,
+      "approximate": true
+    },
+    "imageName": "cs_01343",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01345",
+    "coordinate": {
+      "lat": 42.1044,
+      "lng": 140.5823,
+      "approximate": true
+    },
+    "imageName": "cs_01345",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01346",
+    "coordinate": {
+      "lat": 42.2572,
+      "lng": 140.2744,
+      "approximate": true
+    },
+    "imageName": "cs_01346",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01347",
+    "coordinate": {
+      "lat": 42.5325,
+      "lng": 140.387,
+      "approximate": true
+    },
+    "imageName": "cs_01347",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01361",
+    "coordinate": {
+      "lat": 41.868,
+      "lng": 140.1286,
+      "approximate": true
+    },
+    "imageName": "cs_01361",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01362",
+    "coordinate": {
+      "lat": 41.8048,
+      "lng": 140.0813,
+      "approximate": true
+    },
+    "imageName": "cs_01362",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01363",
+    "coordinate": {
+      "lat": 41.995,
+      "lng": 140.1346,
+      "approximate": true
+    },
+    "imageName": "cs_01363",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01364",
+    "coordinate": {
+      "lat": 42.1779,
+      "lng": 140.1424,
+      "approximate": true
+    },
+    "imageName": "cs_01364",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01367",
+    "coordinate": {
+      "lat": 42.07,
+      "lng": 139.5249,
+      "approximate": true
+    },
+    "imageName": "cs_01367",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01370",
+    "coordinate": {
+      "lat": 42.2969,
+      "lng": 140.0681,
+      "approximate": true
+    },
+    "imageName": "cs_01370",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01371",
+    "coordinate": {
+      "lat": 42.4473,
+      "lng": 139.9175,
+      "approximate": true
+    },
+    "imageName": "cs_01371",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01391",
+    "coordinate": {
+      "lat": 42.6513,
+      "lng": 140.08,
+      "approximate": true
+    },
+    "imageName": "cs_01391",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01392",
+    "coordinate": {
+      "lat": 42.7833,
+      "lng": 140.2248,
+      "approximate": true
+    },
+    "imageName": "cs_01392",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01393",
+    "coordinate": {
+      "lat": 42.6703,
+      "lng": 140.3089,
+      "approximate": true
+    },
+    "imageName": "cs_01393",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01394",
+    "coordinate": {
+      "lat": 42.7927,
+      "lng": 140.4382,
+      "approximate": true
+    },
+    "imageName": "cs_01394",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01395",
+    "coordinate": {
+      "lat": 42.8058,
+      "lng": 140.6812,
+      "approximate": true
+    },
+    "imageName": "cs_01395",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01396",
+    "coordinate": {
+      "lat": 42.744,
+      "lng": 140.7427,
+      "approximate": true
+    },
+    "imageName": "cs_01396",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01397",
+    "coordinate": {
+      "lat": 42.7259,
+      "lng": 140.9025,
+      "approximate": true
+    },
+    "imageName": "cs_01397",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01398",
+    "coordinate": {
+      "lat": 42.802,
+      "lng": 140.9437,
+      "approximate": true
+    },
+    "imageName": "cs_01398",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01399",
+    "coordinate": {
+      "lat": 42.8804,
+      "lng": 140.8534,
+      "approximate": true
+    },
+    "imageName": "cs_01399",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01400",
+    "coordinate": {
+      "lat": 42.9016,
+      "lng": 140.7574,
+      "approximate": true
+    },
+    "imageName": "cs_01400",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01401",
+    "coordinate": {
+      "lat": 43.0063,
+      "lng": 140.7023,
+      "approximate": true
+    },
+    "imageName": "cs_01401",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01402",
+    "coordinate": {
+      "lat": 42.9769,
+      "lng": 140.512,
+      "approximate": true
+    },
+    "imageName": "cs_01402",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01403",
+    "coordinate": {
+      "lat": 43.0548,
+      "lng": 140.4789,
+      "approximate": true
+    },
+    "imageName": "cs_01403",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01404",
+    "coordinate": {
+      "lat": 43.1773,
+      "lng": 140.418,
+      "approximate": true
+    },
+    "imageName": "cs_01404",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01405",
+    "coordinate": {
+      "lat": 43.298,
+      "lng": 140.512,
+      "approximate": true
+    },
+    "imageName": "cs_01405",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01406",
+    "coordinate": {
+      "lat": 43.2363,
+      "lng": 140.7064,
+      "approximate": true
+    },
+    "imageName": "cs_01406",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01407",
+    "coordinate": {
+      "lat": 43.1538,
+      "lng": 140.7726,
+      "approximate": true
+    },
+    "imageName": "cs_01407",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01408",
+    "coordinate": {
+      "lat": 43.194,
+      "lng": 140.7834,
+      "approximate": true
+    },
+    "imageName": "cs_01408",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01409",
+    "coordinate": {
+      "lat": 43.0929,
+      "lng": 140.9204,
+      "approximate": true
+    },
+    "imageName": "cs_01409",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01423",
+    "coordinate": {
+      "lat": 43.0593,
+      "lng": 141.6634,
+      "approximate": true
+    },
+    "imageName": "cs_01423",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01424",
+    "coordinate": {
+      "lat": 43.4218,
+      "lng": 141.8858,
+      "approximate": true
+    },
+    "imageName": "cs_01424",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01425",
+    "coordinate": {
+      "lat": 43.5166,
+      "lng": 141.9815,
+      "approximate": true
+    },
+    "imageName": "cs_01425",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01427",
+    "coordinate": {
+      "lat": 43.0161,
+      "lng": 141.7818,
+      "approximate": true
+    },
+    "imageName": "cs_01427",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01428",
+    "coordinate": {
+      "lat": 42.9269,
+      "lng": 141.6986,
+      "approximate": true
+    },
+    "imageName": "cs_01428",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01429",
+    "coordinate": {
+      "lat": 43.0594,
+      "lng": 141.7881,
+      "approximate": true
+    },
+    "imageName": "cs_01429",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01430",
+    "coordinate": {
+      "lat": 43.3281,
+      "lng": 141.678,
+      "approximate": true
+    },
+    "imageName": "cs_01430",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01431",
+    "coordinate": {
+      "lat": 43.4592,
+      "lng": 141.8051,
+      "approximate": true
+    },
+    "imageName": "cs_01431",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01432",
+    "coordinate": {
+      "lat": 43.535,
+      "lng": 141.8714,
+      "approximate": true
+    },
+    "imageName": "cs_01432",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01433",
+    "coordinate": {
+      "lat": 43.6959,
+      "lng": 141.9703,
+      "approximate": true
+    },
+    "imageName": "cs_01433",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01434",
+    "coordinate": {
+      "lat": 43.7371,
+      "lng": 141.9637,
+      "approximate": true
+    },
+    "imageName": "cs_01434",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01436",
+    "coordinate": {
+      "lat": 43.71,
+      "lng": 141.988,
+      "approximate": true
+    },
+    "imageName": "cs_01436",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01437",
+    "coordinate": {
+      "lat": 43.82,
+      "lng": 141.969,
+      "approximate": true
+    },
+    "imageName": "cs_01437",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01438",
+    "coordinate": {
+      "lat": 43.8616,
+      "lng": 141.987,
+      "approximate": true
+    },
+    "imageName": "cs_01438",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01452",
+    "coordinate": {
+      "lat": 43.8534,
+      "lng": 142.3166,
+      "approximate": true
+    },
+    "imageName": "cs_01452",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01453",
+    "coordinate": {
+      "lat": 43.7032,
+      "lng": 142.4511,
+      "approximate": true
+    },
+    "imageName": "cs_01453",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01454",
+    "coordinate": {
+      "lat": 43.7289,
+      "lng": 142.4885,
+      "approximate": true
+    },
+    "imageName": "cs_01454",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01455",
+    "coordinate": {
+      "lat": 43.8548,
+      "lng": 142.4743,
+      "approximate": true
+    },
+    "imageName": "cs_01455",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01456",
+    "coordinate": {
+      "lat": 43.9064,
+      "lng": 142.582,
+      "approximate": true
+    },
+    "imageName": "cs_01456",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01457",
+    "coordinate": {
+      "lat": 43.8424,
+      "lng": 142.7698,
+      "approximate": true
+    },
+    "imageName": "cs_01457",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01458",
+    "coordinate": {
+      "lat": 43.6904,
+      "lng": 142.5174,
+      "approximate": true
+    },
+    "imageName": "cs_01458",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01459",
+    "coordinate": {
+      "lat": 43.5868,
+      "lng": 142.4702,
+      "approximate": true
+    },
+    "imageName": "cs_01459",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01460",
+    "coordinate": {
+      "lat": 43.4592,
+      "lng": 142.4623,
+      "approximate": true
+    },
+    "imageName": "cs_01460",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01461",
+    "coordinate": {
+      "lat": 43.4099,
+      "lng": 142.4492,
+      "approximate": true
+    },
+    "imageName": "cs_01461",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01462",
+    "coordinate": {
+      "lat": 43.2041,
+      "lng": 142.6167,
+      "approximate": true
+    },
+    "imageName": "cs_01462",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01463",
+    "coordinate": {
+      "lat": 43.127,
+      "lng": 142.4752,
+      "approximate": true
+    },
+    "imageName": "cs_01463",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01464",
+    "coordinate": {
+      "lat": 44.082,
+      "lng": 142.3887,
+      "approximate": true
+    },
+    "imageName": "cs_01464",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01465",
+    "coordinate": {
+      "lat": 44.0988,
+      "lng": 142.449,
+      "approximate": true
+    },
+    "imageName": "cs_01465",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01468",
+    "coordinate": {
+      "lat": 44.3036,
+      "lng": 142.6378,
+      "approximate": true
+    },
+    "imageName": "cs_01468",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01469",
+    "coordinate": {
+      "lat": 44.4749,
+      "lng": 142.3665,
+      "approximate": true
+    },
+    "imageName": "cs_01469",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01470",
+    "coordinate": {
+      "lat": 44.739,
+      "lng": 142.2444,
+      "approximate": true
+    },
+    "imageName": "cs_01470",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01471",
+    "coordinate": {
+      "lat": 44.81,
+      "lng": 142.0824,
+      "approximate": true
+    },
+    "imageName": "cs_01471",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01472",
+    "coordinate": {
+      "lat": 44.0173,
+      "lng": 142.1356,
+      "approximate": true
+    },
+    "imageName": "cs_01472",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01481",
+    "coordinate": {
+      "lat": 43.8541,
+      "lng": 141.5283,
+      "approximate": true
+    },
+    "imageName": "cs_01481",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01482",
+    "coordinate": {
+      "lat": 43.991,
+      "lng": 141.6517,
+      "approximate": true
+    },
+    "imageName": "cs_01482",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01483",
+    "coordinate": {
+      "lat": 44.288,
+      "lng": 141.6473,
+      "approximate": true
+    },
+    "imageName": "cs_01483",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01484",
+    "coordinate": {
+      "lat": 44.3629,
+      "lng": 141.696,
+      "approximate": true
+    },
+    "imageName": "cs_01484",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01485",
+    "coordinate": {
+      "lat": 44.4994,
+      "lng": 141.7499,
+      "approximate": true
+    },
+    "imageName": "cs_01485",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01486",
+    "coordinate": {
+      "lat": 44.7096,
+      "lng": 141.7963,
+      "approximate": true
+    },
+    "imageName": "cs_01486",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01487",
+    "coordinate": {
+      "lat": 44.8895,
+      "lng": 141.7521,
+      "approximate": true
+    },
+    "imageName": "cs_01487",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01511",
+    "coordinate": {
+      "lat": 45.1956,
+      "lng": 142.204,
+      "approximate": true
+    },
+    "imageName": "cs_01511",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01512",
+    "coordinate": {
+      "lat": 45.1307,
+      "lng": 142.3539,
+      "approximate": true
+    },
+    "imageName": "cs_01512",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01513",
+    "coordinate": {
+      "lat": 44.9879,
+      "lng": 142.3178,
+      "approximate": true
+    },
+    "imageName": "cs_01513",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01514",
+    "coordinate": {
+      "lat": 44.938,
+      "lng": 142.5813,
+      "approximate": true
+    },
+    "imageName": "cs_01514",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01516",
+    "coordinate": {
+      "lat": 45.1073,
+      "lng": 141.767,
+      "approximate": true
+    },
+    "imageName": "cs_01516",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01517",
+    "coordinate": {
+      "lat": 45.3006,
+      "lng": 141.0434,
+      "approximate": true
+    },
+    "imageName": "cs_01517",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01518",
+    "coordinate": {
+      "lat": 45.1627,
+      "lng": 141.1793,
+      "approximate": true
+    },
+    "imageName": "cs_01518",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01519",
+    "coordinate": {
+      "lat": 45.2391,
+      "lng": 141.2285,
+      "approximate": true
+    },
+    "imageName": "cs_01519",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01520",
+    "coordinate": {
+      "lat": 44.9195,
+      "lng": 141.8382,
+      "approximate": true
+    },
+    "imageName": "cs_01520",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01543",
+    "coordinate": {
+      "lat": 43.8264,
+      "lng": 144.1065,
+      "approximate": true
+    },
+    "imageName": "cs_01543",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01544",
+    "coordinate": {
+      "lat": 43.7092,
+      "lng": 143.9942,
+      "approximate": true
+    },
+    "imageName": "cs_01544",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01545",
+    "coordinate": {
+      "lat": 43.9071,
+      "lng": 144.6606,
+      "approximate": true
+    },
+    "imageName": "cs_01545",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01546",
+    "coordinate": {
+      "lat": 43.7977,
+      "lng": 144.7031,
+      "approximate": true
+    },
+    "imageName": "cs_01546",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01547",
+    "coordinate": {
+      "lat": 43.8427,
+      "lng": 144.4633,
+      "approximate": true
+    },
+    "imageName": "cs_01547",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01549",
+    "coordinate": {
+      "lat": 43.7158,
+      "lng": 143.8355,
+      "approximate": true
+    },
+    "imageName": "cs_01549",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01550",
+    "coordinate": {
+      "lat": 43.701,
+      "lng": 143.6022,
+      "approximate": true
+    },
+    "imageName": "cs_01550",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01552",
+    "coordinate": {
+      "lat": 44.0187,
+      "lng": 143.7724,
+      "approximate": true
+    },
+    "imageName": "cs_01552",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01555",
+    "coordinate": {
+      "lat": 44.0604,
+      "lng": 143.5325,
+      "approximate": true
+    },
+    "imageName": "cs_01555",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01559",
+    "coordinate": {
+      "lat": 44.1819,
+      "lng": 143.6344,
+      "approximate": true
+    },
+    "imageName": "cs_01559",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01560",
+    "coordinate": {
+      "lat": 44.3095,
+      "lng": 143.0414,
+      "approximate": true
+    },
+    "imageName": "cs_01560",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01561",
+    "coordinate": {
+      "lat": 44.4759,
+      "lng": 143.0828,
+      "approximate": true
+    },
+    "imageName": "cs_01561",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01562",
+    "coordinate": {
+      "lat": 44.4526,
+      "lng": 142.9695,
+      "approximate": true
+    },
+    "imageName": "cs_01562",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01563",
+    "coordinate": {
+      "lat": 44.5784,
+      "lng": 143.0929,
+      "approximate": true
+    },
+    "imageName": "cs_01563",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01564",
+    "coordinate": {
+      "lat": 43.9479,
+      "lng": 144.1732,
+      "approximate": true
+    },
+    "imageName": "cs_01564",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01571",
+    "coordinate": {
+      "lat": 42.5617,
+      "lng": 140.6193,
+      "approximate": true
+    },
+    "imageName": "cs_01571",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01575",
+    "coordinate": {
+      "lat": 42.5458,
+      "lng": 140.847,
+      "approximate": true
+    },
+    "imageName": "cs_01575",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01578",
+    "coordinate": {
+      "lat": 42.5606,
+      "lng": 141.3573,
+      "approximate": true
+    },
+    "imageName": "cs_01578",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01581",
+    "coordinate": {
+      "lat": 42.7015,
+      "lng": 141.8779,
+      "approximate": true
+    },
+    "imageName": "cs_01581",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01584",
+    "coordinate": {
+      "lat": 42.5567,
+      "lng": 140.7819,
+      "approximate": true
+    },
+    "imageName": "cs_01584",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01585",
+    "coordinate": {
+      "lat": 42.7547,
+      "lng": 141.8249,
+      "approximate": true
+    },
+    "imageName": "cs_01585",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01586",
+    "coordinate": {
+      "lat": 42.5742,
+      "lng": 141.9296,
+      "approximate": true
+    },
+    "imageName": "cs_01586",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01601",
+    "coordinate": {
+      "lat": 42.4802,
+      "lng": 142.3635,
+      "approximate": true
+    },
+    "imageName": "cs_01601",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01602",
+    "coordinate": {
+      "lat": 42.5873,
+      "lng": 142.1161,
+      "approximate": true
+    },
+    "imageName": "cs_01602",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01604",
+    "coordinate": {
+      "lat": 42.3529,
+      "lng": 142.3168,
+      "approximate": true
+    },
+    "imageName": "cs_01604",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01607",
+    "coordinate": {
+      "lat": 42.1651,
+      "lng": 142.774,
+      "approximate": true
+    },
+    "imageName": "cs_01607",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01608",
+    "coordinate": {
+      "lat": 42.1275,
+      "lng": 143.0175,
+      "approximate": true
+    },
+    "imageName": "cs_01608",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01609",
+    "coordinate": {
+      "lat": 42.0188,
+      "lng": 143.1454,
+      "approximate": true
+    },
+    "imageName": "cs_01609",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01610",
+    "coordinate": {
+      "lat": 42.3448,
+      "lng": 142.494,
+      "approximate": true
+    },
+    "imageName": "cs_01610",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01631",
+    "coordinate": {
+      "lat": 42.9971,
+      "lng": 143.4195,
+      "approximate": true
+    },
+    "imageName": "cs_01631",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01632",
+    "coordinate": {
+      "lat": 43.1721,
+      "lng": 143.3016,
+      "approximate": true
+    },
+    "imageName": "cs_01632",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01633",
+    "coordinate": {
+      "lat": 43.2557,
+      "lng": 143.3038,
+      "approximate": true
+    },
+    "imageName": "cs_01633",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01634",
+    "coordinate": {
+      "lat": 43.1082,
+      "lng": 143.0456,
+      "approximate": true
+    },
+    "imageName": "cs_01634",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01635",
+    "coordinate": {
+      "lat": 43.0772,
+      "lng": 142.8297,
+      "approximate": true
+    },
+    "imageName": "cs_01635",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01636",
+    "coordinate": {
+      "lat": 43.0114,
+      "lng": 142.8882,
+      "approximate": true
+    },
+    "imageName": "cs_01636",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01637",
+    "coordinate": {
+      "lat": 42.9112,
+      "lng": 143.0463,
+      "approximate": true
+    },
+    "imageName": "cs_01637",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01638",
+    "coordinate": {
+      "lat": 42.7344,
+      "lng": 143.131,
+      "approximate": true
+    },
+    "imageName": "cs_01638",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01639",
+    "coordinate": {
+      "lat": 42.7194,
+      "lng": 143.2083,
+      "approximate": true
+    },
+    "imageName": "cs_01639",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01641",
+    "coordinate": {
+      "lat": 42.4949,
+      "lng": 143.2843,
+      "approximate": true
+    },
+    "imageName": "cs_01641",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01642",
+    "coordinate": {
+      "lat": 42.286,
+      "lng": 143.3166,
+      "approximate": true
+    },
+    "imageName": "cs_01642",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01643",
+    "coordinate": {
+      "lat": 42.8038,
+      "lng": 143.3883,
+      "approximate": true
+    },
+    "imageName": "cs_01643",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01644",
+    "coordinate": {
+      "lat": 42.8986,
+      "lng": 143.4364,
+      "approximate": true
+    },
+    "imageName": "cs_01644",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01645",
+    "coordinate": {
+      "lat": 42.8007,
+      "lng": 143.5305,
+      "approximate": true
+    },
+    "imageName": "cs_01645",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01646",
+    "coordinate": {
+      "lat": 43.1246,
+      "lng": 143.6089,
+      "approximate": true
+    },
+    "imageName": "cs_01646",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01647",
+    "coordinate": {
+      "lat": 43.276,
+      "lng": 143.5499,
+      "approximate": true
+    },
+    "imageName": "cs_01647",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01648",
+    "coordinate": {
+      "lat": 43.4677,
+      "lng": 143.5593,
+      "approximate": true
+    },
+    "imageName": "cs_01648",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01649",
+    "coordinate": {
+      "lat": 42.9404,
+      "lng": 143.6458,
+      "approximate": true
+    },
+    "imageName": "cs_01649",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01661",
+    "coordinate": {
+      "lat": 43.0554,
+      "lng": 144.5131,
+      "approximate": true
+    },
+    "imageName": "cs_01661",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01662",
+    "coordinate": {
+      "lat": 43.0505,
+      "lng": 144.8543,
+      "approximate": true
+    },
+    "imageName": "cs_01662",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01663",
+    "coordinate": {
+      "lat": 43.0936,
+      "lng": 145.1285,
+      "approximate": true
+    },
+    "imageName": "cs_01663",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01664",
+    "coordinate": {
+      "lat": 43.3108,
+      "lng": 144.6767,
+      "approximate": true
+    },
+    "imageName": "cs_01664",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01665",
+    "coordinate": {
+      "lat": 43.5456,
+      "lng": 144.4586,
+      "approximate": true
+    },
+    "imageName": "cs_01665",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01667",
+    "coordinate": {
+      "lat": 43.2391,
+      "lng": 144.401,
+      "approximate": true
+    },
+    "imageName": "cs_01667",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01668",
+    "coordinate": {
+      "lat": 42.9855,
+      "lng": 144.1045,
+      "approximate": true
+    },
+    "imageName": "cs_01668",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01691",
+    "coordinate": {
+      "lat": 43.3966,
+      "lng": 145.1209,
+      "approximate": true
+    },
+    "imageName": "cs_01691",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01692",
+    "coordinate": {
+      "lat": 43.5558,
+      "lng": 144.9725,
+      "approximate": true
+    },
+    "imageName": "cs_01692",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01693",
+    "coordinate": {
+      "lat": 43.658,
+      "lng": 145.1284,
+      "approximate": true
+    },
+    "imageName": "cs_01693",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  },
+  {
+    "municipalityCode": "01694",
+    "coordinate": {
+      "lat": 44.0241,
+      "lng": 145.1925,
+      "approximate": true
+    },
+    "imageName": "cs_01694",
+    "imageUrl": null,
+    "imageCredit": null,
+    "originText": null,
+    "designDescription": null
+  }
+]
