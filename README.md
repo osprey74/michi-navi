@@ -17,18 +17,18 @@ Michi-navi は、走行中に最小限の操作でドライブ補助情報を提
 - **地図表示** — 現在地・速度・方位のリアルタイム表示（MapKit）
 - **道の駅マッピング** — 全国約 1,200 箇所の道の駅をビューポート連動で地図上に表示
 - **道の駅詳細** — 写真・施設設備アイコン・公式サイトリンク付き詳細シート
-- **施設表示（POI）** — ガソリンスタンド / コンビニ / レストラン / 駐車場 / RVパーク・キャンプ場の表示切替
-- **目的地ナビ** — 道の駅またはRVパークを検索し、Apple Maps でナビ開始
+- **施設表示（POI）** — ガソリンスタンド / コンビニ / レストラン / 駐車場の表示切替
+- **目的地ナビ** — 道の駅を検索し、Apple Maps でナビ開始
 - **設定** — 検索範囲スライダー（50〜400km）、施設表示トグル
 - **広域 / 詳細ズーム** — ワンタップで 120km 広域 / 400m 詳細に切替
 - **CarPlay 対応** — CarPlay Driving Task テンプレート（POI テンプレート）
 
 ## スクリーンショット
 
-| 地図画面 | 道の駅詳細 | RVパーク詳細 |
-|---------|-----------|-------------|
-| ![地図画面](docs/screenshots/map.png) | ![道の駅詳細](docs/screenshots/station.png) | ![RVパーク詳細](docs/screenshots/rvpark.png) |
-| 道の駅ピン・POI表示 | 施設設備・写真・ナビ開始 | Apple Maps 提供データ |
+| 地図画面 | 道の駅詳細 |
+|---------|-----------|
+| ![地図画面](docs/screenshots/map.png) | ![道の駅詳細](docs/screenshots/station.png) |
+| 道の駅ピン・POI表示 | 施設設備・写真・ナビ開始 |
 
 > **Note**: スクリーンショットは開発中のものであり、正式リリース版とは異なる場合があります。
 
@@ -79,7 +79,7 @@ MichiNavi/
 ├── Features/
 │   ├── Map/                    地図画面（ContentView）
 │   ├── Settings/               設定画面
-│   ├── Destination/            目的地選択（道の駅 / RVパーク）
+│   ├── Destination/            目的地選択（道の駅）
 │   └── StationDetail/          道の駅詳細画面
 ├── CarPlay/                    CarPlay テンプレート
 ├── Shared/
@@ -96,21 +96,11 @@ MichiNavi/
 | Phase 1 | 地図・位置情報・速度表示 | ✅ 完了 |
 | Phase 2 | 道の駅データ・マッピング・詳細画面 | ✅ 完了 |
 | Phase 3 | 設定画面・POI 表示・検索範囲 | ✅ 完了 |
-| Phase 4 | RVパーク対応・ビューポート連動・ズームプリセット | ✅ 完了 |
+| Phase 4 | ビューポート連動・ズームプリセット | ✅ 完了 |
 | Phase 5 | CarPlay テンプレート（POI テンプレート） | ✅ 完了 |
-| Phase 6 | RVパーク自前データ対応（JRVA 問合せ中） | 🔲 検討中 |
-| Phase 7 | WeatherKit・Live Activity・Widget | 🔲 |
-| Phase 8 | App Store 審査・公開 | 🔲 |
+| Phase 6 | WeatherKit・Live Activity・Widget | 🔲 |
+| Phase 7 | App Store 審査・公開 | 🔲 |
 
-## データソース
-
-| データ | ソース | ライセンス |
-|--------|--------|-----------|
-| 道の駅（約 1,200 件） | 国土交通省 公開データ | 政府標準利用規約 |
-| 施設 POI（GS / コンビニ等） | MapKit 標準 POI | Apple MapKit 利用規約 |
-| RVパーク・キャンプ場 | MapKit 標準 POI（暫定） | Apple MapKit 利用規約 |
-
-> **Note**: RVパークの自前データ（JRVA 認定 RVパーク約 608 件）については、日本RV協会にデータ利用を問合せ中です。
 
 
 ## Support / 開発を応援する
