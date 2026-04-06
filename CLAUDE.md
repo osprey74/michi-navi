@@ -99,25 +99,12 @@ michi-navi/
 - 外部ナビアプリ（Apple Maps / Google Maps / Yahoo!カーナビ / Waze）への誘導
 - データ出典: 一般社団法人 全国道の駅連絡会（利用許諾済み）
 
-### カントリーサイン（北海道）
-- 179 市区町村のカントリーサイン情報
-- 由来文・デザイン説明（北の道ナビ提供データ）
-- ユーザーが自分で撮影した写真を登録する方式（実装予定）
-
 ### 走行情報
 - 現在速度・方位（CoreLocation）
-- 気象情報（WeatherKit）
 
 ---
 
 ## エンタイトルメント
-
-### App/MichiNavi.entitlements（メインアプリ）
-```xml
-<!-- WeatherKit API（本番時に有効化） -->
-<key>com.apple.developer.weatherkit</key>
-<true/>
-```
 
 ### Info.plist 必須キー
 ```
@@ -147,19 +134,13 @@ UIBackgroundModes: [location]
 - 施設詳細・フォトアルバム
 - お気に入り・訪問済み管理
 - 外部ナビアプリ連携
-- カントリーサインデータ収集（179件）
 - 設定画面・クレジット表示
 - プライバシーポリシー（GitHub Pages）
 
 ### 🔲 Phase 1-D（App Store 申請）
 - [ ] App Store Connect 設定（日本国内限定）
-- [ ] WeatherKit エンタイトルメント有効化
 - [ ] TestFlight 配布
 - [ ] App Store 審査提出
-
-### 🔲 将来機能
-- [ ] カントリーサイン写真登録機能
-- [ ] 市区町村境界オーバーレイ表示
 
 ---
 
@@ -176,7 +157,5 @@ UIBackgroundModes: [location]
 
 ## 参考リンク
 
-- WeatherKit: https://developer.apple.com/documentation/weatherkit
 - 全国道の駅連絡会: http://www.michi-no-eki.jp/
-- 北の道ナビ（カントリーサイン）: https://northern-road.ceri.go.jp/
 - GitHub Pages（プライバシーポリシー）: https://osprey74.github.io/michi-navi/privacy.html
