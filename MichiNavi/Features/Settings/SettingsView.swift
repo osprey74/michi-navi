@@ -139,6 +139,32 @@ struct SettingsView: View {
 
     private var creditSection: some View {
         Section("クレジット") {
+            // アプリバージョン・著作権
+            HStack {
+                Text("Michi-Navi")
+                    .font(.footnote)
+                Spacer()
+                Text("v\(appVersion)")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+            Text("COPYRIGHT 2026 osprey74")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+
+            // 道の駅データ出典
+            VStack(alignment: .leading, spacing: 4) {
+                Text("道の駅データ出典")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text("一般社団法人 全国道の駅連絡会")
+                    .font(.footnote)
+                Link("http://www.michi-no-eki.jp/", destination: URL(string: "http://www.michi-no-eki.jp/")!)
+                    .font(.footnote)
+            }
+            .padding(.vertical, 2)
+
+            // アイコン
             Link(destination: URL(string: "https://www.flaticon.com/free-icons/navigation")!) {
                 HStack {
                     Image(systemName: "arrow.up.right.square")
@@ -149,6 +175,10 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+
+    private var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
     }
 
     // MARK: - Helper
