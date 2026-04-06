@@ -1,34 +1,32 @@
 # Michi-navi（道ナビ）
 
-**走行中の iPhone をもっとスマートに。Apple CarPlay 対応ドライビングタスクアプリ。**
+**北海道の道の駅・カントリーサインを巡る iPhone ドライビングコンパニオン。**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: iOS 17+](https://img.shields.io/badge/Platform-iOS%2017%2B-lightgrey)](https://developer.apple.com/ios/)
-[![CarPlay: Driving Task](https://img.shields.io/badge/CarPlay-Driving%20Task-3C7B91)](https://developer.apple.com/carplay/)
 
 ---
 
 ## 概要
 
-Michi-navi は、走行中に最小限の操作でドライブ補助情報を提供する CarPlay 対応 iPhone アプリです。
+Michi-navi は、北海道をドライブしながら道の駅・カントリーサインを楽しむための iPhone アプリです。
 
 ### 主な機能
 
 - **地図表示** — 現在地・速度・方位のリアルタイム表示（MapKit）
-- **道の駅マッピング** — 全国約 1,200 箇所の道の駅をビューポート連動で地図上に表示
-- **道の駅詳細** — 写真・施設設備アイコン・公式サイトリンク付き詳細シート
-- **施設表示（POI）** — ガソリンスタンド / コンビニ / レストラン / 駐車場の表示切替
-- **目的地ナビ** — 道の駅を検索し、Apple Maps でナビ開始
-- **設定** — 検索範囲スライダー（50〜400km）、施設表示トグル
-- **広域 / 詳細ズーム** — ワンタップで 120km 広域 / 400m 詳細に切替
-- **CarPlay 対応** — CarPlay Driving Task テンプレート（POI テンプレート）
+- **道の駅一覧** — 周辺の道の駅を距離順に表示
+- **道の駅詳細** — 施設設備・公式サイトリンク・フォトアルバム（最大 3 枚）
+- **お気に入り・訪問済み管理** — 行きたい場所・行った場所を記録
+- **外部ナビ連携** — Apple Maps / Google Maps / Yahoo!カーナビ / Waze に誘導
+- **カントリーサイン情報** — 北海道 179 市区町村の由来・デザイン説明
+- **気象情報** — WeatherKit による現在地の天気表示
 
 ## スクリーンショット
 
 | 地図画面 | 道の駅詳細 |
 |---------|-----------|
 | ![地図画面](docs/screenshots/map.png) | ![道の駅詳細](docs/screenshots/station.png) |
-| 道の駅ピン・POI表示 | 施設設備・写真・ナビ開始 |
+| 道の駅ピン・周辺検索 | 施設設備・写真・ナビ開始 |
 
 > **Note**: スクリーンショットは開発中のものであり、正式リリース版とは異なる場合があります。
 
@@ -37,16 +35,15 @@ Michi-navi は、走行中に最小限の操作でドライブ補助情報を提
 | レイヤー | 採用技術 |
 |---------|---------|
 | 言語 | Swift 6.x |
-| UI（iPhone） | SwiftUI（iOS 17+） |
+| UI | SwiftUI（iOS 17+） |
 | 地図 | MapKit（iOS 17+） |
 | 位置情報 | CoreLocation |
-| CarPlay | CarPlay Framework（Driving Task） |
-| データ | JSON バンドル（道の駅）・MapKit 標準 POI |
+| 気象 | WeatherKit |
+| データ | JSON バンドル（道の駅・カントリーサイン） |
 
 ## 要件
 
 - **iPhone**: iOS 17.0 以上
-- **CarPlay**: 対応車または社外ナビ
 - **Xcode**: 16.0 以上（Apple Silicon Mac 推奨）
 
 ## セットアップ
@@ -57,20 +54,6 @@ cd michi-navi
 open MichiNavi.xcodeproj
 ```
 
-### CarPlay Simulator のセットアップ
-
-1. Xcode → Xcode メニュー → Open Developer Tool → Additional Tools for Xcode
-2. CarPlay Simulator をインストール
-3. Xcode Simulator でアプリを起動後、CarPlay Simulator を起動して接続
-
-### エンタイトルメント申請
-
-CarPlay Driving Task エンタイトルメントは Apple への申請が必要です。
-
-1. [Apple Developer Program](https://developer.apple.com/programs/) に加入
-2. [CarPlay 開発者ページ](https://developer.apple.com/carplay/) からエンタイトルメントを申請
-3. 承認後、Xcode の Signing & Capabilities に追加
-
 ## プロジェクト構成
 
 ```
@@ -78,38 +61,39 @@ MichiNavi/
 ├── App/                        エントリポイント・AppDelegate
 ├── Features/
 │   ├── Map/                    地図画面（ContentView）
-│   ├── Settings/               設定画面
-│   ├── Destination/            目的地選択（道の駅）
-│   └── StationDetail/          道の駅詳細画面
-├── CarPlay/                    CarPlay テンプレート
+│   ├── Settings/               設定画面・クレジット
+│   ├── Destination/            目的地選択
+│   ├── StationDetail/          道の駅詳細・フォトアルバム
+│   └── StationList/            道の駅リスト
 ├── Shared/
 │   ├── Models/                 データモデル（RoadsideStation, DriveState, AppSettings）
-│   └── Services/               ビジネスロジック（Location, Navigation, RoadsideStation）
-└── Resources/                  道の駅 JSON データ
+│   └── Services/               ビジネスロジック（Location, Navigation, RoadsideStation, Photo）
+└── Resources/                  道の駅・カントリーサイン JSON データ
 ```
+
+## データ出典
+
+- **道の駅データ**: 一般社団法人 全国道の駅連絡会（利用許諾済み）http://www.michi-no-eki.jp/
+- **カントリーサインデータ**: 国土交通省 北海道開発局 / 北の道ナビ https://northern-road.ceri.go.jp/
 
 ## 開発ロードマップ
 
 | Phase | 内容 | 状態 |
 |-------|------|------|
-| Phase 0 | Xcode プロジェクト作成・CarPlay 動作確認 | ✅ 完了 |
 | Phase 1 | 地図・位置情報・速度表示 | ✅ 完了 |
-| Phase 2 | 道の駅データ・マッピング・詳細画面 | ✅ 完了 |
-| Phase 3 | 設定画面・POI 表示・検索範囲 | ✅ 完了 |
-| Phase 4 | ビューポート連動・ズームプリセット | ✅ 完了 |
-| Phase 5 | CarPlay テンプレート（POI テンプレート） | ✅ 完了 |
-| Phase 6 | WeatherKit・Live Activity・Widget | 🔲 |
-| Phase 7 | App Store 審査・公開 | 🔲 |
-
-
+| Phase 2 | 道の駅データ・一覧・詳細画面 | ✅ 完了 |
+| Phase 3 | 設定・お気に入り・訪問済み | ✅ 完了 |
+| Phase 4 | フォトアルバム・外部ナビ連携 | ✅ 完了 |
+| Phase 5 | カントリーサインデータ収集 | ✅ 完了 |
+| Phase 6 | App Store 審査・公開 | 🔲 |
+| Phase 7 | カントリーサイン写真登録機能 | 🔲 |
 
 ## Support / 開発を応援する
 
-kazahana を気に入っていただけたら、開発の継続を応援してください ☕
+Michi-Navi を気に入っていただけたら、開発の継続を応援してください ☕
 
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=github)](https://github.com/sponsors/osprey74)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi)](https://ko-fi.com/osprey74)
-
 
 ## ライセンス
 

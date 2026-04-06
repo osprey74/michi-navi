@@ -24,7 +24,6 @@
 		C0D58F4C2F5D4E91006A068E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F482F5D4E91006A068E /* ContentView.swift */; };
 		C0D58F4E2F5D4E91006A068E /* MichiNaviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F4A2F5D4E91006A068E /* MichiNaviApp.swift */; };
 		C0D58F5C2F5D4F62006A068E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F5B2F5D4F62006A068E /* AppDelegate.swift */; };
-		C0D58F5E2F5D4F9A006A068E /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F5D2F5D4F9A006A068E /* CarPlaySceneDelegate.swift */; };
 		C0D58F602F5D4FB6006A068E /* DriveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F5F2F5D4FB6006A068E /* DriveState.swift */; };
 		C0D58F622F5D4FE1006A068E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D58F612F5D4FE1006A068E /* LocationService.swift */; };
 		C0F7A72B2F5D9245001C4927 /* StationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7A72A2F5D9245001C4927 /* StationDetailView.swift */; };
@@ -66,7 +65,6 @@
 		C0D58F482F5D4E91006A068E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0D58F4A2F5D4E91006A068E /* MichiNaviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MichiNaviApp.swift; sourceTree = "<group>"; };
 		C0D58F5B2F5D4F62006A068E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0D58F5D2F5D4F9A006A068E /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		C0D58F5F2F5D4FB6006A068E /* DriveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveState.swift; sourceTree = "<group>"; };
 		C0D58F612F5D4FE1006A068E /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C0DE0CEF2F5D4E35007BA897 /* MichiNavi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MichiNavi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +186,6 @@
 		C0D58F572F5D4EAA006A068E /* CarPlay */ = {
 			isa = PBXGroup;
 			children = (
-				C0D58F5D2F5D4F9A006A068E /* CarPlaySceneDelegate.swift */,
 			);
 			path = CarPlay;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				C074F6AE2F5D743C0078A78D /* NavigationService.swift in Sources */,
 				C0D58F602F5D4FB6006A068E /* DriveState.swift in Sources */,
 				C074F6A92F5D74290078A78D /* AppSettings.swift in Sources */,
-				C0D58F5E2F5D4F9A006A068E /* CarPlaySceneDelegate.swift in Sources */,
 				C074F6AC2F5D74300078A78D /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

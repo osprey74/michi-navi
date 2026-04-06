@@ -20,45 +20,21 @@
 
 	<!-- 位置情報の使用説明 -->
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>走行中の速度・位置情報の表示と、CarPlay でのドライブ補助情報の提供に使用します。</string>
+	<string>走行中の速度・位置情報の表示と、周辺施設の検索に使用します。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>現在地の地図表示と周辺施設の検索に使用します。</string>
 
-	<!-- バックグラウンドモード -->
+	<!-- バックグラウンドモード（位置情報） -->
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
-		<string>audio</string>
 	</array>
 
-	<!-- Scene Manifest（iPhone + CarPlay Scene 登録） -->
+	<!-- Scene 設定 -->
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
-		<true/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<!-- iPhone Scene -->
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-				</dict>
-			</array>
-			<!-- CarPlay Scene -->
-			<key>CPTemplateApplicationSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneClassName</key>
-					<string>CPTemplateApplicationScene</string>
-					<key>UISceneConfigurationName</key>
-					<string>CarPlay Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
-				</dict>
-			</array>
-		</dict>
+		<false/>
 	</dict>
 </dict>
 </plist>

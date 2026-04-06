@@ -3,13 +3,6 @@
   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- CarPlay Driving Task エンタイトルメント（要申請） -->
-    <!-- 申請先: https://developer.apple.com/carplay/ -->
-    <!-- 実機テスト用に一時無効化（Developer Program 加入後に復元すること）
-    <key>com.apple.developer.carplay-driving-task</key>
-    <true/>
-    -->
-
     <!-- WeatherKit API -->
     <!-- 実機テスト用に一時無効化（Developer Program 加入後に復元すること）
     <key>com.apple.developer.weatherkit</key>

@@ -2,13 +2,13 @@
 
 ## プロジェクト概要
 
-**Michi-navi（道ナビ）** は Apple CarPlay 対応の iPhone ドライビングタスクアプリです。
-走行中に最小限のタッチ操作でドライブ補助情報（気象・周辺 POI・速度・到着予定）を提供します。
+**Michi-navi（道ナビ）** は北海道の道の駅・カントリーサインを巡る iPhone ドライビングコンパニオンアプリです。
+現在地周辺の道の駅一覧、施設詳細、フォトアルバム、カントリーサイン情報などを提供します。
 
 - **リポジトリ**: https://github.com/osprey74/michi-navi
 - **ライセンス**: MIT
 - **開発者**: Sohshi / osprey74
-- **Phase 1 目標**: CarPlay Driving Task エンタイトルメント取得 → App Store 公開
+- **Phase 1 目標**: App Store 公開（日本国内限定）
 
 ---
 
@@ -17,14 +17,11 @@
 | レイヤー | 採用技術 | バージョン |
 |---------|---------|----------|
 | 言語 | Swift | 6.x |
-| UI（iPhone） | SwiftUI | iOS 17+ |
-| UI（CarPlay） | CarPlay Framework | iOS 17+ |
+| UI | SwiftUI | iOS 17+ |
 | 地図 | MapKit | iOS 17+ |
 | 位置情報 | CoreLocation | iOS 17+ |
 | 気象 | WeatherKit | iOS 17+ |
-| 動的表示 | ActivityKit (Live Activity) | iOS 16.2+ |
-| ウィジェット | WidgetKit | iOS 17+ |
-| データ永続化 | SwiftData + UserDefaults | iOS 17+ |
+| データ永続化 | UserDefaults | iOS 17+ |
 | 並行処理 | Swift Concurrency (async/await) | Swift 6 |
 
 ---
@@ -35,41 +32,51 @@
 michi-navi/
 ├── CLAUDE.md                       ← このファイル
 ├── README.md
+├── docs/
+│   └── privacy.html                ← GitHub Pages プライバシーポリシー
 ├── .github/
 │   └── workflows/
 │       └── release.yml             ← GitHub Actions リリースワークフロー
-├── MichiNavi/                      ← メイン iOS アプリ
-│   ├── App/
-│   │   ├── MichiNaviApp.swift      ← @main エントリポイント
-│   │   └── AppDelegate.swift       ← UIApplicationDelegate（CarPlay Scene 登録）
-│   ├── Features/
-│   │   ├── Map/
-│   │   │   └── MapView.swift       ← 現在地マップ（MapKit）
-│   │   ├── Route/
-│   │   │   └── RouteView.swift     ← ルート検索 UI
-│   │   ├── POI/
-│   │   │   └── POIListView.swift   ← 周辺施設一覧
-│   │   └── Weather/
-│   │       └── WeatherView.swift   ← 気象情報表示
-│   ├── CarPlay/
-│   │   └── CarPlaySceneDelegate.swift  ← CPTemplateApplicationSceneDelegate
-│   └── Shared/
-│       ├── Models/
-│       │   ├── DriveState.swift    ← 走行状態（速度・位置）
-│       │   ├── RouteInfo.swift     ← ルート情報
-│       │   └── POIItem.swift       ← POI データ
-│       └── Services/
-│           ├── LocationService.swift   ← CoreLocation ラッパー
-│           ├── RouteService.swift      ← MapKit ルート検索
-│           └── WeatherService.swift    ← WeatherKit ラッパー
-├── MichiNaviCarPlay/               ← CarPlay Extension（別ターゲット）
-│   └── CarPlayTemplateManager.swift
-├── MichiNaviWidget/                ← Widget Extension
-│   └── MichiNaviWidget.swift
-├── MichiNaviActivity/              ← Live Activity
-│   └── DriveActivityAttributes.swift
-├── MichiNavi.xcodeproj/
-└── MichiNavi.xcworkspace/
+└── MichiNavi/                      ← メイン iOS アプリ
+    ├── App/
+    │   ├── MichiNaviApp.swift      ← @main エントリポイント
+    │   ├── AppDelegate.swift       ← UIApplicationDelegate
+    │   └── MichiNavi.entitlements  ← エンタイトルメント（WeatherKit 等）
+    ├── Features/
+    │   ├── Map/
+    │   │   ├── ContentView.swift   ← メイン画面
+    │   │   └── CustomMapView.swift ← MapKit ラッパー
+    │   ├── Settings/
+    │   │   └── SettingsView.swift  ← 設定・クレジット
+    │   ├── Destination/
+    │   │   └── DestinationPickerView.swift
+    │   ├── StationDetail/
+    │   │   ├── StationDetailView.swift   ← 道の駅詳細
+    │   │   └── StationPhotoAlbumView.swift ← フォトアルバム（3枚）
+    │   └── StationList/
+    │       └── StationListsView.swift    ← 道の駅リスト
+    ├── Shared/
+    │   ├── Models/
+    │   │   ├── DriveState.swift    ← 走行状態（速度・位置・気象）
+    │   │   ├── RoadsideStation.swift ← 道の駅モデル
+    │   │   ├── AppSettings.swift   ← お気に入り・訪問済み
+    │   │   └── MapTileType.swift
+    │   └── Services/
+    │       ├── LocationService.swift   ← CoreLocation ラッパー
+    │       ├── RoadsideStationService.swift ← 道の駅データ管理
+    │       ├── NavigationService.swift ← 外部ナビアプリ連携
+    │       ├── StationPhotoStore.swift ← 写真保存・管理
+    │       ├── GeoUtils.swift          ← 地理計算ユーティリティ
+    │       └── GoogleMapsTileOverlay.swift
+    └── MichiNavi/
+        ├── Resources/
+        │   ├── roadside_stations.json          ← 全国道の駅データ
+        │   ├── hokkaido_country_signs.json     ← 北海道カントリーサイン（179件）
+        │   ├── hokkaido_municipalities.json
+        │   ├── hokkaido_boundaries_simplified.geojson
+        │   └── municipality_centroids_verified.json
+        ├── Assets.xcassets
+        └── Info.plist
 ```
 
 ---
@@ -78,44 +85,36 @@ michi-navi/
 
 | ターゲット | Bundle ID | 役割 |
 |-----------|-----------|------|
-| MichiNavi | com.osprey74.michi-navi | メイン iOS アプリ |
-| MichiNaviCarPlay | com.osprey74.michi-navi.carplay | CarPlay Extension |
-| MichiNaviWidget | com.osprey74.michi-navi.widget | WidgetKit |
-| MichiNaviActivity | com.osprey74.michi-navi.activity | Live Activity |
-
-**App Group**: `group.com.osprey74.michi-navi`（全ターゲットで共有）
+| MichiNavi | com.osprey74.michi-navi | メイン iOS アプリ（唯一のターゲット） |
 
 ---
 
-## CarPlay 設計原則（必須遵守）
+## 主要機能
 
-1. **テンプレートのみ使用** — カスタム UIView は CarPlay 画面に表示不可
-2. **テキスト入力禁止** — 走行中のキーボード入力は Apple ガイドライン違反
-3. **タップ 2 回以内** — 全操作を 2 タップ以内で完結させる
-4. **テンプレート階層は最大 2 段** — Driving Task カテゴリの制限
-5. **iPhone ロック中も動作すること** — バックグラウンド動作を必ずテスト
+### 道の駅
+- 現在地周辺の道の駅を距離順に表示
+- 施設詳細（設備・営業時間・公式サイト）
+- フォトアルバム（1 施設あたり最大 3 枚、端末保存）
+- お気に入り・訪問済みフラグ
+- 外部ナビアプリ（Apple Maps / Google Maps / Yahoo!カーナビ / Waze）への誘導
+- データ出典: 一般社団法人 全国道の駅連絡会（利用許諾済み）
 
-### 使用するテンプレート
+### カントリーサイン（北海道）
+- 179 市区町村のカントリーサイン情報
+- 由来文・デザイン説明（北の道ナビ提供データ）
+- ユーザーが自分で撮影した写真を登録する方式（実装予定）
 
-| テンプレート | 用途 |
-|------------|------|
-| `CPGridTemplate` | メインメニュー（目的地設定 / 周辺検索 / ドライブ情報） |
-| `CPListTemplate` | POI 一覧 / 目的地履歴 |
-| `CPInformationTemplate` | ドライブ情報詳細（気象・速度） |
-| `CPAlertTemplate` | 到着通知 / 気象警報 |
+### 走行情報
+- 現在速度・方位（CoreLocation）
+- 気象情報（WeatherKit）
 
 ---
 
 ## エンタイトルメント
 
-### MichiNavi.entitlements（メインアプリ）
+### App/MichiNavi.entitlements（メインアプリ）
 ```xml
-<key>com.apple.developer.carplay-driving-task</key>
-<true/>
-<key>com.apple.security.application-groups</key>
-<array>
-  <string>group.com.osprey74.michi-navi</string>
-</array>
+<!-- WeatherKit API（本番時に有効化） -->
 <key>com.apple.developer.weatherkit</key>
 <true/>
 ```
@@ -124,48 +123,43 @@ michi-navi/
 ```
 NSLocationAlwaysAndWhenInUseUsageDescription
 NSLocationWhenInUseUsageDescription
+NSPhotoLibraryUsageDescription
 UIBackgroundModes: [location]
 ```
+
+---
+
+## 写真ストレージ
+
+`StationPhotoStore` が以下のパスに JPEG で保存:
+```
+<Application Support>/Albums/<stationId>/photo_1.jpg  ～  photo_3.jpg
+```
+- 最大寸法: 1024px
+- JPEG 品質: 0.72
 
 ---
 
 ## 現在のフェーズと未対応タスク
 
 ### ✅ 完了
-- 要件定義書作成（docs/michi-navi-requirements.docx）
-- CLAUDE.md 作成（このファイル）
-- ディレクトリ構成定義
+- 道の駅データ実装・表示
+- 施設詳細・フォトアルバム
+- お気に入り・訪問済み管理
+- 外部ナビアプリ連携
+- カントリーサインデータ収集（179件）
+- 設定画面・クレジット表示
+- プライバシーポリシー（GitHub Pages）
 
-### 🔲 Phase 0（次のタスク）
-- [ ] Xcode プロジェクト新規作成（iOS App テンプレート）
-- [ ] CarPlay Extension ターゲット追加
-- [ ] Widget Extension ターゲット追加
-- [ ] App Group 設定
-- [ ] CarPlay Simulator 接続確認
-- [ ] Hello CarPlay（CPGridTemplate 表示）動作確認
-
-### 🔲 Phase 1-A
-- [ ] CoreLocation セットアップ（常時許可）
-- [ ] MapKit 現在地表示
-- [ ] 速度・方位リアルタイム表示
-- [ ] DriveState モデル実装
-
-### 🔲 Phase 1-B
-- [ ] CarPlaySceneDelegate 実装
-- [ ] CPGridTemplate メインメニュー
-- [ ] CPListTemplate POI 一覧
-- [ ] MapKit POI 検索
-
-### 🔲 Phase 1-C
-- [ ] WeatherKit 統合
-- [ ] Live Activity（ActivityKit）
-- [ ] WidgetKit（systemSmall）
-
-### 🔲 Phase 1-D
-- [ ] App Store Connect 設定
-- [ ] エンタイトルメント申請
+### 🔲 Phase 1-D（App Store 申請）
+- [ ] App Store Connect 設定（日本国内限定）
+- [ ] WeatherKit エンタイトルメント有効化
 - [ ] TestFlight 配布
 - [ ] App Store 審査提出
+
+### 🔲 将来機能
+- [ ] カントリーサイン写真登録機能
+- [ ] 市区町村境界オーバーレイ表示
 
 ---
 
@@ -176,15 +170,13 @@ UIBackgroundModes: [location]
 - **非同期処理**: `async/await`（Combine は使用しない）
 - **エラーハンドリング**: `Result` 型または `throws`
 - **コメント**: 公開 API は `/// DocComment`
-- **テスト**: XCTest（Unit Test）。UI テストは Xcode Simulator で手動確認
+- **テスト**: XCTest（Unit Test）
 
 ---
 
 ## 参考リンク
 
-- CarPlay 開発者ページ: https://developer.apple.com/carplay/
-- CarPlay Developer Guide (2026-02): https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf
-- CarPlay API ドキュメント: https://developer.apple.com/documentation/carplay/
 - WeatherKit: https://developer.apple.com/documentation/weatherkit
-- ActivityKit: https://developer.apple.com/documentation/activitykit
-- WWDC25 CarPlay セッション: https://developer.apple.com/videos/play/wwdc2025/216/
+- 全国道の駅連絡会: http://www.michi-no-eki.jp/
+- 北の道ナビ（カントリーサイン）: https://northern-road.ceri.go.jp/
+- GitHub Pages（プライバシーポリシー）: https://osprey74.github.io/michi-navi/privacy.html
