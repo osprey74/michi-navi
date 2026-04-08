@@ -20,6 +20,7 @@ struct MichiNaviApp: App {
                 .environment(appDelegate.stationService)
                 .environment(appDelegate.navigationService)
                 .environment(appDelegate.appSettings)
+                .environment(appDelegate.countrySignService)
         }
     }
 }

@@ -24,8 +24,10 @@ struct ContentView: View {
     @Environment(RoadsideStationService.self) private var stationService
     @Environment(NavigationService.self) private var navigationService
     @Environment(AppSettings.self) private var settings
+    @Environment(CountrySignService.self) private var signService
 
     @State private var selectedStation: RoadsideStation?
+    @State private var selectedSign: CountrySign?
     @State private var commandedRegion: MKCoordinateRegion?
 
     @State private var autoZoomEnabled = true
@@ -35,6 +37,7 @@ struct ContentView: View {
 
     @State private var showSettings = false
     @State private var showStationLists = false
+    @State private var showCountrySignLists = false
 
     var body: some View {
         ZStack {
@@ -44,7 +47,13 @@ struct ContentView: View {
                 stations: stationService.visibleStations,
                 favoriteIds: settings.favoriteStationIds,
                 visitedIds: settings.visitedStationIds,
+                countrySigns: signService.allSigns,
+                favoriteSignIds: settings.favoriteSignIds,
+                visitedSignIds: settings.visitedSignIds,
+                boundaryOverlays: signService.boundaryOverlays,
+                showBoundaries: true,
                 selectedStation: $selectedStation,
+                selectedSign: $selectedSign,
                 commandedRegion: $commandedRegion
             ) { region in
                 stationService.updateVisibleStations(
@@ -61,15 +70,21 @@ struct ContentView: View {
             StationDetailSheet(station: station)
                 .presentationDetents([.medium, .large])
         }
+        .sheet(item: $selectedSign) { sign in
+            CountrySignDetailSheet(sign: sign)
+                .presentationDetents([.medium, .large])
+        }
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
         .sheet(isPresented: $showStationLists) {
             StationListsView()
         }
+        .sheet(isPresented: $showCountrySignLists) {
+            CountrySignListsView()
+        }
         .onChange(of: showStationLists) { _, isShowing in
             guard !isShowing, let station = settings.mapFocusStation else { return }
-            // リストで最後に閲覧した道の駅とその周辺を表示（約 20 km スパン）
             let span = 20.0 * 0.009
             commandedRegion = MKCoordinateRegion(
                 center: station.coordinate,
@@ -77,6 +92,16 @@ struct ContentView: View {
             )
             pauseAutoZoom()
             settings.mapFocusStation = nil
+        }
+        .onChange(of: showCountrySignLists) { _, isShowing in
+            guard !isShowing, let sign = settings.mapFocusSign else { return }
+            let span = 20.0 * 0.009
+            commandedRegion = MKCoordinateRegion(
+                center: sign.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
+            )
+            pauseAutoZoom()
+            settings.mapFocusSign = nil
         }
         .onChange(of: driveState.currentLocation) { _, newLocation in
             guard let loc = newLocation else { return }
@@ -151,8 +176,17 @@ struct ContentView: View {
 
                 Spacer()
 
-                // 道の駅リスト + 現在地ボタン
+                // カントリーサイン + 道の駅リスト + 現在地ボタン
                 VStack(spacing: 8) {
+                    Button {
+                        showCountrySignLists = true
+                    } label: {
+                        Image(systemName: "signpost.right.fill")
+                            .font(.title3)
+                            .frame(width: 44, height: 44)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    }
+
                     Button {
                         showStationLists = true
                     } label: {
@@ -234,6 +268,24 @@ struct StationDetailSheet: View {
     }
 }
 
+// MARK: - カントリーサイン詳細シート
+
+struct CountrySignDetailSheet: View {
+    let sign: CountrySign
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            CountrySignDetailView(sign: sign)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("閉じる") { dismiss() }
+                    }
+                }
+        }
+    }
+}
+
 #Preview {
     ContentView()
         .environment(DriveState())
@@ -241,4 +293,5 @@ struct StationDetailSheet: View {
         .environment(RoadsideStationService())
         .environment(NavigationService())
         .environment(AppSettings())
+        .environment(CountrySignService())
 }

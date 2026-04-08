@@ -30,6 +30,10 @@
 		<string>location</string>
 	</array>
 
+	<!-- 輸出コンプライアンス：標準 HTTPS のみ使用、独自暗号化なし -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+
 	<!-- Scene 設定 -->
 	<key>UIApplicationSceneManifest</key>
 	<dict>

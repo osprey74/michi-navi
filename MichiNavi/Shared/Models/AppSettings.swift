@@ -39,10 +39,41 @@ final class AppSettings {
         }
     }
 
+    // MARK: - カントリーサイン お気に入り・踏破
+
+    /// お気に入り登録したカントリーサイン（市町村コード）セット
+    var favoriteSignIds: Set<String> {
+        didSet { save() }
+    }
+
+    /// 踏破済みとしたカントリーサイン（市町村コード）セット
+    var visitedSignIds: Set<String> {
+        didSet { save() }
+    }
+
+    func toggleSignFavorite(_ signId: String) {
+        if favoriteSignIds.contains(signId) {
+            favoriteSignIds.remove(signId)
+        } else {
+            favoriteSignIds.insert(signId)
+        }
+    }
+
+    func toggleSignVisited(_ signId: String) {
+        if visitedSignIds.contains(signId) {
+            visitedSignIds.remove(signId)
+        } else {
+            visitedSignIds.insert(signId)
+        }
+    }
+
     // MARK: - リスト→地図フォーカス（永続化なし）
 
     /// リストから詳細を閲覧した道の駅（シート閉じ時に地図を移動するために使用）
     var mapFocusStation: RoadsideStation?
+
+    /// リストから詳細を閲覧したカントリーサイン（シート閉じ時に地図を移動するために使用）
+    var mapFocusSign: CountrySign?
 
     func toggleVisited(_ stationId: String) {
         if visitedStationIds.contains(stationId) {
@@ -67,6 +98,12 @@ final class AppSettings {
 
         let visArray = ud.stringArray(forKey: "visitedStationIds") ?? []
         self.visitedStationIds = Set(visArray)
+
+        let favSignArray = ud.stringArray(forKey: "favoriteSignIds") ?? []
+        self.favoriteSignIds = Set(favSignArray)
+
+        let visSignArray = ud.stringArray(forKey: "visitedSignIds") ?? []
+        self.visitedSignIds = Set(visSignArray)
     }
 
     private func save() {
@@ -75,5 +112,7 @@ final class AppSettings {
         ud.set(googleMapsAPIKey, forKey: "googleMapsAPIKey")
         ud.set(Array(favoriteStationIds), forKey: "favoriteStationIds")
         ud.set(Array(visitedStationIds), forKey: "visitedStationIds")
+        ud.set(Array(favoriteSignIds), forKey: "favoriteSignIds")
+        ud.set(Array(visitedSignIds), forKey: "visitedSignIds")
     }
 }

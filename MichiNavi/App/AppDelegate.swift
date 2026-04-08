@@ -7,10 +7,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let stationService = RoadsideStationService()
     let navigationService = NavigationService()
     let appSettings = AppSettings()
+    let countrySignService = CountrySignService()
 
     override init() {
         super.init()
         stationService.loadStations()
+        countrySignService.loadData()
         driveState.bind(to: locationService, stationService: stationService)
     }
 
