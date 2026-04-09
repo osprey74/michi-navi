@@ -17,24 +17,33 @@ struct RandomSignCardView: View {
         signService.allSigns.filter { !settings.visitedSignIds.contains($0.id) }
     }
 
+    private var visitedCount: Int { settings.visitedSignIds.count }
+    private var totalCount: Int { signService.allSigns.count }
+
     var body: some View {
         NavigationStack {
-            Group {
-                if unvisitedSigns.isEmpty {
-                    // 全踏破達成
-                    ContentUnavailableView {
-                        Label("全市町村を踏破しました！", systemImage: "trophy.fill")
-                    } description: {
-                        Text("北海道179市町村のカントリーサインをすべて踏破しました。")
+            VStack(spacing: 0) {
+                // 踏破進捗バー（常時表示）
+                progressSection
+
+                Group {
+                    if unvisitedSigns.isEmpty {
+                        // 全踏破達成
+                        ContentUnavailableView {
+                            Label("全市町村を踏破しました！", systemImage: "trophy.fill")
+                        } description: {
+                            Text("北海道179市町村のカントリーサインをすべて踏破しました。")
+                        }
+                    } else if let sign = drawnSign {
+                        cardView(sign: sign)
+                    } else {
+                        // 初期状態（onAppear でドロー）
+                        ProgressView()
                     }
-                } else if let sign = drawnSign {
-                    cardView(sign: sign)
-                } else {
-                    // 初期状態（onAppear でドロー）
-                    ProgressView()
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .navigationTitle("カードを引く")
+            .navigationTitle("ランダムカード")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -43,6 +52,22 @@ struct RandomSignCardView: View {
             }
         }
         .onAppear { drawCard() }
+    }
+
+    // MARK: - 踏破進捗バー
+
+    private var progressSection: some View {
+        VStack(spacing: 6) {
+            Text("踏破済み: \(visitedCount) / \(totalCount)")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+            ProgressView(value: Double(visitedCount), total: Double(max(totalCount, 1)))
+                .progressViewStyle(.linear)
+                .tint(.blue)
+        }
+        .padding(.horizontal, 24)
+        .padding(.vertical, 12)
+        .background(Color(.systemGroupedBackground))
     }
 
     // MARK: - カード表示
