@@ -22,6 +22,7 @@ struct CountrySign: Identifiable, Sendable {
     let flower: FlowerInfo?
     let tourismUrl: String?
     let tourismSiteName: String?
+    let officeCoordinate: CLLocationCoordinate2D?  // 市役所・役場の座標
 
     // MARK: - カントリーサイン情報（hokkaido_country_signs.json より）
 

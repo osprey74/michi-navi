@@ -92,6 +92,24 @@ final class NavigationService {
         }
     }
 
+    /// 座標指定でナビゲーションを開始する（カントリーサイン役場など汎用）
+    func navigate(to coordinate: CLLocationCoordinate2D, name: String, with app: NavigationApp) {
+        if app == .appleMaps {
+            let placemark = MKPlacemark(coordinate: coordinate)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = name
+            mapItem.openInMaps(launchOptions: [
+                MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+            ])
+            return
+        }
+        if let url = app.makeURL(latitude: coordinate.latitude,
+                                 longitude: coordinate.longitude,
+                                 name: name) {
+            UIApplication.shared.open(url)
+        }
+    }
+
     /// Apple Maps でナビゲーション（後方互換）
     func navigateInAppleMaps(to station: RoadsideStation) {
         navigate(to: station, with: .appleMaps)

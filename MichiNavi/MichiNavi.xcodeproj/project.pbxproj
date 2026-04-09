@@ -18,6 +18,8 @@
 		C06BE2312F85E3C7005393F0 /* CountrySignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06BE2302F85E3C7005393F0 /* CountrySignService.swift */; };
 		C06BE2342F85E433005393F0 /* CountrySignDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06BE2332F85E433005393F0 /* CountrySignDetailView.swift */; };
 		C06BE2362F85E453005393F0 /* CountrySignListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06BE2352F85E453005393F0 /* CountrySignListsView.swift */; };
+		C07056BB2F87A066001456EB /* RandomSignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07056BA2F87A065001456EB /* RandomSignCardView.swift */; };
+		C07056BD2F87B066001456EB /* LocationShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07056BC2F87B066001456EB /* LocationShareSheet.swift */; };
 		C074F6A32F5D698E0078A78D /* RoadsideStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A22F5D698E0078A78D /* RoadsideStation.swift */; };
 		C074F6A52F5D69AD0078A78D /* GeoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A42F5D69AD0078A78D /* GeoUtils.swift */; };
 		C074F6A72F5D69CD0078A78D /* RoadsideStationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074F6A62F5D69CD0078A78D /* RoadsideStationService.swift */; };
@@ -63,6 +65,8 @@
 		C06BE2302F85E3C7005393F0 /* CountrySignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySignService.swift; sourceTree = "<group>"; };
 		C06BE2332F85E433005393F0 /* CountrySignDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySignDetailView.swift; sourceTree = "<group>"; };
 		C06BE2352F85E453005393F0 /* CountrySignListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySignListsView.swift; sourceTree = "<group>"; };
+		C07056BA2F87A065001456EB /* RandomSignCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSignCardView.swift; sourceTree = "<group>"; };
+		C07056BC2F87B066001456EB /* LocationShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationShareSheet.swift; sourceTree = "<group>"; };
 		C074F6A22F5D698E0078A78D /* RoadsideStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsideStation.swift; sourceTree = "<group>"; };
 		C074F6A42F5D69AD0078A78D /* GeoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoUtils.swift; sourceTree = "<group>"; };
 		C074F6A62F5D69CD0078A78D /* RoadsideStationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadsideStationService.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			children = (
 				C06BE2332F85E433005393F0 /* CountrySignDetailView.swift */,
 				C06BE2352F85E453005393F0 /* CountrySignListsView.swift */,
+				C07056BA2F87A065001456EB /* RandomSignCardView.swift */,
 			);
 			path = CountrySign;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				C0D58F5A2F5D4EC9006A068E /* Services */,
 				C0D58F592F5D4EC3006A068E /* Models */,
+				C07056BC2F87B066001456EB /* LocationShareSheet.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -449,11 +455,13 @@
 				C074F6A52F5D69AD0078A78D /* GeoUtils.swift in Sources */,
 				C0289DB22F80F76B00FDDBC6 /* StationPhotoStore.swift in Sources */,
 				C074F6AE2F5D743C0078A78D /* NavigationService.swift in Sources */,
+				C07056BB2F87A066001456EB /* RandomSignCardView.swift in Sources */,
 				C06BE2342F85E433005393F0 /* CountrySignDetailView.swift in Sources */,
 				C0D58F602F5D4FB6006A068E /* DriveState.swift in Sources */,
 				C06BE22F2F85E3A0005393F0 /* CountrySign.swift in Sources */,
 				C074F6A92F5D74290078A78D /* AppSettings.swift in Sources */,
 				C074F6AC2F5D74300078A78D /* SettingsView.swift in Sources */,
+				C07056BD2F87B066001456EB /* LocationShareSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

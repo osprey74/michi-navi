@@ -152,6 +152,18 @@ struct SettingsView: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
 
+            // カントリーサイン画像
+            VStack(alignment: .leading, spacing: 4) {
+                Text("カントリーサイン画像")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text("北海道開発局（利用許諾済み）")
+                    .font(.footnote)
+                Text("大空町・本別町・今金町（個別利用許諾済み）")
+                    .font(.footnote)
+            }
+            .padding(.vertical, 2)
+
             // 道の駅データ出典
             VStack(alignment: .leading, spacing: 4) {
                 Text("道の駅データ出典")

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 道の駅詳細の共通ビュー（写真・施設グリッド・基本情報・ナビボタン・お気に入り・到達）
+/// 道の駅詳細の共通ビュー（写真・施設グリッド・基本情報・ナビボタン・お気に入り・踏破）
 ///
 /// ContentView のシート表示と DestinationPickerView のナビゲーション遷移の両方で使用する。
 struct StationDetailView: View {
@@ -10,6 +10,7 @@ struct StationDetailView: View {
     @Environment(NavigationService.self) private var navigationService
     @Environment(AppSettings.self) private var settings
     @State private var showNavAppPicker = false
+    @State private var showShareSheet = false
 
     init(station: RoadsideStation, nearby: NearbyStation? = nil) {
         self.station = station
@@ -48,7 +49,7 @@ struct StationDetailView: View {
                 }
             }
 
-            // お気に入り・到達セクション
+            // お気に入り・踏破セクション
             Section {
                 HStack(spacing: 16) {
                     // お気に入りボタン
@@ -67,7 +68,7 @@ struct StationDetailView: View {
                     .buttonStyle(.bordered)
                     .tint(isFav ? .red : .secondary)
 
-                    // 到達ボタン
+                    // 踏破ボタン
                     let isVis = settings.visitedStationIds.contains(station.id)
                     Button {
                         settings.toggleVisited(station.id)
@@ -75,7 +76,7 @@ struct StationDetailView: View {
                         HStack {
                             Image(systemName: isVis ? "checkmark.shield.fill" : "checkmark.shield")
                                 .foregroundStyle(isVis ? .blue : .secondary)
-                            Text(isVis ? "到達済み" : "到達済みにする")
+                            Text(isVis ? "踏破済み" : "踏破済みにする")
                                 .foregroundStyle(isVis ? .blue : .primary)
                         }
                         .frame(maxWidth: .infinity)
@@ -134,16 +135,26 @@ struct StationDetailView: View {
                 }
             }
 
-            // ナビ開始ボタン
+            // ナビ開始 / 共有ボタン
             Section {
-                Button {
-                    showNavAppPicker = true
-                } label: {
-                    Label("この道の駅へナビ開始", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
-                        .frame(maxWidth: .infinity)
-                        .font(.headline)
+                HStack(spacing: 8) {
+                    Button {
+                        showNavAppPicker = true
+                    } label: {
+                        Label("この道の駅へナビ開始", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
+                            .frame(maxWidth: .infinity)
+                            .font(.headline)
+                    }
+                    .buttonStyle(.borderedProminent)
+
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.headline)
+                    }
+                    .buttonStyle(.bordered)
                 }
-                .buttonStyle(.borderedProminent)
                 .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
         }
@@ -156,6 +167,9 @@ struct StationDetailView: View {
                     navigationService.navigate(to: station, with: app)
                 }
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            LocationShareSheet(coordinate: station.coordinate, name: station.name)
         }
     }
 

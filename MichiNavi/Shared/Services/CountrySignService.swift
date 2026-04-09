@@ -68,6 +68,9 @@ final class CountrySignService {
                     },
                     tourismUrl: muni.tourismUrl,
                     tourismSiteName: muni.tourismSiteName,
+                    officeCoordinate: muni.officeCoordinate.map {
+                        CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lng)
+                    },
                     signCoordinate: CLLocationCoordinate2D(
                         latitude: raw.coordinate.lat,
                         longitude: raw.coordinate.lng
@@ -188,6 +191,7 @@ private struct RawMunicipality: Codable {
     let flower: RawFlower?
     let tourismUrl: String?
     let tourismSiteName: String?
+    let officeCoordinate: RawCoordinate?
 }
 
 private struct RawCoordinate: Codable {

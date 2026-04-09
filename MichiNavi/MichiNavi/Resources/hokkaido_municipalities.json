@@ -25,7 +25,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": "https://www.sapporo-park.or.jp/",
-    "tourismSiteName": "さっぽろ観光案内"
+    "tourismSiteName": "さっぽろ観光案内",
+    "officeCoordinate": {
+      "lat": 43.062087,
+      "lng": 141.354404
+    }
   },
   {
     "code": "01202",
@@ -53,7 +57,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.hakobura.jp/",
-    "tourismSiteName": "はこぶら（函館観光情報）"
+    "tourismSiteName": "はこぶら（函館観光情報）",
+    "officeCoordinate": {
+      "lat": 41.768672,
+      "lng": 140.728932
+    }
   },
   {
     "code": "01203",
@@ -81,7 +89,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://otaru.gr.jp/",
-    "tourismSiteName": "小樽観光協会"
+    "tourismSiteName": "小樽観光協会",
+    "officeCoordinate": {
+      "lat": 43.190707,
+      "lng": 140.994503
+    }
   },
   {
     "code": "01204",
@@ -109,7 +121,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.atca.jp/",
-    "tourismSiteName": "旭川観光コンベンション協会"
+    "tourismSiteName": "旭川観光コンベンション協会",
+    "officeCoordinate": {
+      "lat": 43.770858,
+      "lng": 142.364983
+    }
   },
   {
     "code": "01205",
@@ -137,7 +153,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.murorantourism.com/",
-    "tourismSiteName": "室蘭観光協会"
+    "tourismSiteName": "室蘭観光協会",
+    "officeCoordinate": {
+      "lat": 42.315215,
+      "lng": 140.973752
+    }
   },
   {
     "code": "01206",
@@ -165,7 +185,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": "https://www.kushiro-kankou.or.jp/",
-    "tourismSiteName": "釧路観光コンベンション協会"
+    "tourismSiteName": "釧路観光コンベンション協会",
+    "officeCoordinate": {
+      "lat": 42.984882,
+      "lng": 144.381813
+    }
   },
   {
     "code": "01207",
@@ -193,7 +217,11 @@
       "colorVibrantHex": "#504050"
     },
     "tourismUrl": "https://www.obihiro.or.jp/",
-    "tourismSiteName": "帯広・十勝観光協会"
+    "tourismSiteName": "帯広・十勝観光協会",
+    "officeCoordinate": {
+      "lat": 42.924059,
+      "lng": 143.196241
+    }
   },
   {
     "code": "01208",
@@ -221,7 +249,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.visit-kitami.com/",
-    "tourismSiteName": "北見観光協会"
+    "tourismSiteName": "北見観光協会",
+    "officeCoordinate": {
+      "lat": 43.802895,
+      "lng": 143.8947
+    }
   },
   {
     "code": "01209",
@@ -249,7 +281,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://yubari-resort.com/",
-    "tourismSiteName": "夕張リゾート"
+    "tourismSiteName": "夕張リゾート",
+    "officeCoordinate": {
+      "lat": 43.05672,
+      "lng": 141.97391
+    }
   },
   {
     "code": "01210",
@@ -277,7 +313,11 @@
       "colorVibrantHex": "#E03050"
     },
     "tourismUrl": "https://www.city.iwamizawa.hokkaido.jp/",
-    "tourismSiteName": "岩見沢市観光情報（city.iwamizawa.hokkaido.jp）"
+    "tourismSiteName": "岩見沢市観光情報（city.iwamizawa.hokkaido.jp）",
+    "officeCoordinate": {
+      "lat": 43.196028,
+      "lng": 141.775355
+    }
   },
   {
     "code": "01211",
@@ -305,7 +345,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.abakankou.com/",
-    "tourismSiteName": "網走観光協会"
+    "tourismSiteName": "網走観光協会",
+    "officeCoordinate": {
+      "lat": 44.020635,
+      "lng": 144.273474
+    }
   },
   {
     "code": "01212",
@@ -333,7 +377,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.e-rumoi.jp/",
-    "tourismSiteName": "留萌観光協会"
+    "tourismSiteName": "留萌観光協会",
+    "officeCoordinate": {
+      "lat": 43.941007,
+      "lng": 141.636931
+    }
   },
   {
     "code": "01213",
@@ -361,7 +409,11 @@
       "colorVibrantHex": "#7050C0"
     },
     "tourismUrl": "https://www.city.tomakomai.hokkaido.jp/",
-    "tourismSiteName": "苫小牧市観光情報"
+    "tourismSiteName": "苫小牧市観光情報",
+    "officeCoordinate": {
+      "lat": 42.634073,
+      "lng": 141.60552
+    }
   },
   {
     "code": "01214",
@@ -389,7 +441,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.city.wakkanai.hokkaido.jp/",
-    "tourismSiteName": "稚内市観光情報"
+    "tourismSiteName": "稚内市観光情報",
+    "officeCoordinate": {
+      "lat": 45.415691,
+      "lng": 141.673105
+    }
   },
   {
     "code": "01215",
@@ -417,7 +473,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.332914,
+      "lng": 141.853802
+    }
   },
   {
     "code": "01216",
@@ -445,7 +505,11 @@
       "colorVibrantHex": "#504050"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.518213,
+      "lng": 142.189486
+    }
   },
   {
     "code": "01217",
@@ -473,7 +537,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": "https://www.city.ebetsu.hokkaido.jp/",
-    "tourismSiteName": "江別市公式サイト"
+    "tourismSiteName": "江別市公式サイト",
+    "officeCoordinate": {
+      "lat": 43.103746,
+      "lng": 141.536233
+    }
   },
   {
     "code": "01218",
@@ -501,7 +569,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.558047,
+      "lng": 142.044176
+    }
   },
   {
     "code": "01219",
@@ -529,7 +601,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.mombetsu.jp/",
-    "tourismSiteName": "紋別市観光情報"
+    "tourismSiteName": "紋別市観光情報",
+    "officeCoordinate": {
+      "lat": 44.356372,
+      "lng": 143.354371
+    }
   },
   {
     "code": "01220",
@@ -557,7 +633,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.178182,
+      "lng": 142.400927
+    }
   },
   {
     "code": "01221",
@@ -585,7 +665,11 @@
       "colorVibrantHex": "#8AAA6A"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.355909,
+      "lng": 142.463184
+    }
   },
   {
     "code": "01222",
@@ -613,7 +697,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.245671,
+      "lng": 141.875248
+    }
   },
   {
     "code": "01223",
@@ -641,7 +729,11 @@
       "colorVibrantHex": "#E05878"
     },
     "tourismUrl": "https://www.nemuro-kanko.jp/",
-    "tourismSiteName": "根室観光協会"
+    "tourismSiteName": "根室観光協会",
+    "officeCoordinate": {
+      "lat": 43.330067,
+      "lng": 145.582798
+    }
   },
   {
     "code": "01224",
@@ -669,7 +761,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.citosekankou.jp/",
-    "tourismSiteName": "千歳観光連盟"
+    "tourismSiteName": "千歳観光連盟",
+    "officeCoordinate": {
+      "lat": 42.821009,
+      "lng": 141.651006
+    }
   },
   {
     "code": "01225",
@@ -697,7 +793,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.557778,
+      "lng": 141.910365
+    }
   },
   {
     "code": "01226",
@@ -725,7 +825,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.494329,
+      "lng": 141.902525
+    }
   },
   {
     "code": "01227",
@@ -753,7 +857,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.521391,
+      "lng": 142.034486
+    }
   },
   {
     "code": "01228",
@@ -781,7 +889,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.723295,
+      "lng": 142.053688
+    }
   },
   {
     "code": "01229",
@@ -809,7 +921,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.furano.ne.jp/",
-    "tourismSiteName": "富良野市観光情報（furano.ne.jp）"
+    "tourismSiteName": "富良野市観光情報（furano.ne.jp）",
+    "officeCoordinate": {
+      "lat": 43.342009,
+      "lng": 142.383147
+    }
   },
   {
     "code": "01230",
@@ -837,7 +953,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": "https://www.noboribetsu-spa.jp/",
-    "tourismSiteName": "登別温泉観光協会"
+    "tourismSiteName": "登別温泉観光協会",
+    "officeCoordinate": {
+      "lat": 42.412778,
+      "lng": 141.106667
+    }
   },
   {
     "code": "01231",
@@ -865,7 +985,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": "https://www.city.eniwa.hokkaido.jp/",
-    "tourismSiteName": "恵庭市公式サイト（花観光）"
+    "tourismSiteName": "恵庭市公式サイト（花観光）",
+    "officeCoordinate": {
+      "lat": 42.882582,
+      "lng": 141.577769
+    }
   },
   {
     "code": "01233",
@@ -893,7 +1017,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.city.date.hokkaido.jp/",
-    "tourismSiteName": "伊達市公式サイト"
+    "tourismSiteName": "伊達市公式サイト",
+    "officeCoordinate": {
+      "lat": 42.471943,
+      "lng": 140.864716
+    }
   },
   {
     "code": "01234",
@@ -921,7 +1049,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.city.kitahiroshima.hokkaido.jp/",
-    "tourismSiteName": "北広島市公式サイト"
+    "tourismSiteName": "北広島市公式サイト",
+    "officeCoordinate": {
+      "lat": 42.985472,
+      "lng": 141.56284
+    }
   },
   {
     "code": "01235",
@@ -949,7 +1081,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.city.ishikari.hokkaido.jp/",
-    "tourismSiteName": "石狩市公式サイト"
+    "tourismSiteName": "石狩市公式サイト",
+    "officeCoordinate": {
+      "lat": 43.171345,
+      "lng": 141.315531
+    }
   },
   {
     "code": "01236",
@@ -977,7 +1113,11 @@
       "colorVibrantHex": "#E080A0"
     },
     "tourismUrl": "https://www.city.hokuto.hokkaido.jp/",
-    "tourismSiteName": "北斗市公式サイト"
+    "tourismSiteName": "北斗市公式サイト",
+    "officeCoordinate": {
+      "lat": 41.824167,
+      "lng": 140.653056
+    }
   },
   {
     "code": "01303",
@@ -1005,7 +1145,11 @@
       "colorVibrantHex": "#A8C0A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.223681,
+      "lng": 141.516992
+    }
   },
   {
     "code": "01304",
@@ -1033,7 +1177,11 @@
       "colorVibrantHex": "#7050C0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.225413,
+      "lng": 141.649282
+    }
   },
   {
     "code": "01331",
@@ -1061,7 +1209,11 @@
       "colorVibrantHex": "#E080A0"
     },
     "tourismUrl": "https://www.town.matsumae.hokkaido.jp/",
-    "tourismSiteName": "松前町観光情報"
+    "tourismSiteName": "松前町観光情報",
+    "officeCoordinate": {
+      "lat": 41.429968,
+      "lng": 140.110361
+    }
   },
   {
     "code": "01332",
@@ -1089,7 +1241,11 @@
       "colorVibrantHex": "#E09030"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.483827,
+      "lng": 140.25133
+    }
   },
   {
     "code": "01333",
@@ -1109,7 +1265,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.598333,
+      "lng": 140.418889
+    }
   },
   {
     "code": "01334",
@@ -1137,7 +1297,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://kikonai.jp/",
-    "tourismSiteName": "木古内町観光協会"
+    "tourismSiteName": "木古内町観光協会",
+    "officeCoordinate": {
+      "lat": 41.678375,
+      "lng": 140.437647
+    }
   },
   {
     "code": "01337",
@@ -1165,7 +1329,11 @@
       "colorVibrantHex": "#E0A0B0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.89572,
+      "lng": 140.694405
+    }
   },
   {
     "code": "01343",
@@ -1193,7 +1361,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.026639,
+      "lng": 140.831672
+    }
   },
   {
     "code": "01345",
@@ -1221,7 +1393,11 @@
       "colorVibrantHex": "#E080A0"
     },
     "tourismUrl": "https://www.town.hokkaido-mori.lg.jp/",
-    "tourismSiteName": "森町観光情報（town.hokkaido-mori.lg.jp）"
+    "tourismSiteName": "森町観光情報（town.hokkaido-mori.lg.jp）",
+    "officeCoordinate": {
+      "lat": 42.104941,
+      "lng": 140.576402
+    }
   },
   {
     "code": "01346",
@@ -1249,7 +1425,11 @@
       "colorVibrantHex": "#E8A800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.256009,
+      "lng": 140.265261
+    }
   },
   {
     "code": "01347",
@@ -1277,7 +1457,11 @@
       "colorVibrantHex": "#7050B8"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.513538,
+      "lng": 140.380314
+    }
   },
   {
     "code": "01361",
@@ -1305,7 +1489,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.esashi.net/",
-    "tourismSiteName": "江差観光コンベンション協会"
+    "tourismSiteName": "江差観光コンベンション協会",
+    "officeCoordinate": {
+      "lat": 41.869195,
+      "lng": 140.127461
+    }
   },
   {
     "code": "01362",
@@ -1333,7 +1521,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.801111,
+      "lng": 140.121389
+    }
   },
   {
     "code": "01363",
@@ -1361,7 +1553,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.920949,
+      "lng": 140.225362
+    }
   },
   {
     "code": "01364",
@@ -1389,7 +1585,11 @@
       "colorVibrantHex": "#504050"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 41.968545,
+      "lng": 140.135388
+    }
   },
   {
     "code": "01367",
@@ -1417,7 +1617,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.town.okushiri.lg.jp/",
-    "tourismSiteName": "奥尻町公式サイト"
+    "tourismSiteName": "奥尻町公式サイト",
+    "officeCoordinate": {
+      "lat": 42.172294,
+      "lng": 139.514115
+    }
   },
   {
     "code": "01370",
@@ -1445,7 +1649,11 @@
       "colorVibrantHex": "#E03030"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.42934,
+      "lng": 140.00868
+    }
   },
   {
     "code": "01371",
@@ -1473,7 +1681,11 @@
       "colorVibrantHex": "#D4B800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.416999,
+      "lng": 139.883273
+    }
   },
   {
     "code": "01391",
@@ -1501,7 +1713,11 @@
       "colorVibrantHex": "#A8B8A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.700496,
+      "lng": 140.061532
+    }
   },
   {
     "code": "01392",
@@ -1529,7 +1745,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.791054,
+      "lng": 140.228827
+    }
   },
   {
     "code": "01393",
@@ -1549,7 +1769,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.667778,
+      "lng": 140.307778
+    }
   },
   {
     "code": "01394",
@@ -1577,7 +1801,11 @@
       "colorVibrantHex": "#C8B870"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.80924,
+      "lng": 140.52838
+    }
   },
   {
     "code": "01395",
@@ -1605,7 +1833,11 @@
       "colorVibrantHex": "#9060D0"
     },
     "tourismUrl": "https://www.niseko-ta.jp/",
-    "tourismSiteName": "ニセコ町まちづくり観光案内"
+    "tourismSiteName": "ニセコ町まちづくり観光案内",
+    "officeCoordinate": {
+      "lat": 42.805029,
+      "lng": 140.687991
+    }
   },
   {
     "code": "01396",
@@ -1625,7 +1857,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.763005,
+      "lng": 140.803672
+    }
   },
   {
     "code": "01397",
@@ -1653,7 +1889,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.737308,
+      "lng": 140.875624
+    }
   },
   {
     "code": "01398",
@@ -1681,7 +1921,11 @@
       "colorVibrantHex": "#E04068"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.795434,
+      "lng": 140.934537
+    }
   },
   {
     "code": "01399",
@@ -1709,7 +1953,11 @@
       "colorVibrantHex": "#E8A800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.858227,
+      "lng": 140.884115
+    }
   },
   {
     "code": "01400",
@@ -1737,7 +1985,11 @@
       "colorVibrantHex": "#E068A0"
     },
     "tourismUrl": "https://www.town.kutchan.hokkaido.jp/",
-    "tourismSiteName": "倶知安町観光情報（town.kutchan.hokkaido.jp）"
+    "tourismSiteName": "倶知安町観光情報（town.kutchan.hokkaido.jp）",
+    "officeCoordinate": {
+      "lat": 42.901458,
+      "lng": 140.759012
+    }
   },
   {
     "code": "01401",
@@ -1765,7 +2017,11 @@
       "colorVibrantHex": "#80B080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.980408,
+      "lng": 140.611426
+    }
   },
   {
     "code": "01402",
@@ -1793,7 +2049,11 @@
       "colorVibrantHex": "#C8A000"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.979813,
+      "lng": 140.51474
+    }
   },
   {
     "code": "01403",
@@ -1821,7 +2081,11 @@
       "colorVibrantHex": "#E06820"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.063002,
+      "lng": 140.498903
+    }
   },
   {
     "code": "01404",
@@ -1841,7 +2105,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.143365,
+      "lng": 140.430801
+    }
   },
   {
     "code": "01405",
@@ -1869,7 +2137,11 @@
       "colorVibrantHex": "#E07020"
     },
     "tourismUrl": "https://www.kanko-shakotan.jp/",
-    "tourismSiteName": "積丹町観光情報（kanko-shakotan.jp）"
+    "tourismSiteName": "積丹町観光情報（kanko-shakotan.jp）",
+    "officeCoordinate": {
+      "lat": 43.298749,
+      "lng": 140.597982
+    }
   },
   {
     "code": "01406",
@@ -1889,7 +2161,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.264065,
+      "lng": 140.638707
+    }
   },
   {
     "code": "01407",
@@ -1917,7 +2193,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.151667,
+      "lng": 140.766111
+    }
   },
   {
     "code": "01408",
@@ -1945,7 +2225,11 @@
       "colorVibrantHex": "#E0A0B0"
     },
     "tourismUrl": "https://yoichi-kankou.jp/",
-    "tourismSiteName": "余市観光協会"
+    "tourismSiteName": "余市観光協会",
+    "officeCoordinate": {
+      "lat": 43.195347,
+      "lng": 140.783545
+    }
   },
   {
     "code": "01409",
@@ -1973,7 +2257,11 @@
       "colorVibrantHex": "#A03888"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.083492,
+      "lng": 140.813632
+    }
   },
   {
     "code": "01423",
@@ -2001,7 +2289,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.063755,
+      "lng": 141.650441
+    }
   },
   {
     "code": "01424",
@@ -2029,7 +2321,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.425336,
+      "lng": 141.882848
+    }
   },
   {
     "code": "01425",
@@ -2057,7 +2353,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.482579,
+      "lng": 141.984041
+    }
   },
   {
     "code": "01427",
@@ -2085,7 +2385,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.999607,
+      "lng": 141.79028
+    }
   },
   {
     "code": "01428",
@@ -2113,7 +2417,11 @@
       "colorVibrantHex": "#8858C8"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.01041,
+      "lng": 141.695288
+    }
   },
   {
     "code": "01429",
@@ -2141,7 +2449,11 @@
       "colorVibrantHex": "#504050"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.056328,
+      "lng": 141.784258
+    }
   },
   {
     "code": "01430",
@@ -2169,7 +2481,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.338343,
+      "lng": 141.669491
+    }
   },
   {
     "code": "01431",
@@ -2197,7 +2513,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.43037,
+      "lng": 141.818736
+    }
   },
   {
     "code": "01432",
@@ -2225,7 +2545,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.548781,
+      "lng": 141.877126
+    }
   },
   {
     "code": "01433",
@@ -2253,7 +2577,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.70017,
+      "lng": 141.961505
+    }
   },
   {
     "code": "01434",
@@ -2281,7 +2609,11 @@
       "colorVibrantHex": "#E03050"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.767013,
+      "lng": 141.957854
+    }
   },
   {
     "code": "01436",
@@ -2309,7 +2641,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.64394,
+      "lng": 141.889662
+    }
   },
   {
     "code": "01437",
@@ -2337,7 +2673,11 @@
       "colorVibrantHex": "#E8A800"
     },
     "tourismUrl": "https://hokuryu-kanko.jp/",
-    "tourismSiteName": "北竜町観光協会（ひまわりの里）"
+    "tourismSiteName": "北竜町観光協会（ひまわりの里）",
+    "officeCoordinate": {
+      "lat": 43.731389,
+      "lng": 141.879167
+    }
   },
   {
     "code": "01438",
@@ -2365,7 +2705,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.806703,
+      "lng": 141.933691
+    }
   },
   {
     "code": "01452",
@@ -2393,7 +2737,11 @@
       "colorVibrantHex": "#E08010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.843333,
+      "lng": 142.354444
+    }
   },
   {
     "code": "01453",
@@ -2421,7 +2769,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.696383,
+      "lng": 142.451539
+    }
   },
   {
     "code": "01454",
@@ -2449,7 +2801,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.827826,
+      "lng": 142.508089
+    }
   },
   {
     "code": "01455",
@@ -2477,7 +2833,11 @@
       "colorVibrantHex": "#D4B800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.875004,
+      "lng": 142.477675
+    }
   },
   {
     "code": "01456",
@@ -2505,7 +2865,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.906673,
+      "lng": 142.57782
+    }
   },
   {
     "code": "01457",
@@ -2533,7 +2897,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://kamikawa-town.com/",
-    "tourismSiteName": "上川町観光情報"
+    "tourismSiteName": "上川町観光情報",
+    "officeCoordinate": {
+      "lat": 43.847124,
+      "lng": 142.770464
+    }
   },
   {
     "code": "01458",
@@ -2561,7 +2929,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://higashikawa.jp/",
-    "tourismSiteName": "東川町観光情報"
+    "tourismSiteName": "東川町観光情報",
+    "officeCoordinate": {
+      "lat": 43.698849,
+      "lng": 142.510217
+    }
   },
   {
     "code": "01459",
@@ -2589,7 +2961,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": "https://www.biei-hokkaido.jp/",
-    "tourismSiteName": "美瑛町観光情報"
+    "tourismSiteName": "美瑛町観光情報",
+    "officeCoordinate": {
+      "lat": 43.588283,
+      "lng": 142.466976
+    }
   },
   {
     "code": "01460",
@@ -2617,7 +2993,11 @@
       "colorVibrantHex": "#9060D0"
     },
     "tourismUrl": "https://kamifurano.jp/",
-    "tourismSiteName": "上富良野町観光協会"
+    "tourismSiteName": "上富良野町観光協会",
+    "officeCoordinate": {
+      "lat": 43.455649,
+      "lng": 142.467082
+    }
   },
   {
     "code": "01461",
@@ -2645,7 +3025,11 @@
       "colorVibrantHex": "#9060D0"
     },
     "tourismUrl": "https://www.nakafurano.jp/",
-    "tourismSiteName": "中富良野町観光協会"
+    "tourismSiteName": "中富良野町観光協会",
+    "officeCoordinate": {
+      "lat": 43.405529,
+      "lng": 142.425041
+    }
   },
   {
     "code": "01462",
@@ -2673,7 +3057,11 @@
       "colorVibrantHex": "#E8B800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.164167,
+      "lng": 142.568333
+    }
   },
   {
     "code": "01463",
@@ -2701,7 +3089,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.97988,
+      "lng": 142.398536
+    }
   },
   {
     "code": "01464",
@@ -2729,7 +3121,11 @@
       "colorVibrantHex": "#A03890"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.023129,
+      "lng": 142.413401
+    }
   },
   {
     "code": "01465",
@@ -2757,7 +3153,11 @@
       "colorVibrantHex": "#5050C0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.095762,
+      "lng": 142.361327
+    }
   },
   {
     "code": "01468",
@@ -2785,7 +3185,11 @@
       "colorVibrantHex": "#5050C0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.302566,
+      "lng": 142.635202
+    }
   },
   {
     "code": "01469",
@@ -2813,7 +3217,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.481021,
+      "lng": 142.343058
+    }
   },
   {
     "code": "01470",
@@ -2841,7 +3249,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.725042,
+      "lng": 142.262214
+    }
   },
   {
     "code": "01471",
@@ -2869,7 +3281,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.811389,
+      "lng": 142.071389
+    }
   },
   {
     "code": "01472",
@@ -2897,7 +3313,11 @@
       "colorVibrantHex": "#A03890"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.009798,
+      "lng": 142.15383
+    }
   },
   {
     "code": "01481",
@@ -2925,7 +3345,11 @@
       "colorVibrantHex": "#E080A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.85606,
+      "lng": 141.524918
+    }
   },
   {
     "code": "01482",
@@ -2953,7 +3377,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.015487,
+      "lng": 141.662757
+    }
   },
   {
     "code": "01483",
@@ -2981,7 +3409,11 @@
       "colorVibrantHex": "#5060C0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.306142,
+      "lng": 141.652909
+    }
   },
   {
     "code": "01484",
@@ -3009,7 +3441,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.360611,
+      "lng": 141.697276
+    }
   },
   {
     "code": "01485",
@@ -3037,7 +3473,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.532172,
+      "lng": 141.766312
+    }
   },
   {
     "code": "01486",
@@ -3065,7 +3505,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.722508,
+      "lng": 141.792327
+    }
   },
   {
     "code": "01487",
@@ -3093,7 +3537,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.888173,
+      "lng": 141.745352
+    }
   },
   {
     "code": "01511",
@@ -3121,7 +3569,11 @@
       "colorVibrantHex": "#D06858"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.330609,
+      "lng": 142.108972
+    }
   },
   {
     "code": "01512",
@@ -3149,7 +3601,11 @@
       "colorVibrantHex": "#D4A800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.123779,
+      "lng": 142.359735
+    }
   },
   {
     "code": "01513",
@@ -3177,7 +3633,11 @@
       "colorVibrantHex": "#E08098"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.969761,
+      "lng": 142.286736
+    }
   },
   {
     "code": "01514",
@@ -3205,7 +3665,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.938682,
+      "lng": 142.581388
+    }
   },
   {
     "code": "01516",
@@ -3233,7 +3697,11 @@
       "colorVibrantHex": "#E07020"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.102857,
+      "lng": 141.777503
+    }
   },
   {
     "code": "01517",
@@ -3261,7 +3729,11 @@
       "colorVibrantHex": "#B0C0A0"
     },
     "tourismUrl": "https://rebun-island.jp/",
-    "tourismSiteName": "礼文島観光協会"
+    "tourismSiteName": "礼文島観光協会",
+    "officeCoordinate": {
+      "lat": 45.303082,
+      "lng": 141.047751
+    }
   },
   {
     "code": "01518",
@@ -3289,7 +3761,11 @@
       "colorVibrantHex": "#E07020"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.187017,
+      "lng": 141.13958
+    }
   },
   {
     "code": "01519",
@@ -3317,7 +3793,11 @@
       "colorVibrantHex": "#E8B800"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.2475,
+      "lng": 141.214722
+    }
   },
   {
     "code": "01520",
@@ -3345,7 +3825,11 @@
       "colorVibrantHex": "#E05080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 45.017778,
+      "lng": 141.849444
+    }
   },
   {
     "code": "01543",
@@ -3373,7 +3857,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.824248,
+      "lng": 144.107523
+    }
   },
   {
     "code": "01544",
@@ -3401,7 +3889,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.706261,
+      "lng": 144.025237
+    }
   },
   {
     "code": "01545",
@@ -3429,7 +3921,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": "https://www.shari.co.jp/",
-    "tourismSiteName": "知床・斜里町観光協会"
+    "tourismSiteName": "知床・斜里町観光協会",
+    "officeCoordinate": {
+      "lat": 43.911476,
+      "lng": 144.670841
+    }
   },
   {
     "code": "01546",
@@ -3457,7 +3953,11 @@
       "colorVibrantHex": "#C07090"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.835238,
+      "lng": 144.594682
+    }
   },
   {
     "code": "01547",
@@ -3485,7 +3985,11 @@
       "colorVibrantHex": "#E06820"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.856745,
+      "lng": 144.462098
+    }
   },
   {
     "code": "01549",
@@ -3513,7 +4017,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.725368,
+      "lng": 143.741662
+    }
   },
   {
     "code": "01550",
@@ -3541,7 +4049,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.676392,
+      "lng": 143.586352
+    }
   },
   {
     "code": "01552",
@@ -3569,7 +4081,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.017852,
+      "lng": 143.774767
+    }
   },
   {
     "code": "01555",
@@ -3597,7 +4113,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": "https://cosmos-love.com/",
-    "tourismSiteName": "太陽の丘えんがる公園（コスモス）"
+    "tourismSiteName": "太陽の丘えんがる公園（コスモス）",
+    "officeCoordinate": {
+      "lat": 44.061964,
+      "lng": 143.528049
+    }
   },
   {
     "code": "01559",
@@ -3625,7 +4145,11 @@
       "colorVibrantHex": "#E03030"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.151603,
+      "lng": 143.573035
+    }
   },
   {
     "code": "01560",
@@ -3653,7 +4177,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": "https://takinoue-kankou.jp/",
-    "tourismSiteName": "香りの里たきのうえ観光協会"
+    "tourismSiteName": "香りの里たきのうえ観光協会",
+    "officeCoordinate": {
+      "lat": 44.192275,
+      "lng": 143.077614
+    }
   },
   {
     "code": "01561",
@@ -3681,7 +4209,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.469866,
+      "lng": 143.123958
+    }
   },
   {
     "code": "01562",
@@ -3709,7 +4241,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.328808,
+      "lng": 142.944461
+    }
   },
   {
     "code": "01563",
@@ -3737,7 +4273,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 44.582506,
+      "lng": 142.962009
+    }
   },
   {
     "code": "01564",
@@ -3765,7 +4305,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": "https://www.town.ozora.hokkaido.jp/",
-    "tourismSiteName": "大空町公式サイト"
+    "tourismSiteName": "大空町公式サイト",
+    "officeCoordinate": {
+      "lat": 43.911944,
+      "lng": 144.1725
+    }
   },
   {
     "code": "01571",
@@ -3793,7 +4337,11 @@
       "colorVibrantHex": "#D0B010"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.583409,
+      "lng": 140.711966
+    }
   },
   {
     "code": "01575",
@@ -3821,7 +4369,11 @@
       "colorVibrantHex": "#C07090"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.552109,
+      "lng": 140.885836
+    }
   },
   {
     "code": "01578",
@@ -3849,7 +4401,11 @@
       "colorVibrantHex": "#C04888"
     },
     "tourismUrl": "https://www.shiraoi.com/",
-    "tourismSiteName": "白老観光協会（ウポポイ）"
+    "tourismSiteName": "白老観光協会（ウポポイ）",
+    "officeCoordinate": {
+      "lat": 42.551247,
+      "lng": 141.355945
+    }
   },
   {
     "code": "01581",
@@ -3877,7 +4433,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.723669,
+      "lng": 141.877949
+    }
   },
   {
     "code": "01584",
@@ -3905,7 +4465,11 @@
       "colorVibrantHex": "#7040B0"
     },
     "tourismUrl": "https://www.laketoya.com/",
-    "tourismSiteName": "洞爺湖観光情報"
+    "tourismSiteName": "洞爺湖観光情報",
+    "officeCoordinate": {
+      "lat": 42.551117,
+      "lng": 140.764274
+    }
   },
   {
     "code": "01585",
@@ -3925,7 +4489,11 @@
     },
     "flower": null,
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.762803,
+      "lng": 141.818034
+    }
   },
   {
     "code": "01586",
@@ -3953,7 +4521,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.574748,
+      "lng": 141.926745
+    }
   },
   {
     "code": "01601",
@@ -3981,7 +4553,11 @@
       "colorVibrantHex": "#E080A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.480335,
+      "lng": 142.074295
+    }
   },
   {
     "code": "01602",
@@ -4009,7 +4585,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": "https://www.town.biratori.hokkaido.jp/",
-    "tourismSiteName": "平取町（スズラン群生地）"
+    "tourismSiteName": "平取町（スズラン群生地）",
+    "officeCoordinate": {
+      "lat": 42.58514,
+      "lng": 142.128699
+    }
   },
   {
     "code": "01604",
@@ -4037,7 +4617,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.362443,
+      "lng": 142.31844
+    }
   },
   {
     "code": "01607",
@@ -4065,7 +4649,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.168342,
+      "lng": 142.768203
+    }
   },
   {
     "code": "01608",
@@ -4093,7 +4681,11 @@
       "colorVibrantHex": "#D090A8"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.127778,
+      "lng": 142.933889
+    }
   },
   {
     "code": "01609",
@@ -4121,7 +4713,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.016389,
+      "lng": 143.148333
+    }
   },
   {
     "code": "01610",
@@ -4149,7 +4745,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.341255,
+      "lng": 142.368604
+    }
   },
   {
     "code": "01631",
@@ -4177,7 +4777,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.994029,
+      "lng": 143.19812
+    }
   },
   {
     "code": "01632",
@@ -4205,7 +4809,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.16805,
+      "lng": 143.24146
+    }
   },
   {
     "code": "01633",
@@ -4233,7 +4841,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.232635,
+      "lng": 143.296179
+    }
   },
   {
     "code": "01634",
@@ -4261,7 +4873,11 @@
       "colorVibrantHex": "#E068A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.098877,
+      "lng": 142.98897
+    }
   },
   {
     "code": "01635",
@@ -4289,7 +4905,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.079756,
+      "lng": 142.83891
+    }
   },
   {
     "code": "01636",
@@ -4317,7 +4937,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.011436,
+      "lng": 142.884537
+    }
   },
   {
     "code": "01637",
@@ -4345,7 +4969,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.911546,
+      "lng": 143.050838
+    }
   },
   {
     "code": "01638",
@@ -4373,7 +5001,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.697864,
+      "lng": 143.134395
+    }
   },
   {
     "code": "01639",
@@ -4401,7 +5033,11 @@
       "colorVibrantHex": "#7DB87D"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.650386,
+      "lng": 143.187842
+    }
   },
   {
     "code": "01641",
@@ -4429,7 +5065,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.497658,
+      "lng": 143.278968
+    }
   },
   {
     "code": "01642",
@@ -4457,7 +5097,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.285931,
+      "lng": 143.311629
+    }
   },
   {
     "code": "01643",
@@ -4485,7 +5129,11 @@
       "colorVibrantHex": "#E070A0"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.908628,
+      "lng": 143.356092
+    }
   },
   {
     "code": "01644",
@@ -4513,7 +5161,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.tokachi-ikeda.com/",
-    "tourismSiteName": "十勝ワイン・池田町観光情報"
+    "tourismSiteName": "十勝ワイン・池田町観光情報",
+    "officeCoordinate": {
+      "lat": 42.929008,
+      "lng": 143.448532
+    }
   },
   {
     "code": "01645",
@@ -4541,7 +5193,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.80102,
+      "lng": 143.50589
+    }
   },
   {
     "code": "01646",
@@ -4569,7 +5225,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.124673,
+      "lng": 143.610566
+    }
   },
   {
     "code": "01647",
@@ -4597,7 +5257,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.244802,
+      "lng": 143.554053
+    }
   },
   {
     "code": "01648",
@@ -4625,7 +5289,11 @@
       "colorVibrantHex": "#D0A000"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.468889,
+      "lng": 143.747222
+    }
   },
   {
     "code": "01649",
@@ -4653,7 +5321,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.808957,
+      "lng": 143.658578
+    }
   },
   {
     "code": "01661",
@@ -4681,7 +5353,11 @@
       "colorVibrantHex": "#7040A8"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.996172,
+      "lng": 144.466079
+    }
   },
   {
     "code": "01662",
@@ -4709,7 +5385,11 @@
       "colorVibrantHex": "#7050B8"
     },
     "tourismUrl": "https://www.akkeshi-bekanbeushi.com/",
-    "tourismSiteName": "厚岸霧多布昆布の国観光協会"
+    "tourismSiteName": "厚岸霧多布昆布の国観光協会",
+    "officeCoordinate": {
+      "lat": 43.05196,
+      "lng": 144.847469
+    }
   },
   {
     "code": "01663",
@@ -4737,7 +5417,11 @@
       "colorVibrantHex": "#E07020"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.075948,
+      "lng": 145.131127
+    }
   },
   {
     "code": "01664",
@@ -4765,7 +5449,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.303347,
+      "lng": 144.600659
+    }
   },
   {
     "code": "01665",
@@ -4793,7 +5481,11 @@
       "colorVibrantHex": "#E06080"
     },
     "tourismUrl": "https://www.masyuko.or.jp/",
-    "tourismSiteName": "摩周湖観光協会（弟子屈町）"
+    "tourismSiteName": "摩周湖観光協会（弟子屈町）",
+    "officeCoordinate": {
+      "lat": 43.485213,
+      "lng": 144.459325
+    }
   },
   {
     "code": "01667",
@@ -4821,7 +5513,11 @@
       "colorVibrantHex": "#E07080"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.230072,
+      "lng": 144.321187
+    }
   },
   {
     "code": "01668",
@@ -4849,7 +5545,11 @@
       "colorVibrantHex": "#E07020"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 42.956165,
+      "lng": 144.071732
+    }
   },
   {
     "code": "01691",
@@ -4877,7 +5577,11 @@
       "colorVibrantHex": "#C8A000"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.394002,
+      "lng": 145.117328
+    }
   },
   {
     "code": "01692",
@@ -4905,7 +5609,11 @@
       "colorVibrantHex": "#5050C0"
     },
     "tourismUrl": "https://www.nakashibetsu-airport.jp/",
-    "tourismSiteName": "中標津町観光情報（nakashibetsu-airport.jp）"
+    "tourismSiteName": "中標津町観光情報（nakashibetsu-airport.jp）",
+    "officeCoordinate": {
+      "lat": 43.555205,
+      "lng": 144.971387
+    }
   },
   {
     "code": "01693",
@@ -4933,7 +5641,11 @@
       "colorVibrantHex": "#E03060"
     },
     "tourismUrl": null,
-    "tourismSiteName": null
+    "tourismSiteName": null,
+    "officeCoordinate": {
+      "lat": 43.661269,
+      "lng": 145.131325
+    }
   },
   {
     "code": "01694",
@@ -4961,6 +5673,10 @@
       "colorVibrantHex": "#E08098"
     },
     "tourismUrl": "https://www.rausu-town.jp/",
-    "tourismSiteName": "羅臼町公式サイト"
+    "tourismSiteName": "羅臼町公式サイト",
+    "officeCoordinate": {
+      "lat": 44.021944,
+      "lng": 145.189444
+    }
   }
 ]

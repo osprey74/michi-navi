@@ -19,14 +19,14 @@ final class AppSettings {
 
     var hasGoogleMapsAPIKey: Bool { !googleMapsAPIKey.isEmpty }
 
-    // MARK: - お気に入り・到達
+    // MARK: - お気に入り・踏破
 
     /// お気に入り登録した道の駅 ID セット
     var favoriteStationIds: Set<String> {
         didSet { save() }
     }
 
-    /// 到達済みとした道の駅 ID セット
+    /// 踏破済みとした道の駅 ID セット
     var visitedStationIds: Set<String> {
         didSet { save() }
     }

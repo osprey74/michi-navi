@@ -265,7 +265,9 @@ struct ContentView: View {
 
 struct CombinedListsView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(AppSettings.self) private var settings
     @State private var selectedTab: ListTab = .stations
+    @State private var showRandomDraw = false
 
     enum ListTab: String, CaseIterable {
         case stations = "道の駅"
@@ -275,21 +277,28 @@ struct CombinedListsView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                Picker("", selection: $selectedTab) {
-                    ForEach(ListTab.allCases, id: \.self) { tab in
-                        Text(tab.rawValue).tag(tab)
+                // CSマーカーON時のみセグメントピッカーを表示
+                if settings.showCountrySignMarkers {
+                    Picker("", selection: $selectedTab) {
+                        ForEach(ListTab.allCases, id: \.self) { tab in
+                            Text(tab.rawValue).tag(tab)
+                        }
                     }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Color(.systemGroupedBackground))
                 }
-                .pickerStyle(.segmented)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                .background(Color(.systemGroupedBackground))
 
                 switch selectedTab {
                 case .stations:
                     StationListsContent()
                 case .countrySigns:
-                    CountrySignListsContent()
+                    if settings.showCountrySignMarkers {
+                        CountrySignListsContent()
+                    } else {
+                        StationListsContent()
+                    }
                 }
             }
             .navigationTitle("リスト")
@@ -297,6 +306,25 @@ struct CombinedListsView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("閉じる") { dismiss() }
+                }
+                // カントリーサインタブ選択中のみカードボタンを表示
+                if selectedTab == .countrySigns && settings.showCountrySignMarkers {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            showRandomDraw = true
+                        } label: {
+                            Image(systemName: "square.stack")
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showRandomDraw) {
+                RandomSignCardView(dismissParent: { dismiss() })
+            }
+            .onChange(of: settings.showCountrySignMarkers) { _, isOn in
+                // CSマーカーOFF時にCSタブを選択していたら道の駅タブに戻す
+                if !isOn && selectedTab == .countrySigns {
+                    selectedTab = .stations
                 }
             }
         }

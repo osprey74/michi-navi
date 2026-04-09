@@ -6,6 +6,10 @@ struct CountrySignDetailView: View {
     let sign: CountrySign
 
     @Environment(AppSettings.self) private var settings
+    @Environment(NavigationService.self) private var navigationService
+
+    @State private var showNavAppPicker = false
+    @State private var showShareSheet = false
 
     var body: some View {
         @Bindable var settings = settings
@@ -111,6 +115,34 @@ struct CountrySignDetailView: View {
                 }
             }
 
+            // MARK: 役場へナビ / 共有
+            if let coord = sign.officeCoordinate {
+                Section {
+                    HStack(spacing: 8) {
+                        Button {
+                            showNavAppPicker = true
+                        } label: {
+                            Label("\(sign.name)へ行く", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
+                                .frame(maxWidth: .infinity)
+                                .font(.headline)
+                        }
+                        .buttonStyle(.borderedProminent)
+
+                        Button {
+                            showShareSheet = true
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.headline)
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                }
+                .sheet(isPresented: $showShareSheet) {
+                    LocationShareSheet(coordinate: coord, name: sign.name)
+                }
+            }
+
             // MARK: 公式サイトリンク
             Section {
                 if let urlStr = sign.tourismUrl, let url = URL(string: urlStr) {
@@ -132,6 +164,15 @@ struct CountrySignDetailView: View {
         .navigationTitle(sign.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { settings.mapFocusSign = sign }
+        .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
+            if let coord = sign.officeCoordinate {
+                ForEach(navigationService.availableApps()) { app in
+                    Button(app.displayName) {
+                        navigationService.navigate(to: coord, name: sign.name, with: app)
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - Sign Image

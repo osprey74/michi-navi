@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 道の駅リスト・お気に入りリスト・到達リストの3タブシート
+/// 道の駅リスト・お気に入りリスト・踏破リストの3タブシート
 struct StationListsView: View {
 
     @Environment(\.dismiss) private var dismiss
@@ -28,7 +28,7 @@ struct StationListsContent: View {
             FavoriteStationsTab()
                 .tabItem { Label("お気に入り", systemImage: "heart.fill") }
             VisitedStationsTab()
-                .tabItem { Label("到達済み", systemImage: "checkmark.seal.fill") }
+                .tabItem { Label("踏破済み", systemImage: "checkmark.seal.fill") }
         }
     }
 }
@@ -95,7 +95,7 @@ private struct FavoriteStationsTab: View {
                 ContentUnavailableView {
                     Label("お気に入りなし", systemImage: "heart")
                 } description: {
-                    Text("道の駅詳細画面でハートボタンをタップすると追加されます")
+                    Text("詳細画面でハートボタンをタップすると追加されます")
                 }
             } else {
                 List(favoriteStations) { station in
@@ -110,7 +110,7 @@ private struct FavoriteStationsTab: View {
     }
 }
 
-// MARK: - Tab 3: 到達リスト
+// MARK: - Tab 3: 踏破リスト
 
 private struct VisitedStationsTab: View {
     @Environment(RoadsideStationService.self) private var stationService
@@ -126,9 +126,9 @@ private struct VisitedStationsTab: View {
         Group {
             if visitedStations.isEmpty {
                 ContentUnavailableView {
-                    Label("到達済みなし", systemImage: "checkmark.seal")
+                    Label("踏破記録なし", systemImage: "checkmark.seal")
                 } description: {
-                    Text("道の駅詳細画面でチェックボタンをタップすると追加されます")
+                    Text("詳細画面でチェックボタンをタップすると追加されます")
                 }
             } else {
                 List(visitedStations) { station in

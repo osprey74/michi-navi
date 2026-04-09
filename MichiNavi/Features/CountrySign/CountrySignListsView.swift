@@ -28,7 +28,7 @@ struct CountrySignListsContent: View {
             FavoriteSignsTab()
                 .tabItem { Label("お気に入り", systemImage: "heart.fill") }
             VisitedSignsTab()
-                .tabItem { Label("踏破", systemImage: "checkmark.seal.fill") }
+                .tabItem { Label("踏破済み", systemImage: "checkmark.seal.fill") }
         }
     }
 }
@@ -73,11 +73,11 @@ private struct FavoriteSignsTab: View {
     var body: some View {
         Group {
             if favoriteSigns.isEmpty {
-                ContentUnavailableView(
-                    "お気に入りがありません",
-                    systemImage: "heart.slash",
-                    description: Text("カントリーサインの詳細画面からお気に入りに登録できます")
-                )
+                ContentUnavailableView {
+                    Label("お気に入りなし", systemImage: "heart")
+                } description: {
+                    Text("詳細画面でハートボタンをタップすると追加されます")
+                }
             } else {
                 List {
                     ForEach(favoriteSigns) { sign in
@@ -110,11 +110,11 @@ private struct VisitedSignsTab: View {
     var body: some View {
         Group {
             if visitedSigns.isEmpty {
-                ContentUnavailableView(
-                    "踏破記録がありません",
-                    systemImage: "checkmark.seal",
-                    description: Text("カントリーサインの詳細画面から踏破に登録できます")
-                )
+                ContentUnavailableView {
+                    Label("踏破記録なし", systemImage: "checkmark.seal")
+                } description: {
+                    Text("詳細画面でチェックボタンをタップすると追加されます")
+                }
             } else {
                 List {
                     ForEach(visitedSigns) { sign in
