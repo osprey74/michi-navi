@@ -67,6 +67,18 @@ final class AppSettings {
         }
     }
 
+    // MARK: - マーカー表示トグル
+
+    /// 道の駅マーカーを地図上に表示するか
+    var showStationMarkers: Bool {
+        didSet { save() }
+    }
+
+    /// カントリーサインマーカーを地図上に表示するか
+    var showCountrySignMarkers: Bool {
+        didSet { save() }
+    }
+
     // MARK: - リスト→地図フォーカス（永続化なし）
 
     /// リストから詳細を閲覧した道の駅（シート閉じ時に地図を移動するために使用）
@@ -104,6 +116,9 @@ final class AppSettings {
 
         let visSignArray = ud.stringArray(forKey: "visitedSignIds") ?? []
         self.visitedSignIds = Set(visSignArray)
+
+        self.showStationMarkers = ud.object(forKey: "showStationMarkers") as? Bool ?? true
+        self.showCountrySignMarkers = ud.object(forKey: "showCountrySignMarkers") as? Bool ?? true
     }
 
     private func save() {
@@ -114,5 +129,7 @@ final class AppSettings {
         ud.set(Array(visitedStationIds), forKey: "visitedStationIds")
         ud.set(Array(favoriteSignIds), forKey: "favoriteSignIds")
         ud.set(Array(visitedSignIds), forKey: "visitedSignIds")
+        ud.set(showStationMarkers, forKey: "showStationMarkers")
+        ud.set(showCountrySignMarkers, forKey: "showCountrySignMarkers")
     }
 }

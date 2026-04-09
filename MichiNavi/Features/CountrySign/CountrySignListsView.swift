@@ -3,35 +3,32 @@ import SwiftUI
 /// カントリーサインリスト・お気に入り・踏破の3タブシート
 struct CountrySignListsView: View {
 
-    @Environment(CountrySignService.self) private var signService
-    @Environment(AppSettings.self) private var settings
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
-            TabView {
-                AllSignsTab()
-                    .tabItem {
-                        Label("カントリーサイン", systemImage: "signpost.right.fill")
+            CountrySignListsContent()
+                .navigationTitle("カントリーサイン")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("閉じる") { dismiss() }
                     }
-
-                FavoriteSignsTab()
-                    .tabItem {
-                        Label("お気に入り", systemImage: "heart.fill")
-                    }
-
-                VisitedSignsTab()
-                    .tabItem {
-                        Label("踏破", systemImage: "checkmark.seal.fill")
-                    }
-            }
-            .navigationTitle("カントリーサイン")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") { dismiss() }
                 }
-            }
+        }
+    }
+}
+
+/// 統合リストビューから再利用可能なカントリーサインタブコンテンツ
+struct CountrySignListsContent: View {
+    var body: some View {
+        TabView {
+            AllSignsTab()
+                .tabItem { Label("カントリーサイン", systemImage: "signpost.right.fill") }
+            FavoriteSignsTab()
+                .tabItem { Label("お気に入り", systemImage: "heart.fill") }
+            VisitedSignsTab()
+                .tabItem { Label("踏破", systemImage: "checkmark.seal.fill") }
         }
     }
 }
@@ -165,7 +162,9 @@ struct CountrySignListRow: View {
 
     @ViewBuilder
     private var signThumbnail: some View {
-        if let imageName = sign.imageName, let uiImage = UIImage(named: imageName) {
+        if let imageName = sign.imageName,
+           let path = Bundle.main.path(forResource: imageName, ofType: "jpg"),
+           let uiImage = UIImage(contentsOfFile: path) {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)

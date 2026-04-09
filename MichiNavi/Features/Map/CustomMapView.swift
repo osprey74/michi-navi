@@ -213,7 +213,9 @@ final class CountrySignAnnotationView: MKAnnotationView {
             path.addClip()
 
             // カントリーサイン画像 or プレースホルダー
-            if let name = imageName, let csImage = UIImage(named: name) {
+            if let name = imageName,
+               let filePath = Bundle.main.path(forResource: name, ofType: "jpg"),
+               let csImage = UIImage(contentsOfFile: filePath) {
                 // アスペクト比を保ってサムネイル内に収める（letterbox）
                 let imgSize = csImage.size
                 let scale = min(thumbnailSize / imgSize.width, thumbnailSize / imgSize.height)

@@ -112,17 +112,21 @@ struct CountrySignDetailView: View {
             }
 
             // MARK: 公式サイトリンク
-            if let urlStr = sign.tourismUrl, let url = URL(string: urlStr) {
-                Section {
+            Section {
+                if let urlStr = sign.tourismUrl, let url = URL(string: urlStr) {
                     Link(destination: url) {
-                        Label(
-                            sign.tourismSiteName ?? "公式サイトを開く",
-                            systemImage: "safari"
-                        )
+                        Label(sign.tourismSiteName ?? "公式サイトを開く", systemImage: "safari")
                     }
-                } header: {
-                    Text("公式サイト")
+                } else if let query = "\(sign.name) 公式サイト"
+                    .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                    let searchURL = URL(string: "https://www.google.com/search?q=\(query)") {
+                    Link(destination: searchURL) {
+                        Label("\(sign.name) を検索", systemImage: "magnifyingglass")
+                    }
+                    .foregroundStyle(.secondary)
                 }
+            } header: {
+                Text("公式サイト")
             }
         }
         .navigationTitle(sign.name)
@@ -135,7 +139,9 @@ struct CountrySignDetailView: View {
     @ViewBuilder
     private var signImage: some View {
         Group {
-            if let imageName = sign.imageName, let uiImage = UIImage(named: imageName) {
+            if let imageName = sign.imageName,
+               let path = Bundle.main.path(forResource: imageName, ofType: "jpg"),
+               let uiImage = UIImage(contentsOfFile: path) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

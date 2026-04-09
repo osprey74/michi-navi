@@ -3,38 +3,32 @@ import SwiftUI
 /// 道の駅リスト・お気に入りリスト・到達リストの3タブシート
 struct StationListsView: View {
 
-    @Environment(RoadsideStationService.self) private var stationService
-    @Environment(AppSettings.self) private var settings
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
-            TabView {
-                // Tab 1: 道の駅リスト（全件ブラウズ）
-                AllStationsTab()
-                    .tabItem {
-                        Label("道の駅", systemImage: "building.2.fill")
+            StationListsContent()
+                .navigationTitle("道の駅リスト")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("閉じる") { dismiss() }
                     }
-
-                // Tab 2: お気に入りリスト
-                FavoriteStationsTab()
-                    .tabItem {
-                        Label("お気に入り", systemImage: "heart.fill")
-                    }
-
-                // Tab 3: 到達リスト
-                VisitedStationsTab()
-                    .tabItem {
-                        Label("到達済み", systemImage: "checkmark.seal.fill")
-                    }
-            }
-            .navigationTitle("道の駅リスト")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") { dismiss() }
                 }
-            }
+        }
+    }
+}
+
+/// 統合リストビューから再利用可能な道の駅タブコンテンツ
+struct StationListsContent: View {
+    var body: some View {
+        TabView {
+            AllStationsTab()
+                .tabItem { Label("道の駅", systemImage: "building.2.fill") }
+            FavoriteStationsTab()
+                .tabItem { Label("お気に入り", systemImage: "heart.fill") }
+            VisitedStationsTab()
+                .tabItem { Label("到達済み", systemImage: "checkmark.seal.fill") }
         }
     }
 }

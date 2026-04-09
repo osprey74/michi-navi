@@ -36,22 +36,21 @@ struct ContentView: View {
     @State private var currentZoom: Double = MapConstants.wideZoom
 
     @State private var showSettings = false
-    @State private var showStationLists = false
-    @State private var showCountrySignLists = false
+    @State private var showCombinedList = false
 
     var body: some View {
         ZStack {
             CustomMapView(
                 tileType: settings.selectedMapTile,
                 googleAPIKey: settings.googleMapsAPIKey,
-                stations: stationService.visibleStations,
+                stations: settings.showStationMarkers ? stationService.visibleStations : [],
                 favoriteIds: settings.favoriteStationIds,
                 visitedIds: settings.visitedStationIds,
-                countrySigns: signService.allSigns,
+                countrySigns: settings.showCountrySignMarkers ? signService.allSigns : [],
                 favoriteSignIds: settings.favoriteSignIds,
                 visitedSignIds: settings.visitedSignIds,
                 boundaryOverlays: signService.boundaryOverlays,
-                showBoundaries: true,
+                showBoundaries: settings.showCountrySignMarkers,
                 selectedStation: $selectedStation,
                 selectedSign: $selectedSign,
                 commandedRegion: $commandedRegion
@@ -77,31 +76,27 @@ struct ContentView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
-        .sheet(isPresented: $showStationLists) {
-            StationListsView()
+        .sheet(isPresented: $showCombinedList) {
+            CombinedListsView()
         }
-        .sheet(isPresented: $showCountrySignLists) {
-            CountrySignListsView()
-        }
-        .onChange(of: showStationLists) { _, isShowing in
-            guard !isShowing, let station = settings.mapFocusStation else { return }
+        .onChange(of: showCombinedList) { _, isShowing in
+            guard !isShowing else { return }
             let span = 20.0 * 0.009
-            commandedRegion = MKCoordinateRegion(
-                center: station.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
-            )
-            pauseAutoZoom()
-            settings.mapFocusStation = nil
-        }
-        .onChange(of: showCountrySignLists) { _, isShowing in
-            guard !isShowing, let sign = settings.mapFocusSign else { return }
-            let span = 20.0 * 0.009
-            commandedRegion = MKCoordinateRegion(
-                center: sign.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
-            )
-            pauseAutoZoom()
-            settings.mapFocusSign = nil
+            if let station = settings.mapFocusStation {
+                commandedRegion = MKCoordinateRegion(
+                    center: station.coordinate,
+                    span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
+                )
+                pauseAutoZoom()
+                settings.mapFocusStation = nil
+            } else if let sign = settings.mapFocusSign {
+                commandedRegion = MKCoordinateRegion(
+                    center: sign.coordinate,
+                    span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
+                )
+                pauseAutoZoom()
+                settings.mapFocusSign = nil
+            }
         }
         .onChange(of: driveState.currentLocation) { _, newLocation in
             guard let loc = newLocation else { return }
@@ -176,26 +171,42 @@ struct ContentView: View {
 
                 Spacer()
 
-                // カントリーサイン + 道の駅リスト + 現在地ボタン
+                // リスト + マーカートグル + 現在地ボタン
                 VStack(spacing: 8) {
+                    // 統合リスト
                     Button {
-                        showCountrySignLists = true
-                    } label: {
-                        Image(systemName: "signpost.right.fill")
-                            .font(.title3)
-                            .frame(width: 44, height: 44)
-                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                    }
-
-                    Button {
-                        showStationLists = true
+                        showCombinedList = true
                     } label: {
                         Image(systemName: "list.bullet")
                             .font(.title3)
                             .frame(width: 44, height: 44)
                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                     }
+                    .foregroundStyle(.primary)
 
+                    // 道の駅マーカートグル
+                    Button {
+                        settings.showStationMarkers.toggle()
+                    } label: {
+                        Image(systemName: "mappin.circle.fill")
+                            .font(.title3)
+                            .frame(width: 44, height: 44)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    }
+                    .foregroundStyle(settings.showStationMarkers ? .blue : .primary)
+
+                    // カントリーサインマーカートグル
+                    Button {
+                        settings.showCountrySignMarkers.toggle()
+                    } label: {
+                        Image(systemName: "signpost.right.fill")
+                            .font(.title3)
+                            .frame(width: 44, height: 44)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    }
+                    .foregroundStyle(settings.showCountrySignMarkers ? .blue : .primary)
+
+                    // 現在地
                     Button {
                         centerOnUserLocation()
                     } label: {
@@ -204,8 +215,8 @@ struct ContentView: View {
                             .frame(width: 44, height: 44)
                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10))
                     }
+                    .foregroundStyle(.primary)
                 }
-                .foregroundStyle(.primary)
             }
             .padding(.horizontal, 12)
             .padding(.bottom, 30)
@@ -245,6 +256,48 @@ struct ContentView: View {
             try? await Task.sleep(for: .seconds(30))
             if !Task.isCancelled {
                 await MainActor.run { autoZoomEnabled = true }
+            }
+        }
+    }
+}
+
+// MARK: - 統合リストシート
+
+struct CombinedListsView: View {
+    @Environment(\.dismiss) private var dismiss
+    @State private var selectedTab: ListTab = .stations
+
+    enum ListTab: String, CaseIterable {
+        case stations = "道の駅"
+        case countrySigns = "カントリーサイン"
+    }
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 0) {
+                Picker("", selection: $selectedTab) {
+                    ForEach(ListTab.allCases, id: \.self) { tab in
+                        Text(tab.rawValue).tag(tab)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(Color(.systemGroupedBackground))
+
+                switch selectedTab {
+                case .stations:
+                    StationListsContent()
+                case .countrySigns:
+                    CountrySignListsContent()
+                }
+            }
+            .navigationTitle("リスト")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("閉じる") { dismiss() }
+                }
             }
         }
     }
