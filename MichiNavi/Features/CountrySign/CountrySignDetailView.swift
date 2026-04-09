@@ -42,7 +42,7 @@ struct CountrySignDetailView: View {
                         settings.toggleSignVisited(sign.id)
                     } label: {
                         Label(
-                            isVis ? "踏破済み" : "踏破に登録",
+                            isVis ? "踏破済み" : "踏破済み",
                             systemImage: isVis ? "checkmark.seal.fill" : "checkmark.seal"
                         )
                         .frame(maxWidth: .infinity)

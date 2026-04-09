@@ -60,7 +60,7 @@ struct StationDetailView: View {
                         HStack {
                             Image(systemName: isFav ? "heart.fill" : "heart")
                                 .foregroundStyle(isFav ? .red : .secondary)
-                            Text(isFav ? "お気に入り済み" : "お気に入りに追加")
+                            Text(isFav ? "お気に入り済み" : "お気に入り")
                                 .foregroundStyle(isFav ? .red : .primary)
                         }
                         .frame(maxWidth: .infinity)
@@ -76,7 +76,7 @@ struct StationDetailView: View {
                         HStack {
                             Image(systemName: isVis ? "checkmark.shield.fill" : "checkmark.shield")
                                 .foregroundStyle(isVis ? .blue : .secondary)
-                            Text(isVis ? "踏破済み" : "踏破済みにする")
+                            Text(isVis ? "踏破済み" : "踏破済み")
                                 .foregroundStyle(isVis ? .blue : .primary)
                         }
                         .frame(maxWidth: .infinity)

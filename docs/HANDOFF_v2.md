@@ -239,7 +239,7 @@ iOS 実装: `MichiNavi/Features/CountrySign/CountrySignDetailView.swift`
 ┌──────────────────────────────────┐
 │  カントリーサイン画像（高さ 220pt） │
 ├──────────────────────────────────┤
-│  [♥ お気に入り]  [✓ 踏破に登録]   │  ← HStack、各ボタン均等幅
+│  [♥ お気に入り]  [✓ 踏破済み]     │  ← HStack、各ボタン均等幅
 ├──────────────────────────────────┤
 │  カントリーサインについて            │
 │    大空町（おおぞらちょう）          │
@@ -268,14 +268,16 @@ iOS 実装: `MichiNavi/Features/CountrySign/CountrySignDetailView.swift`
   - タップ → ナビアプリ選択ダイアログ（後述）
 - 共有ボタン（`↑` アイコン）: OS 共有シートを開く（後述）
 
-**お気に入り / 踏破ボタンの状態:**
+**お気に入り / 踏破ボタンの状態（道の駅詳細・CS詳細 共通）:**
 
 | 状態 | 色 | アイコン | テキスト |
 |------|----|---------|--------|
 | お気に入りなし | グレー | `heart` | "お気に入り" |
 | お気に入り済み | 赤 | `heart.fill` | "お気に入り済み" |
-| 未踏破 | グレー | `checkmark.seal` | "踏破に登録" |
+| 未踏破 | グレー | `checkmark.seal` | "踏破済み" |
 | 踏破済み | 青 | `checkmark.seal.fill` | "踏破済み" |
+
+> **注意:** 未踏破・踏破済みは同じテキスト "踏破済み" を表示し、アイコン（seal / seal.fill）と色（グレー / 青）で状態を区別する。
 
 **画面表示時の副作用:** `mapFocusSign = sign` をセットし、地図をそのサインの位置に移動させる。
 
@@ -543,7 +545,7 @@ AsyncImage(
 | `MichiNavi/Features/CountrySign/CountrySignListsView.swift` | 新規 | CSリスト画面 |
 | `MichiNavi/Features/CountrySign/RandomSignCardView.swift` | 新規 | ランダムカードドロー |
 | `MichiNavi/Features/Map/ContentView.swift` | 変更 | CSマーカー切替・リスト統合 |
-| `MichiNavi/Features/StationDetail/StationDetailView.swift` | 変更 | 共有ボタン追加 |
+| `MichiNavi/Features/StationDetail/StationDetailView.swift` | 変更 | 共有ボタン追加・ボタン文言統一 |
 | `MichiNavi/MichiNavi/Resources/hokkaido_municipalities.json` | 変更 | officeCoordinate 追加 |
 | `MichiNavi/MichiNavi/Resources/hokkaido_country_signs.json` | 新規 | CSマスタ（179件） |
 | `MichiNavi/MichiNavi/Resources/hokkaido_boundaries_simplified.geojson` | 新規 | 市町村境界線 |
