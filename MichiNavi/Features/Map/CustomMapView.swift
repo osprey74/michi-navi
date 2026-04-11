@@ -247,8 +247,19 @@ final class CountrySignAnnotationView: MKAnnotationView {
 
             // お気に入り / 踏破バッジ（右上）
             if isFavorite || isVisited {
-                let badgeSymbol = isFavorite ? "heart.fill" : "checkmark.shield.fill"
-                let badgeColor: UIColor = isFavorite ? .systemRed : .systemBlue
+                let badgeSymbol: String
+                let badgeColor: UIColor
+                switch (isFavorite, isVisited) {
+                case (true, true):
+                    badgeSymbol = "checkmark.shield.fill"
+                    badgeColor = .systemRed
+                case (true, false):
+                    badgeSymbol = "heart.fill"
+                    badgeColor = .systemRed
+                default: // (false, true)
+                    badgeSymbol = "checkmark.shield.fill"
+                    badgeColor = .systemBlue
+                }
                 let badgeConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .bold)
                 if let badge = UIImage(systemName: badgeSymbol, withConfiguration: badgeConfig) {
                     let bx = thumbnailSize - badge.size.width - 2
