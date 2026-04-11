@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 /// 設定画面
 struct SettingsView: View {
@@ -10,6 +11,16 @@ struct SettingsView: View {
     @State private var apiKeyInput = ""
     @State private var showAPIKey = false
 
+    // バックアップ関連
+    @State private var backupFileURL: URL?
+    @State private var showShareSheet = false
+    @State private var isExporting = false
+    @State private var showDocumentPicker = false
+    @State private var pendingRestoreURL: URL?
+    @State private var showRestoreConfirm = false
+    @State private var restoreResultMessage: String?
+    @State private var showRestoreResult = false
+
     var body: some View {
         @Bindable var settings = settings
 
@@ -17,6 +28,7 @@ struct SettingsView: View {
             Form {
                 mapTileSection(settings: settings)
                 googleMapsSection(settings: settings)
+                dataManagementSection
                 creditSection
             }
             .navigationTitle("設定")
@@ -25,6 +37,63 @@ struct SettingsView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("完了") { dismiss() }
                 }
+            }
+            // バックアップ共有シート（UIActivityViewController を直接 present）
+            .background {
+                if let url = backupFileURL, showShareSheet {
+                    ActivityPresenter(url: url, isPresented: $showShareSheet) {
+                        isExporting = false  // 共有シートが開いたらオーバーレイを消す
+                    }
+                    .frame(width: 0, height: 0)
+                }
+            }
+            // ローディングオーバーレイ
+            .overlay {
+                if isExporting {
+                    ZStack {
+                        Color.black.opacity(0.35)
+                            .ignoresSafeArea()
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .tint(.white)
+                            .scaleEffect(1.5)
+                    }
+                    .animation(.easeInOut(duration: 0.15), value: isExporting)
+                }
+            }
+            // 復元用ドキュメントピッカー
+            .sheet(isPresented: $showDocumentPicker) {
+                DocumentPickerView { url in
+                    pendingRestoreURL = url
+                    showRestoreConfirm = true
+                }
+                .ignoresSafeArea()
+            }
+            // 復元確認ダイアログ
+            .confirmationDialog(
+                "バックアップから復元",
+                isPresented: $showRestoreConfirm,
+                titleVisibility: .visible
+            ) {
+                Button("復元する", role: .destructive) {
+                    guard let url = pendingRestoreURL else { return }
+                    do {
+                        try BackupService.restore(from: url, into: settings)
+                        restoreResultMessage = "復元が完了しました。"
+                    } catch {
+                        restoreResultMessage = "復元に失敗しました。\(error.localizedDescription)"
+                    }
+                    showRestoreResult = true
+                }
+                Button("キャンセル", role: .cancel) {}
+            } message: {
+                Text("現在のお気に入り・踏破データがバックアップの内容で上書きされます。")
+            }
+            // 復元結果アラート
+            .alert("データ管理", isPresented: $showRestoreResult) {
+                Button("OK") {}
+            } message: {
+                Text(restoreResultMessage ?? "")
             }
         }
     }
@@ -135,6 +204,37 @@ struct SettingsView: View {
         }
     }
 
+    // MARK: - データ管理
+
+    private var dataManagementSection: some View {
+        Section {
+            Button {
+                isExporting = true
+                do {
+                    backupFileURL = try BackupService.export(settings: settings)
+                    showShareSheet = true
+                } catch {
+                    isExporting = false
+                    restoreResultMessage = "バックアップの作成に失敗しました。\(error.localizedDescription)"
+                    showRestoreResult = true
+                }
+            } label: {
+                Label("バックアップをエクスポート", systemImage: "square.and.arrow.up")
+            }
+
+            Button {
+                showDocumentPicker = true
+            } label: {
+                Label("バックアップから復元", systemImage: "square.and.arrow.down")
+            }
+        } header: {
+            Text("データ管理")
+        } footer: {
+            Text("お気に入り・踏破データを JSON ファイルとして書き出し／読み込みします。写真は iCloud Drive で自動同期されます。")
+                .font(.footnote)
+        }
+    }
+
     // MARK: - クレジット
 
     private var creditSection: some View {
@@ -200,5 +300,60 @@ struct SettingsView: View {
         let prefix = key.prefix(4)
         let suffix = key.suffix(4)
         return "\(prefix)••••••••\(suffix)"
+    }
+}
+
+// MARK: - UIActivityViewController プレゼンター
+// .sheet に UIActivityViewController を直接渡すと白くなるため、
+// 非表示の UIViewController から present する方式を使う
+
+private struct ActivityPresenter: UIViewControllerRepresentable {
+    let url: URL
+    @Binding var isPresented: Bool
+    var onPresented: (() -> Void)? = nil
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        UIViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        guard isPresented, uiViewController.presentedViewController == nil else { return }
+        let vc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        vc.completionWithItemsHandler = { _, _, _, _ in isPresented = false }
+        uiViewController.present(vc, animated: true) {
+            onPresented?()  // アニメーション完了 = 共有シートが画面に現れた瞬間
+        }
+    }
+}
+
+// MARK: - ドキュメントピッカー（復元用）
+
+private struct DocumentPickerView: UIViewControllerRepresentable {
+    let onPick: (URL) -> Void
+
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.json])
+        picker.delegate = context.coordinator
+        picker.allowsMultipleSelection = false
+        return picker
+    }
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator { Coordinator(onPick: onPick) }
+
+    class Coordinator: NSObject, UIDocumentPickerDelegate {
+        let onPick: (URL) -> Void
+        init(onPick: @escaping (URL) -> Void) { self.onPick = onPick }
+
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let url = urls.first else { return }
+            guard url.startAccessingSecurityScopedResource() else { return }
+            defer { url.stopAccessingSecurityScopedResource() }
+            // セキュリティスコープ外でも読めるよう一時ディレクトリへコピー
+            let temp = FileManager.default.temporaryDirectory.appendingPathComponent(url.lastPathComponent)
+            try? FileManager.default.removeItem(at: temp)
+            try? FileManager.default.copyItem(at: url, to: temp)
+            onPick(temp)
+        }
     }
 }

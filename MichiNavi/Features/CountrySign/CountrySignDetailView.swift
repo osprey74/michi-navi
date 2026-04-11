@@ -43,7 +43,7 @@ struct CountrySignDetailView: View {
                     } label: {
                         Label(
                             isVis ? "踏破済み" : "踏破済み",
-                            systemImage: isVis ? "checkmark.seal.fill" : "checkmark.seal"
+                            systemImage: isVis ? "checkmark.shield.fill" : "checkmark.shield"
                         )
                         .frame(maxWidth: .infinity)
                     }
