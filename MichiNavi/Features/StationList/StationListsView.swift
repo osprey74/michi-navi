@@ -28,7 +28,7 @@ struct StationListsContent: View {
             FavoriteStationsTab()
                 .tabItem { Label("お気に入り", systemImage: "heart.fill") }
             VisitedStationsTab()
-                .tabItem { Label("踏破済み", systemImage: "checkmark.seal.fill") }
+                .tabItem { Label("踏破済み", systemImage: "checkmark.shield.fill") }
         }
     }
 }
@@ -126,7 +126,7 @@ private struct VisitedStationsTab: View {
         Group {
             if visitedStations.isEmpty {
                 ContentUnavailableView {
-                    Label("踏破記録なし", systemImage: "checkmark.seal")
+                    Label("踏破記録なし", systemImage: "checkmark.shield")
                 } description: {
                     Text("詳細画面でチェックボタンをタップすると追加されます")
                 }

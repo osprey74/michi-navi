@@ -28,7 +28,7 @@ struct CountrySignListsContent: View {
             FavoriteSignsTab()
                 .tabItem { Label("お気に入り", systemImage: "heart.fill") }
             VisitedSignsTab()
-                .tabItem { Label("踏破済み", systemImage: "checkmark.seal.fill") }
+                .tabItem { Label("踏破済み", systemImage: "checkmark.shield.fill") }
         }
     }
 }
@@ -111,7 +111,7 @@ private struct VisitedSignsTab: View {
         Group {
             if visitedSigns.isEmpty {
                 ContentUnavailableView {
-                    Label("踏破記録なし", systemImage: "checkmark.seal")
+                    Label("踏破記録なし", systemImage: "checkmark.shield")
                 } description: {
                     Text("詳細画面でチェックボタンをタップすると追加されます")
                 }
