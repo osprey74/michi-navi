@@ -194,7 +194,7 @@ struct CountrySignListRow: View {
             Image(systemName: "heart.circle.fill")
                 .foregroundStyle(.red)
         } else if isVis {
-            Image(systemName: "checkmark.seal.fill")
+            Image(systemName: "checkmark.shield.fill")
                 .foregroundStyle(.blue)
         }
     }

@@ -122,7 +122,7 @@ struct StationDetailView: View {
 
             // フォトアルバムセクション
             Section("フォトアルバム") {
-                StationPhotoAlbumView(stationId: station.id)
+                StationPhotoAlbumView(albumId: station.id)
                     .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
 

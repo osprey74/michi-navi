@@ -115,6 +115,12 @@ struct CountrySignDetailView: View {
                 }
             }
 
+            // MARK: フォトアルバム
+            Section("フォトアルバム") {
+                StationPhotoAlbumView(albumId: "sign_\(sign.id)")
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            }
+
             // MARK: 役場へナビ / 共有
             if let coord = sign.officeCoordinate {
                 Section {

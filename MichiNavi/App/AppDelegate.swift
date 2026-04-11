@@ -8,6 +8,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let navigationService = NavigationService()
     let appSettings = AppSettings()
     let countrySignService = CountrySignService()
+    let photoStore = StationPhotoStore()
 
     override init() {
         super.init()
@@ -22,5 +23,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         locationService.requestAlwaysAuthorization()
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // 他端末での変更を反映するため、フォアグラウンド復帰時に KVS を再読み込み
+        appSettings.reloadFromKVS()
     }
 }

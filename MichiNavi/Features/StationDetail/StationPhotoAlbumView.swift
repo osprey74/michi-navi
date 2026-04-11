@@ -1,16 +1,17 @@
 import SwiftUI
 import PhotosUI
 
-/// 道の駅ごとのフォトアルバムView — 3枚タイルグリッド
+/// フォトアルバム View — 3 枚タイルグリッド
 ///
 /// - 空タイルをタップ: PhotosPicker で写真を選択し保存
 /// - 写真タイルをタップ: フルスクリーン表示（左右スワイプ対応）
 /// - 写真タイルを長押し: 削除確認アラート
+/// - albumId: 道の駅は `station.id`、カントリーサインは `"sign_\(sign.id)"`
 struct StationPhotoAlbumView: View {
 
-    let stationId: String
+    let albumId: String
 
-    @State private var store = StationPhotoStore()
+    @Environment(StationPhotoStore.self) private var store
     @State private var photos: [UIImage?] = [nil, nil, nil]
     @State private var addingSlot: Int? = nil
     @State private var showPicker = false
@@ -30,6 +31,8 @@ struct StationPhotoAlbumView: View {
             }
         }
         .onAppear { reload() }
+        // iCloud コンテナ URL が解決されたときに写真を再読み込み
+        .onChange(of: store.baseURL) { reload() }
         .photosPicker(
             isPresented: $showPicker,
             selection: $pickerItem,
@@ -41,7 +44,7 @@ struct StationPhotoAlbumView: View {
             Task { @MainActor in
                 if let data = try? await item.loadTransferable(type: Data.self),
                    let image = UIImage(data: data) {
-                    try? store.savePhoto(image, at: slot, for: stationId)
+                    try? store.savePhoto(image, at: slot, for: albumId)
                     reload()
                 }
                 pickerItem = nil
@@ -57,7 +60,7 @@ struct StationPhotoAlbumView: View {
         .alert("この写真を削除しますか？", isPresented: $showDeleteAlert) {
             Button("削除", role: .destructive) {
                 if let slot = deletingSlot {
-                    store.deletePhoto(at: slot, for: stationId)
+                    store.deletePhoto(at: slot, for: albumId)
                     reload()
                 }
                 deletingSlot = nil
@@ -101,7 +104,7 @@ struct StationPhotoAlbumView: View {
     // MARK: - Helpers
 
     private func reload() {
-        photos = store.loadPhotos(for: stationId)
+        photos = store.loadPhotos(for: albumId)
     }
 
     /// 指定スロットが、compactMap した写真配列の何番目に対応するかを返す
