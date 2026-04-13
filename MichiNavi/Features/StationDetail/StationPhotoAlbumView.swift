@@ -77,6 +77,8 @@ struct StationPhotoAlbumView: View {
             Image(uiImage: image)
                 .resizable()
                 .scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .clipped()
                 .contentShape(Rectangle())
                 .onTapGesture {
                     fullscreenSelection = FullscreenSelection(id: slot)
