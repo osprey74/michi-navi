@@ -128,10 +128,13 @@ private struct FullscreenSelection: Identifiable {
 // MARK: - PhotoFullscreenView
 
 /// フルスクリーン写真ビューア（左右スワイプでページ切り替え）
+///
+/// ページ型 `TabView` は左右非対称なセーフエリア（iPhone Duo の縦配置ステータスバー等）で
+/// ページ幅と表示幅がずれ隣のページがはみ出すため、ページングする `ScrollView` で実装している。
 struct PhotoFullscreenView: View {
 
     let photos: [UIImage]
-    @State private var currentIndex: Int
+    @State private var currentIndex: Int?
     @Environment(\.dismiss) private var dismiss
 
     init(photos: [UIImage], initialIndex: Int) {
@@ -143,16 +146,36 @@ struct PhotoFullscreenView: View {
         ZStack(alignment: .topTrailing) {
             Color.black.ignoresSafeArea()
 
-            TabView(selection: $currentIndex) {
-                ForEach(Array(photos.enumerated()), id: \.offset) { index, image in
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .tag(index)
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 0) {
+                    ForEach(photos.indices, id: \.self) { index in
+                        Image(uiImage: photos[index])
+                            .resizable()
+                            .scaledToFit()
+                            .containerRelativeFrame([.horizontal, .vertical])
+                            .id(index)
+                    }
                 }
+                .scrollTargetLayout()
             }
-            .tabViewStyle(.page(indexDisplayMode: photos.count > 1 ? .automatic : .never))
+            .scrollTargetBehavior(.paging)
+            .scrollPosition(id: $currentIndex)
+            .scrollIndicators(.hidden)
             .ignoresSafeArea()
+
+            // ページインジケータ
+            if photos.count > 1 {
+                HStack(spacing: 8) {
+                    ForEach(photos.indices, id: \.self) { index in
+                        Circle()
+                            .fill(.white.opacity(index == currentIndex ? 1 : 0.4))
+                            .frame(width: 8, height: 8)
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+                .padding(.bottom, 16)
+                .allowsHitTesting(false)
+            }
 
             // 閉じるボタン
             Button {

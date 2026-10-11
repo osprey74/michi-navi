@@ -47,7 +47,7 @@ struct RandomSignCardView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") { dismiss() }
+                    Button { dismiss() } label: { Label("閉じる", systemImage: "xmark") }
                 }
             }
         }

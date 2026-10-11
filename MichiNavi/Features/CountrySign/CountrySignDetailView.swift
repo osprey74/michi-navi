@@ -133,6 +133,14 @@ struct CountrySignDetailView: View {
                                 .font(.headline)
                         }
                         .buttonStyle(.borderedProminent)
+                        // regular 幅ではポップオーバー表示になるため、ボタン自体をアンカーにする
+                        .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
+                            ForEach(navigationService.availableApps()) { app in
+                                Button(app.displayName) {
+                                    navigationService.navigate(to: coord, name: sign.name, with: app)
+                                }
+                            }
+                        }
 
                         Button {
                             showShareSheet = true
@@ -170,15 +178,6 @@ struct CountrySignDetailView: View {
         .navigationTitle(sign.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { settings.mapFocusSign = sign }
-        .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
-            if let coord = sign.officeCoordinate {
-                ForEach(navigationService.availableApps()) { app in
-                    Button(app.displayName) {
-                        navigationService.navigate(to: coord, name: sign.name, with: app)
-                    }
-                }
-            }
-        }
     }
 
     // MARK: - Sign Image

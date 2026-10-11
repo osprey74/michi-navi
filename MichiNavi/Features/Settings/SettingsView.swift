@@ -35,7 +35,7 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("完了") { dismiss() }
+                    Button { dismiss() } label: { Label("完了", systemImage: "checkmark") }
                 }
             }
             // バックアップ共有シート（UIActivityViewController を直接 present）

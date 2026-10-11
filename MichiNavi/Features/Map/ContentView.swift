@@ -305,7 +305,7 @@ struct CombinedListsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") { dismiss() }
+                    Button { dismiss() } label: { Label("閉じる", systemImage: "xmark") }
                 }
                 // カントリーサインタブ選択中のみカードボタンを表示
                 if selectedTab == .countrySigns && settings.showCountrySignMarkers {
@@ -313,7 +313,7 @@ struct CombinedListsView: View {
                         Button {
                             showRandomDraw = true
                         } label: {
-                            Image(systemName: "square.stack")
+                            Label("ランダムカード", systemImage: "square.stack")
                         }
                     }
                 }
@@ -342,7 +342,7 @@ struct StationDetailSheet: View {
             StationDetailView(station: station)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("閉じる") { dismiss() }
+                        Button { dismiss() } label: { Label("閉じる", systemImage: "xmark") }
                     }
                 }
         }
@@ -360,7 +360,7 @@ struct CountrySignDetailSheet: View {
             CountrySignDetailView(sign: sign)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("閉じる") { dismiss() }
+                        Button { dismiss() } label: { Label("閉じる", systemImage: "xmark") }
                     }
                 }
         }

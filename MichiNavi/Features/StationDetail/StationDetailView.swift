@@ -146,6 +146,14 @@ struct StationDetailView: View {
                             .font(.headline)
                     }
                     .buttonStyle(.borderedProminent)
+                    // regular 幅ではポップオーバー表示になるため、ボタン自体をアンカーにする
+                    .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
+                        ForEach(navigationService.availableApps()) { app in
+                            Button(app.displayName) {
+                                navigationService.navigate(to: station, with: app)
+                            }
+                        }
+                    }
 
                     Button {
                         showShareSheet = true
@@ -161,13 +169,6 @@ struct StationDetailView: View {
         .navigationTitle(station.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { settings.mapFocusStation = station }
-        .confirmationDialog("ナビアプリを選択", isPresented: $showNavAppPicker) {
-            ForEach(navigationService.availableApps()) { app in
-                Button(app.displayName) {
-                    navigationService.navigate(to: station, with: app)
-                }
-            }
-        }
         .sheet(isPresented: $showShareSheet) {
             LocationShareSheet(coordinate: station.coordinate, name: station.name)
         }
