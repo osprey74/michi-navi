@@ -2,43 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!-- 外部ナビアプリ起動のための URL スキーム宣言 -->
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>
 		<string>yjcarnavi</string>
 		<string>waze</string>
 	</array>
-
-	<!-- アプリ表示名（ホーム画面・App Store） -->
-	<key>CFBundleDisplayName</key>
-	<string>Michi-Navi</string>
-
-	<!-- フォトライブラリの使用説明 -->
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>道の駅フォトアルバムに写真を追加するために使用します。</string>
-
-	<!-- 位置情報の使用説明 -->
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>走行中の速度・位置情報の表示と、周辺施設の検索に使用します。</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>現在地の地図表示と周辺施設の検索に使用します。</string>
-
-	<!-- バックグラウンドモード（位置情報） -->
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
-
-	<!-- 輸出コンプライアンス：標準 HTTPS のみ使用、独自暗号化なし -->
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-
-	<!-- Scene 設定 -->
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>
