@@ -144,6 +144,13 @@ UIBackgroundModes: [location]
 
 ---
 
+## Task Management
+
+- **task_file**: `TASKS.md`
+- **done_marker**: `- [ ]` → `- [x]`
+
+---
+
 ## コーディング規約
 
 - **命名**: Swift API Design Guidelines 準拠（lowerCamelCase）
